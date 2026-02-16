@@ -3,16 +3,22 @@ import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "@/context/FormContext";
+// const { formData, updateForm } = useForm();
+// () => updateForm({ vehicleModel: model })
 
 export default function Question5() {
   const router = useRouter();
-  const [selectedOption, setSelectedOption] = useState("");
+  // const [formData.mileage, setformData.mileage] = useState("");
+  const { formData, updateForm } = useForm();
+  
 
   const handleContinue = () => {
-    if (selectedOption) {
-      router.push("/quote/6");
-    }
-  };
+  const currentVehicle = formData.vehicles[formData.currentVehicleIndex];
+  if (currentVehicle?.mileage) {
+    router.push("/quote/6");
+  }
+};
 
   const options = ["Under 5000", "5001-10000", "10001-15000","15000"];
 
@@ -45,12 +51,26 @@ export default function Question5() {
               {options.map((option) => (
                 <button
                   key={option}
-                  onClick={() => setSelectedOption(option)}
+                 onClick={() =>
+  updateForm(prev => {
+    const updatedVehicles = [...prev.vehicles];
+    updatedVehicles[prev.currentVehicleIndex] = {
+      ...updatedVehicles[prev.currentVehicleIndex],
+      mileage: option,
+    };
+
+    return {
+      ...prev,
+      vehicles: updatedVehicles,
+    };
+  })
+}
+
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
                     ${
-                      selectedOption === option
-                        ? "bg-orange-100 border-orange-400"
-                        : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50"
+                      formData.vehicles[formData.currentVehicleIndex]?.mileage === option
+                        ? "bg-blue-100 border-blue-400"
+                        : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50"
                     }`}
                 >
                   {option}
@@ -61,8 +81,11 @@ export default function Question5() {
             {/* Continue Button */}
             <button
               onClick={handleContinue}
-              disabled={!selectedOption}
-              className="mt-6 bg-[#F97316] hover:bg-orange-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
+              disabled={
+  !formData.vehicles[formData.currentVehicleIndex]?.mileage
+}
+
+              className="mt-6 bg-[#2563EB] hover:bg-blue-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
             >
               Continue →
             </button>

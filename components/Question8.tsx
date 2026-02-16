@@ -3,16 +3,35 @@ import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question8() {
   const router = useRouter();
+  const { formData, updateForm } = useForm();
   const [selectedOption, setSelectedOption] = useState("");
 
   const handleContinue = () => {
-    if (selectedOption) {
-      router.push("/quote/9");
-    }
-  };
+  if (!selectedOption) return;
+
+  if (selectedOption === "Yes") {
+    const newVehicle = {
+      vehicleYear: undefined,
+      vehicleMake: undefined,
+      vehicleModel: undefined,
+    };
+
+    updateForm(prev => ({
+      ...prev,
+      vehicles: [...prev.vehicles, newVehicle],
+      currentVehicleIndex: prev.vehicles.length,
+    }));
+
+    router.push("/quote/1");
+  } else {
+    router.push("/quote/9");
+  }
+};
+
 
   const options = ["Yes", "No"];
 
@@ -20,10 +39,7 @@ export default function Question8() {
     <div className="min-h-screen flex flex-col bg-white relative">
       <Navbar />
 
-      {/* MAIN CONTENT WRAPPER */}
       <div className="flex-1 relative overflow-hidden">
-        
-        {/* Background Image */}
         <div
           className="absolute inset-0 bg-bottom bg-repeat-x"
           style={{
@@ -35,15 +51,14 @@ export default function Question8() {
         <div className="relative z-10 max-w-4xl mx-auto px-20 py-24 pt-32">
           <div className="flex flex-col items-center text-center space-y-10">
 
-            {/* Heading */}
             <h2 className="text-2xl md:text-3xl font-bold text-black">
               Add Another Vehicle
             </h2>
+
             <h3 className="text-xl font-bold text-gray-400">
-                Save Additional 20%
+              Save Additional 20%
             </h3>
 
-            {/* 3 Option Layout */}
             <div className="w-full max-w-2xl grid grid-cols-1 sm:grid-cols-2 gap-6">
               {options.map((option) => (
                 <button
@@ -52,8 +67,8 @@ export default function Question8() {
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
                     ${
                       selectedOption === option
-                        ? "bg-orange-100 border-orange-400"
-                        : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50"
+                        ? "bg-blue-100 border-blue-400"
+                        : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50"
                     }`}
                 >
                   {option}
@@ -61,11 +76,10 @@ export default function Question8() {
               ))}
             </div>
 
-            {/* Continue Button */}
             <button
               onClick={handleContinue}
               disabled={!selectedOption}
-              className="mt-6 bg-[#F97316] hover:bg-orange-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
+              className="mt-6 bg-[#2563EB] hover:bg-blue-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md"
             >
               Continue →
             </button>

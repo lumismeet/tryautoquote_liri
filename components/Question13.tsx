@@ -1,18 +1,21 @@
 "use client";
+
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question13() {
   const router = useRouter();
-  const [dob, setDob] = useState("");
+  const { formData, updateForm } = useForm();
 
   const handleNext = () => {
-    if (dob) {
+    if (formData.dob) {
       router.push("/quote/14");
     }
   };
+
+  const isDisabled = !formData.dob;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -36,23 +39,32 @@ export default function Question13() {
               What's your date of birth?
             </h2>
 
+            {/* Context */}
+            <p className="max-w-2xl text-gray-600 text-base -mt-8">
+              Your age helps us calculate accurate auto insurance rates and 
+              match you with the best available discounts. This information 
+              is secure and will never be shared.
+            </p>
+
             {/* Date Input */}
             <div className="w-full max-w-2xl">
               <input
                 type="date"
-                value={dob}
-                onChange={(e) => setDob(e.target.value)}
+                value={formData.dob || ""}
+                onChange={(e) =>
+                  updateForm({ dob: e.target.value })
+                }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-6 py-5 text-lg text-gray-700
-                           focus:outline-none focus:border-orange-400"
+                           focus:outline-none focus:border-blue-400"
               />
             </div>
 
             {/* Next Button */}
             <button
               onClick={handleNext}
-              disabled={!dob}
-              className="mt-4 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-4 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-14 py-4 rounded-lg 
                          text-lg font-semibold shadow-md"

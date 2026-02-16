@@ -2,9 +2,16 @@
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Results() {
   const router = useRouter();
+  const { formData } = useForm();
+
+  useEffect(() => {
+    console.log("FINAL FORM DATA:", formData);
+  }, [formData]);
 
   const offers = [
     {

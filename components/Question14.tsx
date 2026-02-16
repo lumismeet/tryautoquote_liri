@@ -2,19 +2,19 @@
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question14() {
   const router = useRouter();
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  const { formData, updateForm } = useForm();
 
   const handleContinue = () => {
-    if (firstName && lastName) {
+    if (formData.firstName && formData.lastName) {
       router.push("/quote/15");
     }
   };
+
+  const isDisabled = !formData.firstName || !formData.lastName;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -38,6 +38,13 @@ export default function Question14() {
               What is your name?
             </h2>
 
+            {/* Context */}
+            <p className="max-w-2xl text-gray-600 text-base -mt-6">
+              We use your name to personalize your quote and securely match 
+              you with licensed insurance providers. Your information is 
+              encrypted and never sold.
+            </p>
+
             {/* First Name */}
             <div className="w-full max-w-2xl text-left space-y-4">
               <label className="block text-lg font-semibold text-black">
@@ -46,11 +53,13 @@ export default function Question14() {
 
               <input
                 type="text"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
+                value={formData.firstName || ""}
+                onChange={(e) =>
+                  updateForm({ firstName: e.target.value })
+                }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-lg text-gray-700
-                           focus:outline-none focus:border-orange-400"
+                           focus:outline-none focus:border-blue-400"
               />
             </div>
 
@@ -62,19 +71,21 @@ export default function Question14() {
 
               <input
                 type="text"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
+                value={formData.lastName || ""}
+                onChange={(e) =>
+                  updateForm({ lastName: e.target.value })
+                }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-lg text-gray-700
-                           focus:outline-none focus:border-orange-400"
+                           focus:outline-none focus:border-blue-400"
               />
             </div>
 
             {/* Continue Button */}
             <button
               onClick={handleContinue}
-              disabled={!firstName || !lastName}
-              className="mt-6 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-6 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-14 py-4 rounded-lg 
                          text-lg font-semibold shadow-md"

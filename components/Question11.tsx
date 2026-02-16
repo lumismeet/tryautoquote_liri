@@ -1,25 +1,33 @@
 "use client";
+
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question11() {
   const router = useRouter();
-
-  const [homeowner, setHomeowner] = useState("");
-  const [married, setMarried] = useState("");
-  const [gender, setGender] = useState("");
-  const [military, setMilitary] = useState("");
+  const { formData, updateForm } = useForm();
 
   const yesNoOptions = ["Yes", "No"];
   const genderOptions = ["Male", "Female"];
 
   const handleContinue = () => {
-    if (homeowner && married && gender && military) {
+    if (
+      formData.homeowner &&
+      formData.married &&
+      formData.gender &&
+      formData.military
+    ) {
       router.push("/quote/12");
     }
   };
+
+  const isDisabled =
+    !formData.homeowner ||
+    !formData.married ||
+    !formData.gender ||
+    !formData.military;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -47,39 +55,39 @@ export default function Question11() {
             <QuestionBlock
               title="Homeowner"
               options={yesNoOptions}
-              value={homeowner}
-              setValue={setHomeowner}
+              value={formData.homeowner || ""}
+              onChange={(val) => updateForm({ homeowner: val })}
             />
 
             {/* Married */}
             <QuestionBlock
               title="Married"
               options={yesNoOptions}
-              value={married}
-              setValue={setMarried}
+              value={formData.married || ""}
+              onChange={(val) => updateForm({ married: val })}
             />
 
             {/* Gender */}
             <QuestionBlock
               title="Gender"
               options={genderOptions}
-              value={gender}
-              setValue={setGender}
+              value={formData.gender || ""}
+              onChange={(val) => updateForm({ gender: val })}
             />
 
             {/* Military */}
             <QuestionBlock
               title="Military Affiliation"
               options={yesNoOptions}
-              value={military}
-              setValue={setMilitary}
+              value={formData.military || ""}
+              onChange={(val) => updateForm({ military: val })}
             />
 
             {/* Continue Button */}
             <button
               onClick={handleContinue}
-              disabled={!homeowner || !married || !gender || !military}
-              className="mt-8 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-8 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"
@@ -101,12 +109,12 @@ function QuestionBlock({
   title,
   options,
   value,
-  setValue,
+  onChange,
 }: {
   title: string;
   options: string[];
   value: string;
-  setValue: (val: string) => void;
+  onChange: (val: string) => void;
 }) {
   return (
     <div className="w-full max-w-2xl space-y-6">
@@ -116,12 +124,12 @@ function QuestionBlock({
         {options.map((option) => (
           <button
             key={option}
-            onClick={() => setValue(option)}
+            onClick={() => onChange(option)}
             className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
               ${
                 value === option
-                  ? "bg-orange-100 border-orange-400 text-black"
-                  : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50 text-black"
+                  ? "bg-blue-100 border-blue-400 text-black"
+                  : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
               }`}
           >
             {option}

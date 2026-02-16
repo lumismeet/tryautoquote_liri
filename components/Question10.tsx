@@ -1,23 +1,30 @@
 "use client";
+
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question10() {
   const router = useRouter();
-
-  const [activeLicense, setActiveLicense] = useState("");
-  const [tickets, setTickets] = useState("");
-  const [sr22, setSr22] = useState("");
+  const { formData, updateForm } = useForm();
 
   const options = ["Yes", "No"];
 
   const handleContinue = () => {
-    if (activeLicense && tickets && sr22) {
+    if (
+      formData.activeLicense &&
+      formData.ticketsLast3Years &&
+      formData.sr22Filed
+    ) {
       router.push("/quote/11");
     }
   };
+
+  const isDisabled =
+    !formData.activeLicense ||
+    !formData.ticketsLast3Years ||
+    !formData.sr22Filed;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -51,12 +58,14 @@ export default function Question10() {
                 {options.map((option) => (
                   <button
                     key={option}
-                    onClick={() => setActiveLicense(option)}
+                    onClick={() =>
+                      updateForm({ activeLicense: option })
+                    }
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
-                        activeLicense === option
-                          ? "bg-orange-100 border-orange-400 text-black"
-                          : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50 text-black"
+                        formData.activeLicense === option
+                          ? "bg-blue-100 border-blue-400 text-black"
+                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
                       }`}
                   >
                     {option}
@@ -75,12 +84,14 @@ export default function Question10() {
                 {options.map((option) => (
                   <button
                     key={option}
-                    onClick={() => setTickets(option)}
+                    onClick={() =>
+                      updateForm({ ticketsLast3Years: option })
+                    }
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
-                        tickets === option
-                          ? "bg-orange-100 border-orange-400 text-black"
-                          : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50 text-black"
+                        formData.ticketsLast3Years === option
+                          ? "bg-blue-100 border-blue-400 text-black"
+                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
                       }`}
                   >
                     {option}
@@ -99,12 +110,14 @@ export default function Question10() {
                 {options.map((option) => (
                   <button
                     key={option}
-                    onClick={() => setSr22(option)}
+                    onClick={() =>
+                      updateForm({ sr22Filed: option })
+                    }
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
-                        sr22 === option
-                          ? "bg-orange-100 border-orange-400 text-black"
-                          : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50 text-black"
+                        formData.sr22Filed === option
+                          ? "bg-blue-100 border-blue-400 text-black"
+                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
                       }`}
                   >
                     {option}
@@ -116,8 +129,8 @@ export default function Question10() {
             {/* Continue Button */}
             <button
               onClick={handleContinue}
-              disabled={!activeLicense || !tickets || !sr22}
-              className="mt-8 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-8 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"

@@ -1,20 +1,21 @@
 "use client";
+
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question12() {
   const router = useRouter();
-
-  const [education, setEducation] = useState("");
-  const [creditScore, setCreditScore] = useState("");
+  const { formData, updateForm } = useForm();
 
   const handleContinue = () => {
-    if (education && creditScore) {
+    if (formData.education && formData.creditScore) {
       router.push("/quote/13");
     }
   };
+
+  const isDisabled = !formData.education || !formData.creditScore;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -45,11 +46,13 @@ export default function Question12() {
               </label>
 
               <select
-                value={education}
-                onChange={(e) => setEducation(e.target.value)}
+                value={formData.education || ""}
+                onChange={(e) =>
+                  updateForm({ education: e.target.value })
+                }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-gray-700
-                           focus:outline-none focus:border-orange-400"
+                           focus:outline-none focus:border-blue-400"
               >
                 <option value="">Select Education</option>
                 <option value="High School">High School</option>
@@ -67,26 +70,30 @@ export default function Question12() {
               </label>
 
               <select
-                value={creditScore}
-                onChange={(e) => setCreditScore(e.target.value)}
+                value={formData.creditScore || ""}
+                onChange={(e) =>
+                  updateForm({ creditScore: e.target.value })
+                }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-gray-700
-                           focus:outline-none focus:border-orange-400"
+                           focus:outline-none focus:border-blue-400"
               >
                 <option value="">Select Credit Score</option>
                 <option value="Excellent (750+)">Excellent (750+)</option>
                 <option value="Good (700-749)">Good (700-749)</option>
                 <option value="Fair (650-699)">Fair (650-699)</option>
                 <option value="Poor (600-649)">Poor (600-649)</option>
-                <option value="Very Poor (Below 600)">Very Poor (Below 600)</option>
+                <option value="Very Poor (Below 600)">
+                  Very Poor (Below 600)
+                </option>
               </select>
             </div>
 
             {/* Continue Button */}
             <button
               onClick={handleContinue}
-              disabled={!education || !creditScore}
-              className="mt-8 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-8 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"

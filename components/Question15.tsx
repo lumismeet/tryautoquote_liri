@@ -2,20 +2,32 @@
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question15() {
   const router = useRouter();
+  const { formData, updateForm } = useForm();
 
-  const [street, setStreet] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
+  const handleSubmit = async () => {
+    try {
+    const res = await fetch("/api/leads", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-  const handleSubmit = () => {
-    if (street && email && phone) {
-      router.push("/quote/16");
-    }
+    const data = await res.json();
+
+    console.log("Server response:", data);
+  } catch (error) {
+    console.error("Submission error:", error);
+  }
   };
+
+  const isDisabled =
+    !formData.street || !formData.email || !formData.phone;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -43,6 +55,11 @@ export default function Question15() {
               Finish the form to reveal your saving opportunities!
             </p>
 
+            <p className="text-base text-gray-600 max-w-2xl -mt-6">
+              We securely match your information with licensed auto insurance 
+              providers in your area. Your data is encrypted and never sold.
+            </p>
+
             {/* Form */}
             <div className="w-full max-w-2xl space-y-8 text-left">
 
@@ -54,11 +71,13 @@ export default function Question15() {
 
                 <input
                   type="text"
-                  value={street}
-                  onChange={(e) => setStreet(e.target.value)}
+                  value={formData.street || ""}
+                  onChange={(e) =>
+                    updateForm({ street: e.target.value })
+                  }
                   className="w-full bg-white border border-gray-300 rounded-xl 
                              px-4 py-4 text-lg text-gray-700
-                             focus:outline-none focus:border-orange-400"
+                             focus:outline-none focus:border-blue-400"
                 />
               </div>
 
@@ -70,11 +89,13 @@ export default function Question15() {
 
                 <input
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={formData.email || ""}
+                  onChange={(e) =>
+                    updateForm({ email: e.target.value })
+                  }
                   className="w-full bg-white border border-gray-300 rounded-xl 
                              px-4 py-4 text-lg text-gray-700
-                             focus:outline-none focus:border-orange-400"
+                             focus:outline-none focus:border-blue-400"
                 />
               </div>
 
@@ -86,12 +107,14 @@ export default function Question15() {
 
                 <input
                   type="tel"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
+                  value={formData.phone || ""}
+                  onChange={(e) =>
+                    updateForm({ phone: e.target.value })
+                  }
                   placeholder="(___) ___ ____"
                   className="w-full bg-white border border-gray-300 rounded-xl 
                              px-4 py-4 text-lg text-gray-700
-                             focus:outline-none focus:border-orange-400"
+                             focus:outline-none focus:border-blue-400"
                 />
               </div>
 
@@ -99,14 +122,16 @@ export default function Question15() {
 
             {/* Consent */}
             <p className="text-sm text-gray-600 max-w-2xl text-center">
-              By clicking "View Rates" you confirm the above & agree to the consents below
+              By clicking "View Rates", you agree to be contacted by licensed insurance 
+              providers via phone, email, and SMS (including automated technology) 
+              regarding your quote. Consent is not required to purchase.
             </p>
 
             {/* Button */}
             <button
               onClick={handleSubmit}
-              disabled={!street || !email || !phone}
-              className="mt-6 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-6 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-14 py-4 rounded-lg 
                          text-lg font-semibold shadow-md"

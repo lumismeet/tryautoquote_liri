@@ -1,27 +1,30 @@
 "use client";
+
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useForm } from "@/context/FormContext";
 
 export default function Question9() {
   const router = useRouter();
+  const { formData, updateForm } = useForm();
 
-  const [selectedOption, setSelectedOption] = useState("");
-  const [currentInsurance, setCurrentInsurance] = useState("");
-  const [continuousCoverage, setContinuousCoverage] = useState("");
+  const options = ["Yes", "No"];
 
   const handleContinue = () => {
-    if (selectedOption === "Yes") {
-      if (currentInsurance && continuousCoverage) {
+    if (formData.currentlyInsured === "Yes") {
+      if (formData.currentInsurance && formData.continuousCoverage) {
         router.push("/quote/10");
       }
-    } else if (selectedOption === "No") {
+    } else if (formData.currentlyInsured === "No") {
       router.push("/quote/10");
     }
   };
 
-  const options = ["Yes", "No"];
+  const isDisabled =
+    formData.currentlyInsured === "Yes"
+      ? !formData.currentInsurance || !formData.continuousCoverage
+      : !formData.currentlyInsured;
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -54,12 +57,20 @@ export default function Question9() {
               {options.map((option) => (
                 <button
                   key={option}
-                  onClick={() => setSelectedOption(option)}
+                  onClick={() => {
+                    updateForm({
+                      currentlyInsured: option,
+                      ...(option === "No" && {
+                        currentInsurance: undefined,
+                        continuousCoverage: undefined,
+                      }),
+                    });
+                  }}
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                     ${
-                      selectedOption === option
-                        ? "bg-orange-100 border-orange-400 text-black"
-                        : "bg-white border-gray-200 hover:border-orange-400 hover:bg-orange-50 text-black"
+                      formData.currentlyInsured === option
+                        ? "bg-blue-100 border-blue-400 text-black"
+                        : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
                     }`}
                 >
                   {option}
@@ -68,7 +79,7 @@ export default function Question9() {
             </div>
 
             {/* CONDITIONAL DROPDOWNS */}
-            {selectedOption === "Yes" && (
+            {formData.currentlyInsured === "Yes" && (
               <div className="w-full max-w-2xl space-y-6 mt-6 text-left">
 
                 {/* Current Auto Insurance */}
@@ -77,10 +88,12 @@ export default function Question9() {
                     Current Auto Insurance
                   </label>
                   <select
-                    value={currentInsurance}
-                    onChange={(e) => setCurrentInsurance(e.target.value)}
+                    value={formData.currentInsurance || ""}
+                    onChange={(e) =>
+                      updateForm({ currentInsurance: e.target.value })
+                    }
                     className="w-full bg-white border border-gray-300 rounded-xl px-4 py-4 
-                               text-gray-700 focus:outline-none focus:border-orange-400"
+                               text-gray-700 focus:outline-none focus:border-blue-400"
                   >
                     <option value="">Select Insurance</option>
                     <option value="Geico">Geico</option>
@@ -97,10 +110,12 @@ export default function Question9() {
                     Continuous Coverage
                   </label>
                   <select
-                    value={continuousCoverage}
-                    onChange={(e) => setContinuousCoverage(e.target.value)}
+                    value={formData.continuousCoverage || ""}
+                    onChange={(e) =>
+                      updateForm({ continuousCoverage: e.target.value })
+                    }
                     className="w-full bg-white border border-gray-300 rounded-xl px-4 py-4 
-                               text-gray-700 focus:outline-none focus:border-orange-400"
+                               text-gray-700 focus:outline-none focus:border-blue-400"
                   >
                     <option value="">Select Duration</option>
                     <option value="Less than 6 months">Less than 6 months</option>
@@ -115,12 +130,8 @@ export default function Question9() {
             {/* Continue */}
             <button
               onClick={handleContinue}
-              disabled={
-                selectedOption === "Yes"
-                  ? !currentInsurance || !continuousCoverage
-                  : !selectedOption
-              }
-              className="mt-8 bg-[#F97316] hover:bg-orange-600 
+              disabled={isDisabled}
+              className="mt-8 bg-[#2563EB] hover:bg-blue-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"
