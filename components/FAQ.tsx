@@ -35,7 +35,7 @@ export default function FAQ() {
   }
 
   return (
-    <section className="bg-[#DBEAFE] py-24">
+    <section className="bg-[#F3E8FF] py-24">
       <div className="max-w-5xl mx-auto px-8">
 
         <h2 className="text-3xl md:text-4xl font-bold mb-12 text-gray-900">

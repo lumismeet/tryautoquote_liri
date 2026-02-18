@@ -86,8 +86,8 @@ export default function Question3() {
                     rounded-xl p-6 border transition shadow-sm
                     ${
                       currentVehicle?.vehicleModel === model
-                        ? "bg-blue-100 border-blue-400"
-                        : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50"
+                        ? "bg-violet-100 border-violet-400"
+                        : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
                     }`}
                 >
                   <span className="text-lg font-semibold text-gray-800">
@@ -103,7 +103,7 @@ export default function Question3() {
               className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
                 ${
                   currentVehicle?.vehicleModel
-                    ? "bg-[#2563EB] hover:bg-blue-600 text-white"
+                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
             >

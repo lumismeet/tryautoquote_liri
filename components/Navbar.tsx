@@ -14,7 +14,7 @@ export default function Navbar() {
 
           <Link href="/" className="flex items-center">
             <Image
-              src="/LOGO2.svg"
+              src="/LOGO1.svg"
               alt="Luminarix Logo"
               width={140}
               height={40}
@@ -35,7 +35,7 @@ export default function Navbar() {
 
           <button
             // href="/quote/1"
-            className="bg-[#2563EB] hover:bg-blue-600 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
+            className="bg-[#7C3AED] hover:bg-violet-600 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
           >
             Get a Quote →
           </button>

@@ -64,8 +64,8 @@ export default function Question10() {
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
                         formData.activeLicense === option
-                          ? "bg-blue-100 border-blue-400 text-black"
-                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
+                          ? "bg-violet-100 border-violet-400 text-black"
+                          : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50 text-black"
                       }`}
                   >
                     {option}
@@ -90,8 +90,8 @@ export default function Question10() {
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
                         formData.ticketsLast3Years === option
-                          ? "bg-blue-100 border-blue-400 text-black"
-                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
+                          ? "bg-violet-100 border-violet-400 text-black"
+                          : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50 text-black"
                       }`}
                   >
                     {option}
@@ -116,8 +116,8 @@ export default function Question10() {
                     className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
                       ${
                         formData.sr22Filed === option
-                          ? "bg-blue-100 border-blue-400 text-black"
-                          : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50 text-black"
+                          ? "bg-violet-100 border-violet-400 text-black"
+                          : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50 text-black"
                       }`}
                   >
                     {option}
@@ -130,7 +130,7 @@ export default function Question10() {
             <button
               onClick={handleContinue}
               disabled={isDisabled}
-              className="mt-8 bg-[#2563EB] hover:bg-blue-600 
+              className="mt-8 bg-[#7C3AED] hover:bg-violet-600 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"

@@ -80,8 +80,8 @@ export default function Question1() {
                     rounded-xl p-6 border transition shadow-sm
                     ${
                       currentVehicle?.vehicleMake === make.name
-                        ? "bg-blue-100 border-blue-400"
-                        : "bg-white border-gray-200 hover:border-blue-500 hover:bg-blue-50"
+                        ? "bg-violet-100 border-violet-400"
+                        : "bg-white border-gray-200 hover:border-violet-500 hover:bg-violet-50"
                     }`}
                 >
                   <div className="relative w-16 h-16 mb-4">
@@ -106,7 +106,7 @@ export default function Question1() {
                 value={currentVehicle?.vehicleMake ?? ""}
                 onChange={(e) => setVehicleMake(e.target.value)}
                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 
-                  text-gray-700 focus:outline-none focus:border-blue-400"
+                  text-gray-700 focus:outline-none focus:border-violet-400"
               >
                 <option value="">Select a brand</option>
                 <option value="Audi">Audi</option>
@@ -129,7 +129,7 @@ export default function Question1() {
               className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
                 ${
                   currentVehicle?.vehicleMake
-                    ? "bg-[#2563EB] hover:bg-blue-600 text-white"
+                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
             >

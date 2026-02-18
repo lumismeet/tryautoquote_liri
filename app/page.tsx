@@ -2,13 +2,29 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { ClipboardList, Car, DollarSign } from "lucide-react"
+import { ClipboardList, Car, DollarSign, ChevronLeft, ChevronRight } from "lucide-react"
 import { Star } from "lucide-react"
 import FAQ from "@/components/FAQ"
 import Footer from "@/components/footer"
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
+
+const testimonials = [
+  {
+    text: "This platform helped me compare policies in minutes. I saved over $600 a year without any hassle.",
+    name: "Reginald Miles",
+  },
+  {
+    text: "Super easy process. I entered my details and instantly got matched with affordable insurance providers.",
+    name: "Sarah Johnson",
+  },
+  {
+    text: "Best experience I've had comparing insurance. Everything was transparent and simple.",
+    name: "Michael Brown",
+  },
+]
+
 
 type NavbarProps = {
   onQuoteClick: () => void;
@@ -26,7 +42,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative h-[100vh] w-full text-black bg-[#DBEAFE]">
+    <div className="relative h-[100vh] w-full text-black bg-[#F3E8FF]">
       <div className="relative z-10">
         <Navbar onQuoteClick={focusZip} />
         <HeroSection zipRef={zipRef} />
@@ -54,8 +70,8 @@ function Navbar({onQuoteClick}: NavbarProps) {
 
         <div className="flex items-center">
           <Image
-            src="/LOGO2.svg"
-            alt="Luminarix Logo"
+            src="/LOGO1.svg"
+            alt="findautoquote Logo"
             width={140}
             height={40}
             className="h-10 w-auto"
@@ -65,23 +81,23 @@ function Navbar({onQuoteClick}: NavbarProps) {
 
 
           <div className="hidden md:flex items-center gap-8 text-sm text-black">
-            <Link href="#" className="hover:text-blue-700 transition">
+            <Link href="#" className="hover:text-violet-700 transition">
               Home
             </Link>
-            <Link href="#" className="hover:text-blue-700 transition">
+            <Link href="#" className="hover:text-violet-700 transition">
               Product
             </Link>
-            <Link href="#" className="hover:text-blue-700 transition">
+            <Link href="#" className="hover:text-violet-700 transition">
               Pricing
             </Link>
-            <Link href="#" className="hover:text-blue-700 transition">
+            <Link href="#" className="hover:text-violet-700 transition">
               Contact
             </Link>
           </div>
 
           <button
             onClick={onQuoteClick}
-            className="bg-[#2563EB] hover:bg-blue-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
+            className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
           >
             Get a Quote →
           </button>
@@ -118,7 +134,7 @@ function HeroSection({zipRef}: HeroSectionProps) {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-20 pt-40 pb-32">
+    <section className="max-w-7xl mx-auto px-18 pt-40 pb-32">
       <div className="grid md:grid-cols-2 gap-16 items-center text-center">
         <div className="">
           <h1 className="text-left md:text-5xl font-extrabold max-w-3xl">
@@ -142,7 +158,7 @@ function HeroSection({zipRef}: HeroSectionProps) {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="bg-[#2563EB] text-white hover:bg-blue-700 transition px-8 py-4 rounded-r-lg font-semibold"
+              className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-r-lg font-semibold"
             >
               {loading ? "Loading..." : "Get a Quote →"}
             </button>
@@ -153,10 +169,10 @@ function HeroSection({zipRef}: HeroSectionProps) {
 
         </div>
 
-        <div className="flex justify-center">
+        <div className="flex justify-end mr-5">
           <div className="relative w-[320px] h-[320px]">
             <Image
-              src="/illustration-home-blue.svg"
+              src="/ill-violet1.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -170,14 +186,14 @@ function HeroSection({zipRef}: HeroSectionProps) {
 
 function HowItWorks() {
   return (
-    <section className="bg-white py-22">
+    <section className="bg-white py-25">
       <div className="max-w-7xl mx-auto px-20 text-center">
 
         <div className="grid md:grid-cols-3 gap-12">
 
           {/* Step 1 */}
           <div className="flex flex-col items-center">
-            <ClipboardList className="w-12 h-12 text-blue-500 mb-6" />
+            <ClipboardList className="w-12 h-12 text-violet-500 mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A little Information
@@ -191,7 +207,7 @@ function HowItWorks() {
 
           {/* Step 2 */}
           <div className="flex flex-col items-center">
-            <Car className="w-12 h-12 text-blue-500 mb-6" />
+            <Car className="w-12 h-12 text-violet-500 mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A bit of Magic
@@ -205,7 +221,7 @@ function HowItWorks() {
 
           {/* Step 3 */}
           <div className="flex flex-col items-center">
-            <DollarSign className="w-12 h-12 text-blue-500 mb-6" />
+            <DollarSign className="w-12 h-12 text-violet-500 mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A Lot of Savings
@@ -227,7 +243,7 @@ function HowItWorks() {
 function Partners(){
   return(
 
-    < section className = "bg-white py-20" >
+    < section className = "bg-white py-24" >
       <div className="max-w-7xl mx-auto px-20 text-center">
 
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-12">
@@ -256,123 +272,217 @@ function Partners(){
 
 }
 
-function Testimonials(){
-  return(
-    <section className="py-24 bg-[#DBEAFE]">
-  <div className="max-w-7xl mx-auto px-20 text-center">
+// function Testimonials(){
+//   return(
+//     <section className="py-24 bg-[#F3E8FF]">
+//   <div className="max-w-7xl mx-auto px-20 text-center">
 
-    {/* Heading */}
-    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-      What our customers say…
-    </h2>
+//     {/* Heading */}
+//     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+//       What our customers say…
+//     </h2>
 
-    <p className="text-gray-600 max-w-2xl mx-auto mb-16">
-      Thousands of drivers trust Luminarix to find them the best auto insurance rates available.
-    </p>
+//     <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+//       Thousands of drivers trust findautoquote to find them the best auto insurance rates available.
+//     </p>
 
-    {/* Testimonials Grid */}
-    <div className="grid md:grid-cols-2 gap-10">
+//     {/* Testimonials Grid */}
+//     <div className="grid md:grid-cols-2 gap-10">
 
-      {/* Card */}
-      <div className="relative bg-blue-500 text-white rounded-2xl p-10 overflow-hidden">
+//       {/* Card */}
+//       <div className="relative bg-violet-500 text-white rounded-2xl p-10 overflow-hidden">
 
-        {/* Decorative circles */}
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-400 rounded-full opacity-40" />
-        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-blue-400 rounded-full opacity-40" />
+//         {/* Decorative circles */}
+//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
+//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
 
-        <div className="relative z-10">
-          <p className="text-lg leading-relaxed mb-6">
-            “This platform helped me compare policies in minutes.
-            I saved over $600 a year without any hassle.”
-          </p>
+//         <div className="relative z-10">
+//           <p className="text-lg leading-relaxed mb-6">
+//             “This platform helped me compare policies in minutes.
+//             I saved over $600 a year without any hassle.”
+//           </p>
 
-          {/* Stars */}
-          <div className="flex gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={18} fill="yellow" color="yellow" />
-            ))}
-          </div>
+//           {/* Stars */}
+//           <div className="flex gap-1 mb-6">
+//             {[...Array(5)].map((_, i) => (
+//               <Star key={i} size={18} fill="yellow" color="yellow" />
+//             ))}
+//           </div>
 
-          {/* Profile */}
-          <div className="flex items-center gap-4">
-            <Image
-              src="/person.png"
-              alt="Customer"
-              width={60}
-              height={60}
-              className="rounded-full border-4 border-white object-cover"
-            />
-            <div>
-              <h4 className="font-semibold">Reginald Miles</h4>
-              <p className="text-sm opacity-80">Verified Customer</p>
-            </div>
-          </div>
-        </div>
-      </div>
+//           {/* Profile */}
+//           <div className="flex items-center gap-4">
+//             <Image
+//               src="/person.png"
+//               alt="Customer"
+//               width={60}
+//               height={60}
+//               className="rounded-full border-4 border-white object-cover"
+//             />
+//             <div>
+//               <h4 className="font-semibold">Reginald Miles</h4>
+//               <p className="text-sm opacity-80">Verified Customer</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
 
-      {/* Duplicate Card */}
-      <div className="relative bg-blue-500 text-white rounded-2xl p-10 overflow-hidden">
+//       {/* Duplicate Card */}
+//       <div className="relative bg-violet-500 text-white rounded-2xl p-10 overflow-hidden">
 
-        <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-400 rounded-full opacity-40" />
-        <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-blue-400 rounded-full opacity-40" />
+//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
+//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
 
-        <div className="relative z-10">
+//         <div className="relative z-10">
 
-          <p className="text-lg leading-relaxed mb-6">
-            “Super easy process. I entered my details and instantly got matched
-            with affordable insurance providers.”
-          </p>
+//           <p className="text-lg leading-relaxed mb-6">
+//             “Super easy process. I entered my details and instantly got matched
+//             with affordable insurance providers.”
+//           </p>
 
-          <div className="flex gap-1 mb-6">
-            {[...Array(5)].map((_, i) => (
-              <Star key={i} size={18} fill="yellow" color="yellow" />
-            ))}
-          </div>
+//           <div className="flex gap-1 mb-6">
+//             {[...Array(5)].map((_, i) => (
+//               <Star key={i} size={18} fill="yellow" color="yellow" />
+//             ))}
+//           </div>
 
-          <div className="flex items-center gap-4">
-            <Image
-              src="/person.png"
-              alt="Customer"
-              width={60}
-              height={60}
-              className="rounded-full border-4 border-white object-cover"
-            />
-            <div>
-              <h4 className="font-semibold">Sarah Johnson</h4>
-              <p className="text-sm opacity-80">Verified Customer</p>
-            </div>
-          </div>
+//           <div className="flex items-center gap-4">
+//             <Image
+//               src="/person.png"
+//               alt="Customer"
+//               width={60}
+//               height={60}
+//               className="rounded-full border-4 border-white object-cover"
+//             />
+//             <div>
+//               <h4 className="font-semibold">Sarah Johnson</h4>
+//               <p className="text-sm opacity-80">Verified Customer</p>
+//             </div>
+//           </div>
 
-        </div>
-      </div>
+//         </div>
+//       </div>
 
-    </div>
-  </div>
-</section>
+//     </div>
+//   </div>
+// </section>
     
-  )
+//   )
 
+// }
+
+
+ function Testimonials() {
+  const [current, setCurrent] = useState(0)
+
+  const prevSlide = () => {
+    setCurrent((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    )
+  }
+
+  const nextSlide = () => {
+    setCurrent((prev) =>
+      prev === testimonials.length - 1 ? 0 : prev + 1
+    )
+  }
+
+  return (
+    <section className="py-24 bg-[#F3E8FF]">
+      <div className="max-w-6xl mx-auto px-6 text-center">
+
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          What our customers say…
+        </h2>
+
+        <p className="text-gray-600 mb-16">
+          Thousands of drivers trust findautoquote to find them the best auto insurance rates available.
+        </p>
+
+        {/* Wrapper for Arrows + Card */}
+        <div className="relative flex items-center justify-center mx-8">
+
+          {/* LEFT ARROW */}
+          <button
+            onClick={prevSlide}
+            className="absolute -left-16 md:-left-20 bg-white text-violet-600 p-4 rounded-full shadow-lg hover:text-white hover:bg-violet-700 scale-110 transition cursor-pointer"
+          >
+            <ChevronLeft size={24} />
+          </button>
+
+          {/* CARD */}
+          <div className="relative bg-violet-500 text-white rounded-2xl p-12 max-w-3xl w-full overflow-hidden">
+            {/* Decorative Circles */}
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
+
+            <div className="relative z-10 transition-all duration-500 ease-in-out">
+
+              <p className="text-lg leading-relaxed mb-6">
+                “{testimonials[current].text}”
+              </p>
+
+              {/* Stars */}
+              <div className="flex justify-center gap-1 mb-6">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} size={18} fill="yellow" color="yellow" />
+                ))}
+              </div>
+
+              {/* Profile */}
+              <div className="flex items-center justify-center gap-4">
+                <Image
+                  src="/person.png"
+                  alt="Customer"
+                  width={60}
+                  height={60}
+                  className="rounded-full border-4 border-white object-cover"
+                />
+                <div className="text-left">
+                  <h4 className="font-semibold">
+                    {testimonials[current].name}
+                  </h4>
+                  <p className="text-sm opacity-80">
+                    Verified Customer
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          {/* RIGHT ARROW */}
+          <button
+            onClick={nextSlide}
+            className="absolute -right-16 md:-right-20 bg-white text-violet-600 p-4 rounded-full shadow-lg  hover:text-white hover:bg-violet-700 scale-110  transition cursor-pointer"
+          >
+            <ChevronRight size={24} />
+          </button>
+
+        </div>
+      </div>
+    </section>
+  )
 }
 
 function ParaWorks() {
   return (
-    <section className="bg-[#1E3A8A] py-24 text-white">
+    <section className="bg-[#4C1D95] py-24 text-white">
       <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
         <div>
 
           <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-            <span className="border-b-4 border-blue-400 pb-1">
+            <span className="border-b-4 border-violet-400 pb-1">
               How does
             </span>
             <br />
-            <span className="border-b-4 border-blue-400 pb-1">
+            <span className="border-b-4 border-violet-400 pb-1">
               Luminauto work?
             </span>
           </h2>
 
-          <div className="space-y-6 text-200 leading-relaxed text-blue-100">
+          <div className="space-y-6 text-200 leading-relaxed text-violet-100">
 
             <p>
               We take all the information you provide regarding yourself and your
@@ -420,7 +530,7 @@ function ParaWorks() {
 
 function CtaSection(){
   return(
-  <section className="bg-[#1E3A8A]  text-white">
+  <section className="bg-[#4C1D95]  text-white">
   <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
 
     {/* LEFT SIDE — Illustration Placeholder */}
@@ -442,7 +552,7 @@ function CtaSection(){
         Compare Between Top Carriers And Start Saving:
       </h2>
 
-      <button className="bg-[#2563EB] hover:bg-blue-700 transition px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+      <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
         Get a Quote →
       </button>
 
@@ -465,7 +575,7 @@ function CtaSection2(){
       {/* Illustration Placeholder */}
       <div className="relative w-[320px] h-[220px]">
             <Image
-              src="/ill-online-blue.svg" // <-- your file name
+              src="/ill-violet-online.svg" // <-- your file name
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -490,7 +600,7 @@ function CtaSection2(){
           className="flex-1 px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none"
         />
 
-        <button className="bg-[#2563EB] hover:bg-blue-700 transition px-6 py-3 rounded-r-lg text-white font-semibold">
+        <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-r-lg text-white font-semibold">
           Get a Quote →
         </button>
 
@@ -503,7 +613,7 @@ function CtaSection2(){
       {/* Illustration Placeholder */}
       <div className="relative w-[320px] h-[220px]">
             <Image
-              src="/ill-call-blue.svg" // <-- your file name
+              src="/ill-violet-call.svg" // <-- your file name
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"

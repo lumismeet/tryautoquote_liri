@@ -64,8 +64,8 @@ export default function Question2() {
                   className={`py-5 rounded-xl border text-xl font-semibold transition
                     ${
                       currentVehicle?.vehicleYear === year
-                        ? "bg-blue-100 border-blue-400 text-[#1E2A4A]"
-                        : "bg-white border-gray-200 text-[#1E2A4A] hover:border-blue-400"
+                        ? "bg-violet-100 border-violet-400 text-[#1E2A4A]"
+                        : "bg-white border-gray-200 text-[#1E2A4A] hover:border-violet-400"
                     }`}
                 >
                   {year}
@@ -85,7 +85,7 @@ export default function Question2() {
                   )
                 }
                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 
-                text-gray-700 focus:outline-none focus:border-blue-400"
+                text-gray-700 focus:outline-none focus:border-violet-400"
               >
                 <option value="">2004 or older</option>
                 {olderYears.map((year) => (
@@ -103,7 +103,7 @@ export default function Question2() {
               className={`mt-4 px-10 py-3 rounded-lg font-semibold shadow-md transition
                 ${
                   currentVehicle?.vehicleYear
-                    ? "bg-[#2563EB] hover:bg-blue-600 text-white"
+                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
             >

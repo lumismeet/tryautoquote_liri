@@ -67,8 +67,8 @@ export default function Question7() {
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
                     ${
                       formData.vehicles[formData.currentVehicleIndex]?.ownership === option
-                        ? "bg-blue-100 border-blue-400"
-                        : "bg-white border-gray-200 hover:border-blue-400 hover:bg-blue-50"
+                        ? "bg-violet-100 border-violet-400"
+                        : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
                     }`}
                 >
                   {option}
@@ -82,7 +82,7 @@ export default function Question7() {
               disabled={
   !formData.vehicles[formData.currentVehicleIndex]?.ownership
 }
-              className="mt-6 bg-[#2563EB] hover:bg-blue-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
+              className="mt-6 bg-[#7C3AED] hover:bg-violet-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
             >
               Continue →
             </button>
