@@ -70,7 +70,7 @@ function Navbar({onQuoteClick}: NavbarProps) {
 
         <div className="flex items-center">
           <Image
-            src="/LOGO1.svg"
+            src="/logo-test.png"
             alt="findautoquote Logo"
             width={140}
             height={40}
@@ -463,6 +463,8 @@ function Partners(){
     </section>
   )
 }
+
+
 
 function ParaWorks() {
   return (
