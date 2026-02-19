@@ -59,71 +59,84 @@ export default function Home() {
   );
 }
 
-function Navbar({onQuoteClick}: NavbarProps) {
-  
-  
+function Navbar({ onQuoteClick }: NavbarProps) {
   return (
-    <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="flex items-center justify-between 
-      bg-white
-       px-6 py-4 text-white">
+    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+      <div className="flex items-center justify-between px-6 py-4">
 
+        {/* Logo */}
         <div className="flex items-center">
-          <Image
-            src="/logo-test.png"
-            alt="findautoquote Logo"
-            width={140}
-            height={40}
-            className="h-10 w-auto"
-            priority
-          />
-        </div>
-
-
-          <div className="hidden md:flex items-center gap-8 text-sm text-black">
-            <Link href="#" className="hover:text-violet-700 transition">
-              Home
-            </Link>
-            <Link href="#" className="hover:text-violet-700 transition">
-              Product
-            </Link>
-            <Link href="#" className="hover:text-violet-700 transition">
-              Pricing
-            </Link>
-            <Link href="#" className="hover:text-violet-700 transition">
-              Contact
-            </Link>
+          {/* Mobile logo */}
+          <div className="block md:hidden">
+            <Image
+              src="/LOGO3.png"
+              alt="findautoquote Logo Mobile"
+              width={100}
+              height={30}
+              className="h-8 w-auto"
+              priority
+            />
           </div>
 
-          <button
-            onClick={onQuoteClick}
-            className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
-          >
-            Get a Quote →
-          </button>
+          {/* Desktop logo */}
+          <div className="hidden md:block">
+            <Image
+              src="/logo-test.png"
+              alt="findautoquote Logo"
+              width={140}
+              height={40}
+              className="h-10 w-auto"
+              priority
+            />
+          </div>
         </div>
-    </nav>
 
-  )
+        {/* Links (desktop only) */}
+        <div className="hidden md:flex items-center gap-8 text-sm text-black">
+          <Link href="#" className="hover:text-violet-700 transition">
+            Home
+          </Link>
+          <Link href="#" className="hover:text-violet-700 transition">
+            Product
+          </Link>
+          <Link href="#" className="hover:text-violet-700 transition">
+            Pricing
+          </Link>
+          <Link href="#" className="hover:text-violet-700 transition">
+            Contact
+          </Link>
+        </div>
+
+        {/* Quote Button */}
+        <button
+          onClick={onQuoteClick}
+          className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
+        >
+          Get a Quote →
+        </button>
+      </div>
+    </nav>
+  );
 }
 
-function HeroSection({zipRef}: HeroSectionProps) {
+function HeroSection({ zipRef }: HeroSectionProps) {
   const [zipcode, setZipcode] = useState("");
   const [loading, setLoading] = useState(false);
   const [errors, setError] = useState("");
   const { updateForm } = useForm();
   const router = useRouter();
+
   const handleSubmit = () => {
-     setError("");
-     const trimmedZip = zipcode.trim();
-     
-    if (!trimmedZip){
+    setError("");
+    const trimmedZip = zipcode.trim();
+
+    if (!trimmedZip) {
       setError("No zipcode found");
       return;
-    } 
+    }
     const regex = /^[0-9]{5}$/;
-    if(!regex.test(trimmedZip)){
-      setError("Invalid zip")
+    if (!regex.test(trimmedZip)) {
+      setError("Invalid zip");
       return;
     }
 
@@ -134,43 +147,41 @@ function HeroSection({zipRef}: HeroSectionProps) {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-18 pt-40 pb-32">
-      <div className="grid md:grid-cols-2 gap-16 items-center text-center">
-        <div className="">
-          <h1 className="text-left md:text-5xl font-extrabold max-w-3xl">
+    <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 pt-20 md:pt-32 pb-20 md:pb-32">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        {/* Text Content */}
+        <div className="text-center md:text-left">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold max-w-3xl mx-auto md:mx-0">
             Your one-stop shop for auto-insurance
           </h1>
 
-          <div className="mt-10 flex w-full max-w-xl">
+          {/* Input + Button */}
+          <div className="mt-8 flex flex-col sm:flex-row w-full max-w-xl mx-auto md:mx-0">
             <input
               type="text"
               value={zipcode}
-              ref = {zipRef}
+              ref={zipRef}
               onChange={(e) => setZipcode(e.target.value)}
               placeholder="Enter zipcode"
-              className="flex-1 px-6 py-4 rounded-l-lg text-black bg-white focus:outline-none 
-           focus:border-red-500 
-           focus:ring-2 
-           focus:ring-red-200 
-           transition"
+              className="flex-1 px-6 py-4 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none text-black bg-white focus:outline-none focus:border-red-500 focus:ring-2 focus:ring-red-200 transition"
             />
 
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-r-lg font-semibold"
+              className="mt-3 sm:mt-0 sm:ml-0 bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold"
             >
               {loading ? "Loading..." : "Get a Quote →"}
             </button>
           </div>
-          <p className="text-red-700 mt-2 min-h-[24px]">
-            {errors}
-          </p>
 
+          {/* Error Message */}
+          <p className="text-red-700 mt-2 min-h-[24px]">{errors}</p>
         </div>
 
-        <div className="flex justify-end mr-5">
-          <div className="relative w-[320px] h-[320px]">
+        {/* Illustration */}
+        <div className="flex justify-center md:justify-end mt-10 md:mt-0">
+          <div className="relative w-[220px] sm:w-[280px] md:w-[320px] h-[220px] sm:h-[280px] md:h-[320px]">
             <Image
               src="/ill-violet1.svg"
               alt="Illustration"
@@ -183,6 +194,7 @@ function HeroSection({zipRef}: HeroSectionProps) {
     </section>
   );
 }
+
 
 function HowItWorks() {
   return (
@@ -466,14 +478,77 @@ function Partners(){
 
 
 
+// function ParaWorks() {
+//   return (
+//     <section className="bg-[#4C1D95] py-24 text-white">
+//       <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
+
+//         {/* LEFT SIDE */}
+//         <div>
+
+//           <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
+//             <span className="border-b-4 border-violet-400 pb-1">
+//               How does
+//             </span>
+//             <br />
+//             <span className="border-b-4 border-violet-400 pb-1">
+//               Luminauto work?
+//             </span>
+//           </h2>
+
+//           <div className="space-y-6 text-200 leading-relaxed text-violet-100">
+
+//             <p>
+//               We take all the information you provide regarding yourself and your
+//               vehicle and compare it in real time to our live database connected
+//               to dozens of top insurance carriers. This results in a list of
+//               policies that are specific to your personal circumstances and are
+//               from carriers that are willing to insure you.
+//             </p>
+
+//             <p>
+//               Why is it so important to have personalized results? Because many
+//               of us spend countless hours filling endless documentation just to
+//               find out there is no relevant policy or getting declined for
+//               insurance. Our platform makes sure you are presented with the top
+//               options in one place.
+//             </p>
+
+//             <p className="font-semibold text-white">
+//               The service is free and you are never obligated to buy
+//               the presented policy.
+//             </p>
+
+//           </div>
+//         </div>
+
+//         {/* RIGHT SIDE */}
+//         <div className="flex justify-end">
+
+//           {/* Placeholder Image */}
+//           <div className="relative w-[300px] h-[300px]">
+//             <Image
+//               src="/LOGO1.svg" // <-- your file name
+//               alt="Illustration"
+//               fill
+//               className="object-contain rounded-2xl"
+//             />
+//           </div>
+
+//         </div>
+
+//       </div>
+//     </section>
+//   )
+// }
+
 function ParaWorks() {
   return (
     <section className="bg-[#4C1D95] py-24 text-white">
-      <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
         <div>
-
           <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
             <span className="border-b-4 border-violet-400 pb-1">
               How does
@@ -484,8 +559,7 @@ function ParaWorks() {
             </span>
           </h2>
 
-          <div className="space-y-6 text-200 leading-relaxed text-violet-100">
-
+          <div className="space-y-6 text-sm md:text-base leading-relaxed text-violet-100">
             <p>
               We take all the information you provide regarding yourself and your
               vehicle and compare it in real time to our live database connected
@@ -506,65 +580,98 @@ function ParaWorks() {
               The service is free and you are never obligated to buy
               the presented policy.
             </p>
-
           </div>
         </div>
 
         {/* RIGHT SIDE */}
-        <div className="flex justify-end">
-
-          {/* Placeholder Image */}
-          <div className="relative w-[300px] h-[300px]">
+        <div className="flex justify-center md:justify-end">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[300px] md:h-[300px]">
             <Image
-              src="/LOGO1.svg" // <-- your file name
+              src="/LOGO1.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
             />
           </div>
-
         </div>
 
       </div>
     </section>
-  )
+  );
 }
 
-function CtaSection(){
-  return(
-  <section className="bg-[#4C1D95]  text-white">
-  <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
 
-    {/* LEFT SIDE — Illustration Placeholder */}
-    <div className="flex justify-center md:justify-start">
-      <div className="relative w-[440px] h-[440px]">
+// function CtaSection(){
+//   return(
+//   <section className="bg-[#4C1D95]  text-white">
+//   <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
+
+//     {/* LEFT SIDE — Illustration Placeholder */}
+//     <div className="flex justify-center md:justify-start">
+//       <div className="relative w-[440px] h-[440px]">
+//             <Image
+//               src="/webinar/pana.svg" // <-- your file name
+//               alt="Illustration"
+//               fill
+//               className="object-contain rounded-2xl"
+//             />
+//           </div>
+//     </div>
+
+//     {/* RIGHT SIDE — Content */}
+//     <div className="text-center md:text-left">
+
+//       <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-8">
+//         Compare Between Top Carriers And Start Saving:
+//       </h2>
+
+//       <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+//         Get a Quote →
+//       </button>
+
+//     </div>
+
+//   </div>
+// </section>
+
+//   )
+// }
+
+
+function CtaSection() {
+  return (
+    <section className="bg-[#4C1D95] text-white py-24">
+      <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
+
+        {/* LEFT SIDE — Illustration */}
+        <div className="flex justify-center md:justify-start">
+          <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[440px] md:h-[440px]">
             <Image
-              src="/webinar/pana.svg" // <-- your file name
+              src="/webinar/pana.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
             />
           </div>
-    </div>
+        </div>
 
-    {/* RIGHT SIDE — Content */}
-    <div className="text-center md:text-left">
+        {/* RIGHT SIDE — Content */}
+        <div className="text-center md:text-left">
+          <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-8">
+            Compare Between Top Carriers And Start Saving:
+          </h2>
 
-      <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-8">
-        Compare Between Top Carriers And Start Saving:
-      </h2>
+          <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+            Get a Quote →
+          </button>
+        </div>
 
-      <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
-        Get a Quote →
-      </button>
-
-    </div>
-
-  </div>
-</section>
-
-  )
+      </div>
+    </section>
+  );
 }
+
+
 
 function CtaSection2(){
   return(
@@ -575,7 +682,7 @@ function CtaSection2(){
     <div className="flex flex-col items-center">
 
       {/* Illustration Placeholder */}
-      <div className="relative w-[320px] h-[220px]">
+      <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
               src="/ill-violet-online.svg" // <-- your file name
               alt="Illustration"
@@ -594,26 +701,27 @@ function CtaSection2(){
       </p>
 
       {/* Zip + Button */}
-      <div className="flex w-full max-w-md">
+          <div className="flex flex-col sm:flex-row w-full max-w-full sm:max-w-md mx-auto">
 
-        <input
-          type="text"
-          placeholder="Enter zipcode"
-          className="flex-1 px-4 py-3 rounded-l-lg border border-gray-300 focus:outline-none"
-        />
+            <input
+              type="text"
+              placeholder="Enter zipcode"
+              className="flex-1 px-4 py-3 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg border border-gray-300 focus:outline-none w-full mb-2 sm:mb-0"
+            />
 
-        <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-r-lg text-white font-semibold">
-          Get a Quote →
-        </button>
+            <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-b-lg sm:rounded-b-none sm:rounded-r-lg text-white font-semibold w-full sm:w-auto">
+              Get a Quote →
+            </button>
 
-      </div>
+          </div>
+
 
     </div>
 
     {/* RIGHT SIDE — Call an Agent */}
     <div className="flex flex-col items-center">
       {/* Illustration Placeholder */}
-      <div className="relative w-[320px] h-[220px]">
+      <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
               src="/ill-violet-call.svg" // <-- your file name
               alt="Illustration"
