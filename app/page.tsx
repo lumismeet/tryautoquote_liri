@@ -415,11 +415,21 @@ function Partners(){
 
           {/* LEFT ARROW */}
           <button
-            onClick={prevSlide}
-            className="absolute -left-16 md:-left-20 bg-white text-violet-600 p-4 rounded-full shadow-lg hover:text-white hover:bg-violet-700 scale-110 transition cursor-pointer"
-          >
-            <ChevronLeft size={24} />
-          </button>
+  onClick={prevSlide}
+  className="
+    absolute 
+    -left-6 md:-left-16 lg:-left-20
+    bg-white text-violet-600
+    p-2 md:p-4
+    rounded-full shadow-lg
+    hover:text-white hover:bg-violet-700
+    transition
+    cursor-pointer
+    z-100
+  "
+>
+  <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
+</button>
 
           {/* CARD */}
           <div className="relative bg-violet-500 text-white rounded-2xl p-12 max-w-3xl w-full overflow-hidden">
@@ -464,11 +474,20 @@ function Partners(){
 
           {/* RIGHT ARROW */}
           <button
-            onClick={nextSlide}
-            className="absolute -right-16 md:-right-20 bg-white text-violet-600 p-4 rounded-full shadow-lg  hover:text-white hover:bg-violet-700 scale-110  transition cursor-pointer"
-          >
-            <ChevronRight size={24} />
-          </button>
+  onClick={nextSlide}
+  className="
+    absolute 
+    -right-6 md:-right-16 lg:-right-20
+    bg-white text-violet-600
+    p-2 md:p-4
+    rounded-full shadow-lg
+    hover:text-white hover:bg-violet-700
+    transition
+    cursor-pointer
+  "
+>
+  <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
+</button>
 
         </div>
       </div>
