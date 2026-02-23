@@ -14,7 +14,7 @@ export default function Navbar() {
 
           <Link href="/" className="flex items-center">
             <Image
-              src="/logo-test.png"
+              src="/logo-test1.png"
               alt="Luminarix Logo"
               width={140}
               height={40}

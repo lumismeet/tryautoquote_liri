@@ -9,6 +9,7 @@ import Footer from "@/components/footer"
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
+import LOGO from "../public/LOGO3.png"
 
 const testimonials = [
   {
@@ -69,7 +70,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
           {/* Mobile logo */}
           <div className="block md:hidden">
             <Image
-              src="/LOGO3.png"
+              src={LOGO}
               alt="findautoquote Logo Mobile"
               width={100}
               height={30}
@@ -81,7 +82,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
           {/* Desktop logo */}
           <div className="hidden md:block">
             <Image
-              src="/logo-test.png"
+              src="/logo-test1.png"
               alt="findautoquote Logo"
               width={140}
               height={40}
