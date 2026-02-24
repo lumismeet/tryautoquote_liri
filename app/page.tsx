@@ -11,6 +11,7 @@ import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
 import LOGO from "../public/LOGO3.png"
 import USMap from "@/components/USMap";
+import CarValueSlider from "@/components/CarValueSlider";
 
 const testimonials = [
   {
@@ -63,6 +64,7 @@ export default function Home() {
         <HeroSection zipRef={zipRef} />
         <HowItWorks />
         <Partners />
+        <CarValueSlider onCtaClick={focusZip} />
         <Testimonials />
         <ParaWorks />
         <CtaSection />
