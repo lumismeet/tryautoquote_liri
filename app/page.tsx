@@ -10,6 +10,7 @@ import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
 import LOGO from "../public/LOGO3.png"
+import USMap from "@/components/USMap";
 
 const testimonials = [
   {
@@ -31,6 +32,8 @@ type NavbarProps = {
   onQuoteClick: () => void;
 };
 
+
+
 type HeroSectionProps = {
   zipRef: React.RefObject<HTMLInputElement | null>;
 };
@@ -38,8 +41,19 @@ type HeroSectionProps = {
 export default function Home() {
   const zipRef = useRef<HTMLInputElement>(null);
 
+
   const focusZip = () => {
+    if (!zipRef.current) return;
+
+  zipRef.current.scrollIntoView({
+    behavior: "smooth",
+    block: "center",
+  });
+
+  // Delay focus so it doesn't cancel smooth scroll
+  setTimeout(() => {
     zipRef.current?.focus();
+  }, 400);
   };
 
   return (
@@ -53,6 +67,7 @@ export default function Home() {
         <ParaWorks />
         <CtaSection />
         <FAQ />
+        <USMap onMapClick={focusZip} />
         <CtaSection2 />
         <Footer />
       </div>
@@ -496,72 +511,6 @@ function Partners(){
   )
 }
 
-
-
-// function ParaWorks() {
-//   return (
-//     <section className="bg-[#4C1D95] py-24 text-white">
-//       <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
-
-//         {/* LEFT SIDE */}
-//         <div>
-
-//           <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-//             <span className="border-b-4 border-violet-400 pb-1">
-//               How does
-//             </span>
-//             <br />
-//             <span className="border-b-4 border-violet-400 pb-1">
-//               Luminauto work?
-//             </span>
-//           </h2>
-
-//           <div className="space-y-6 text-200 leading-relaxed text-violet-100">
-
-//             <p>
-//               We take all the information you provide regarding yourself and your
-//               vehicle and compare it in real time to our live database connected
-//               to dozens of top insurance carriers. This results in a list of
-//               policies that are specific to your personal circumstances and are
-//               from carriers that are willing to insure you.
-//             </p>
-
-//             <p>
-//               Why is it so important to have personalized results? Because many
-//               of us spend countless hours filling endless documentation just to
-//               find out there is no relevant policy or getting declined for
-//               insurance. Our platform makes sure you are presented with the top
-//               options in one place.
-//             </p>
-
-//             <p className="font-semibold text-white">
-//               The service is free and you are never obligated to buy
-//               the presented policy.
-//             </p>
-
-//           </div>
-//         </div>
-
-//         {/* RIGHT SIDE */}
-//         <div className="flex justify-end">
-
-//           {/* Placeholder Image */}
-//           <div className="relative w-[300px] h-[300px]">
-//             <Image
-//               src="/LOGO1.svg" // <-- your file name
-//               alt="Illustration"
-//               fill
-//               className="object-contain rounded-2xl"
-//             />
-//           </div>
-
-//         </div>
-
-//       </div>
-//     </section>
-//   )
-// }
-
 function ParaWorks() {
   return (
     <section className="bg-[#4C1D95] py-24 text-white">
@@ -620,44 +569,6 @@ function ParaWorks() {
   );
 }
 
-
-// function CtaSection(){
-//   return(
-//   <section className="bg-[#4C1D95]  text-white">
-//   <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center">
-
-//     {/* LEFT SIDE — Illustration Placeholder */}
-//     <div className="flex justify-center md:justify-start">
-//       <div className="relative w-[440px] h-[440px]">
-//             <Image
-//               src="/webinar/pana.svg" // <-- your file name
-//               alt="Illustration"
-//               fill
-//               className="object-contain rounded-2xl"
-//             />
-//           </div>
-//     </div>
-
-//     {/* RIGHT SIDE — Content */}
-//     <div className="text-center md:text-left">
-
-//       <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-8">
-//         Compare Between Top Carriers And Start Saving:
-//       </h2>
-
-//       <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
-//         Get a Quote →
-//       </button>
-
-//     </div>
-
-//   </div>
-// </section>
-
-//   )
-// }
-
-
 function CtaSection() {
   return (
     <section className="bg-[#4C1D95] text-white py-24">
@@ -690,8 +601,6 @@ function CtaSection() {
     </section>
   );
 }
-
-
 
 function CtaSection2(){
   return(
