@@ -41,7 +41,7 @@ type HeroSectionProps = {
 
 export default function Home() {
   const zipRef = useRef<HTMLInputElement>(null);
-
+  const router = useRouter();
 
   const focusZip = () => {
     if (!zipRef.current) return;
@@ -57,6 +57,9 @@ export default function Home() {
   }, 400);
   };
 
+  const sendTonew = () => {
+    router.push("/quote/1_map");
+  }
   return (
     <div className="relative h-[100vh] w-full text-black bg-[#F3E8FF]">
       <div className="relative z-10">
@@ -69,7 +72,7 @@ export default function Home() {
         <ParaWorks />
         <CtaSection />
         <FAQ />
-        <USMap onMapClick={focusZip} />
+        <USMap onMapClick={sendTonew} />
         <CtaSection2 />
         <Footer />
       </div>
@@ -594,7 +597,7 @@ function CtaSection() {
             Compare Between Top Carriers And Start Saving:
           </h2>
 
-          <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+          <button className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
             Get a Quote →
           </button>
         </div>

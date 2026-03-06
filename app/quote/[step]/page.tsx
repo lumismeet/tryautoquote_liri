@@ -15,6 +15,7 @@ import Question14 from "@/components/Question14";
 import Question15 from "@/components/Question15";
 import Results from "@/components/Results";
 import { notFound } from "next/navigation";
+import Question1_map from "@/components/Question1_map";
 
 export default async function QuoteStep({
   params,
@@ -25,6 +26,7 @@ export default async function QuoteStep({
 
   console.log("STEP:", step);
 
+  if(step === "1_map") return <Question1_map />;
   if (step === "1") return <Question1 />;
 if (step === "2") return <Question2 />;
 if (step === "3") return <Question3 />;
