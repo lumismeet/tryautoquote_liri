@@ -8,7 +8,7 @@ export default function Question5() {
   const router = useRouter();
   const { formData, updateForm } = useForm();
 
-  const options = ["Under 5000", "5001-10000", "10001-15000","15000"];
+  const options = ["Under 5000", "5001-10000", "10001-15000","15000 or above"];
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
