@@ -131,7 +131,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
         {/* Quote Button */}
         <button
           onClick={onQuoteClick}
-          className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
+          className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
         >
           Get a Quote →
         </button>
@@ -190,7 +190,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="mt-3 sm:mt-0 sm:ml-0 bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold"
+              className="mt-3 sm:mt-0 sm:ml-0 bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold cursor-pointer"
             >
               {loading ? "Loading..." : "Get a Quote →"}
             </button>
@@ -594,12 +594,12 @@ function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
         {/* RIGHT SIDE — Content */}
         <div className="text-center md:text-left">
           <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-8">
-            Compare Between Top Carriers And Start Saving:
+            Learn how you can get the Best Deals And Start Saving:
           </h2>
 
           <button
           onClick={onQuoteClick}
-          className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+          className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer">
             Get a Quote →
           </button>
         </div>
@@ -610,17 +610,31 @@ function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
 }
 
 function CtaSection2(){
+  const [zipcode, setZipcode] = useState("");
+  const [error, setError] = useState("");
+  const { updateForm } = useForm();
+  const router = useRouter();
+
+  const handleSubmit = () => {
+    setError("");
+    const trimmedZip = zipcode.trim();
+    if (!trimmedZip) { setError("Please enter a zipcode"); return; }
+    if (!/^[0-9]{5}$/.test(trimmedZip)) { setError("Invalid zip"); return; }
+    updateForm({ zipcode });
+    router.push("/quote/1");
+  };
+
   return(
    <section className="bg-gray-100 py-24">
   <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center text-center">
 
-    {/* LEFT SIDE — Buy Online */}
+    {/* LEFT SIDE — Get a Quote */}
     <div className="flex flex-col items-center">
 
       {/* Illustration Placeholder */}
       <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
-              src="/ill-violet-online.svg" // <-- your file name
+              src="/ill-violet-online.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -628,12 +642,12 @@ function CtaSection2(){
           </div>
 
       <h3 className="text-2xl font-bold mb-4 text-gray-900">
-        Buy Online
+        Get a Free Quote
       </h3>
 
       <p className="text-gray-600 max-w-md mb-8">
-        Our easy-to-use tools let you compare quotes from top car and home
-        providers, all at once and online.
+        Answer a few quick questions and we&apos;ll find the best auto insurance
+        rates available in your area — no commitment required.
       </p>
 
       {/* Zip + Button */}
@@ -641,15 +655,22 @@ function CtaSection2(){
 
             <input
               type="text"
+              value={zipcode}
+              onChange={(e) => setZipcode(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
               placeholder="Enter zipcode"
-              className="flex-1 px-4 py-3 rounded-t-lg sm:rounded-t-none sm:rounded-l-lg border border-gray-300 focus:outline-none w-full mb-2 sm:mb-0"
+              className="flex-1 px-4 py-3 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none border border-gray-300 focus:outline-none w-full mb-2 sm:mb-0"
             />
 
-            <button className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-b-lg sm:rounded-b-none sm:rounded-r-lg text-white font-semibold w-full sm:w-auto">
+            <button
+              onClick={handleSubmit}
+              className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white font-semibold w-full sm:w-auto cursor-pointer"
+            >
               Get a Quote →
             </button>
 
           </div>
+          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
 
     </div>
@@ -659,7 +680,7 @@ function CtaSection2(){
       {/* Illustration Placeholder */}
       <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
-              src="/ill-violet-call.svg" // <-- your file name
+              src="/ill-violet-call.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -667,16 +688,16 @@ function CtaSection2(){
           </div>
 
       <h3 className="text-2xl font-bold mb-4 text-gray-900">
-        Call an Agent
+        Know your options? Call an Agent
       </h3>
 
       <p className="text-gray-600 max-w-md mb-6">
-        Whether you just prefer a friendly voice or need more information,
-        our licensed agents are ready to help you save.
+        Have questions or want personalized guidance? Our licensed insurance
+        specialists are here to walk you through your options.
       </p>
 
       <p className="text-xl font-semibold text-gray-900">
-        (+1) 900-489-7265
+        (+1) 900-999-9999
       </p>
 
     </div>
@@ -684,5 +705,5 @@ function CtaSection2(){
   </div>
 </section>
 
-  ) 
+  )
 }

@@ -5,12 +5,8 @@ import Link from "next/link";
 export default function Navbar() {
    const router = useRouter();
   return (
-    
-      <nav className="fixed top-0 left-0 w-full z-50">
-      <div className="max-w-7xl mx-auto  ">
-        <div className="flex items-center justify-between 
-        bg-white shadow-md
-          px-6 py-4">
+    <nav className="fixed top-0 left-0 w-full z-50">
+      <div className="flex items-center justify-between bg-white shadow-md px-6 py-4">
 
           <Link href="/" className="flex items-center">
             <Image
@@ -39,11 +35,8 @@ export default function Navbar() {
           >
             Get a Quote →
           </button>
-        </div>
       </div>
     </nav>
   );
 }
-
-
 

@@ -122,9 +122,7 @@ export default function Question15() {
 
             {/* Consent */}
             <p className="text-sm text-gray-600 max-w-2xl text-center">
-              By clicking "View Rates", you agree to be contacted by licensed insurance 
-              providers via phone, email, and SMS (including automated technology) 
-              regarding your quote. Consent is not required to purchase.
+              By clicking ‘View Rates’, I agree to be contacted by FindAutoQuote, its affiliates, licensed insurance agents, and marketing partners via phone, SMS, and email, including automated technology, regarding my insurance quote. Consent is not required to purchase. I also agree to the Terms of Service and Privacy Policy
             </p>
 
             {/* Button */}
