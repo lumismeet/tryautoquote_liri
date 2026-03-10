@@ -66,7 +66,7 @@ export default function Home() {
         <Navbar onQuoteClick={focusZip} />
         <HeroSection zipRef={zipRef} />
         <HowItWorks />
-        <Partners />
+        {/* <Partners /> */}
         <CarValueSlider onCtaClick={focusZip} />
         <Testimonials />
         <ParaWorks />
@@ -273,37 +273,37 @@ function HowItWorks() {
   )
 }
 
-function Partners(){
-  return(
+// function Partners(){
+//   return(
 
-    < section className = "bg-white py-24" >
-      <div className="max-w-7xl mx-auto px-20 text-center">
+//     < section className = "bg-white py-24" >
+//       <div className="max-w-7xl mx-auto px-20 text-center">
 
-        <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-12">
-          We partner with the top providers
-        </h2>
+//         <h2 className="text-2xl md:text-3xl font-semibold text-gray-900 mb-12">
+//           We partner with the top providers
+//         </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+//         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
 
-          {/* Logo 1 */}
-          <div className="bg-gray-300 h-16 rounded-md"></div>
+//           {/* Logo 1 */}
+//           <div className="bg-gray-300 h-16 rounded-md"></div>
 
-          {/* Logo 2 */}
-          <div className="bg-gray-300 h-16 rounded-md"></div>
+//           {/* Logo 2 */}
+//           <div className="bg-gray-300 h-16 rounded-md"></div>
 
-          {/* Logo 3 */}
-          <div className="bg-gray-300 h-16 rounded-md"></div>
+//           {/* Logo 3 */}
+//           <div className="bg-gray-300 h-16 rounded-md"></div>
 
-          {/* Logo 4 */}
-          <div className="bg-gray-300 h-16 rounded-md"></div>
+//           {/* Logo 4 */}
+//           <div className="bg-gray-300 h-16 rounded-md"></div>
 
-        </div>
+//         </div>
 
-      </div>
-</section >
-  )
+//       </div>
+// </section >
+//   )
 
-}
+// }
 
 // function Testimonials(){
 //   return(
