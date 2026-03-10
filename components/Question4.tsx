@@ -2,22 +2,11 @@
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "@/context/FormContext";
-// const { formData, updateForm } = useForm();
-// () => updateForm({ vehicleModel: model })
 
 export default function Question4() {
   const router = useRouter();
-  // const [formData.primaryUse, setformData.primaryUse] = useState("");
   const { formData, updateForm } = useForm();
-
-  const handleContinue = () => {
-  const currentVehicle = formData.vehicles[formData.currentVehicleIndex];
-  if (currentVehicle?.primaryUse) {
-    router.push("/quote/5");
-  }
-};
 
   const options = ["Commute", "Pleasure", "Business"];
 
@@ -50,20 +39,17 @@ export default function Question4() {
               {options.map((option) => (
                 <button
                   key={option}
-                  onClick={() =>
-  updateForm(prev => {
-    const updatedVehicles = [...prev.vehicles];
-    updatedVehicles[prev.currentVehicleIndex] = {
-      ...updatedVehicles[prev.currentVehicleIndex],
-      primaryUse: option,
-    };
-
-    return {
-      ...prev,
-      vehicles: updatedVehicles,
-    };
-  })
-}
+                  onClick={() => {
+                    updateForm(prev => {
+                      const updatedVehicles = [...prev.vehicles];
+                      updatedVehicles[prev.currentVehicleIndex] = {
+                        ...updatedVehicles[prev.currentVehicleIndex],
+                        primaryUse: option,
+                      };
+                      return { ...prev, vehicles: updatedVehicles };
+                    });
+                    router.push("/quote/5");
+                  }}
 
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
                     ${
@@ -77,16 +63,6 @@ export default function Question4() {
               ))}
             </div>
 
-            {/* Continue Button */}
-            <button
-              onClick={handleContinue}
-              disabled={
-  !formData.vehicles[formData.currentVehicleIndex]?.primaryUse
-}
-              className="mt-6 bg-[#7C3AED] hover:bg-violet-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md cursor-pointer"
-            >
-              Continue →
-            </button>
 
           </div>
         </div>

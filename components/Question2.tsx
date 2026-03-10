@@ -11,11 +11,6 @@ export default function Question2() {
   const currentVehicle =
     formData.vehicles[formData.currentVehicleIndex];
 
-  const handleContinue = () => {
-    if (!currentVehicle?.vehicleYear) return;
-    router.push("/quote/3");
-  };
-
   // Years 2025 → 2005 (Grid)
   const recentYears = Array.from({ length: 21 }, (_, i) => 2025 - i);
 
@@ -33,6 +28,7 @@ export default function Question2() {
 
       return { ...prev, vehicles: updatedVehicles };
     });
+    router.push("/quote/3");
   };
 
   return (
@@ -77,14 +73,10 @@ export default function Question2() {
             <div className="w-full max-w-md">
               <select
                 value={currentVehicle?.vehicleYear ?? ""}
-                onChange={(e) =>
-                  setVehicleYear(
-                    e.target.value
-                      ? Number(e.target.value)
-                      : undefined
-                  )
-                }
-                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 
+                onChange={(e) => {
+                  if (e.target.value) setVehicleYear(Number(e.target.value));
+                }}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3
                 text-gray-700 focus:outline-none focus:border-violet-400"
               >
                 <option value="">2004 or older</option>
@@ -95,20 +87,6 @@ export default function Question2() {
                 ))}
               </select>
             </div>
-
-            {/* Continue Button */}
-            <button
-              onClick={handleContinue}
-              disabled={!currentVehicle?.vehicleYear}
-              className={`mt-4 px-10 py-3 rounded-lg font-semibold shadow-md transition
-                ${
-                  currentVehicle?.vehicleYear
-                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
-            >
-              Continue →
-            </button>
 
           </div>
         </div>

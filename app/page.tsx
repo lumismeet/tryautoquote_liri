@@ -70,7 +70,7 @@ export default function Home() {
         <CarValueSlider onCtaClick={focusZip} />
         <Testimonials />
         <ParaWorks />
-        <CtaSection />
+        <CtaSection onQuoteClick={focusZip} />
         <FAQ />
         <USMap onMapClick={sendTonew} />
         <CtaSection2 />
@@ -574,7 +574,7 @@ function ParaWorks() {
   );
 }
 
-function CtaSection() {
+function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
   return (
     <section className="bg-[#4C1D95] text-white py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
@@ -597,7 +597,9 @@ function CtaSection() {
             Compare Between Top Carriers And Start Saving:
           </h2>
 
-          <button className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
+          <button
+          onClick={onQuoteClick}
+          className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200">
             Get a Quote →
           </button>
         </div>

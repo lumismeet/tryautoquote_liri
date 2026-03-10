@@ -26,8 +26,8 @@ export default async function QuoteStep({
 
   console.log("STEP:", step);
 
-  if(step === "1_map") return <Question1_map />;
-  if (step === "1") return <Question1 />;
+if(step === "1_map") return <Question1_map />;
+if (step === "1") return <Question1 />;
 if (step === "2") return <Question2 />;
 if (step === "3") return <Question3 />;
 if (step === "4") return <Question4 />;
@@ -43,8 +43,16 @@ if (step === "13") return <Question13 />;
 if (step === "14") return <Question14 />;
 if (step === "15") return <Question15 />;
 if (step === "16") return <Results />;
-
-  
-
-  return notFound();
+return notFound();
 }
+
+
+
+
+
+
+
+
+
+
+

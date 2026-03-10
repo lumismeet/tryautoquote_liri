@@ -2,35 +2,29 @@
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
 import { useForm } from "@/context/FormContext";
 
 export default function Question8() {
   const router = useRouter();
-  const { formData, updateForm } = useForm();
-  const [selectedOption, setSelectedOption] = useState("");
+  const { updateForm } = useForm();
 
-  const handleContinue = () => {
-  if (!selectedOption) return;
-
-  if (selectedOption === "Yes") {
-    const newVehicle = {
-      vehicleYear: undefined,
-      vehicleMake: undefined,
-      vehicleModel: undefined,
-    };
-
-    updateForm(prev => ({
-      ...prev,
-      vehicles: [...prev.vehicles, newVehicle],
-      currentVehicleIndex: prev.vehicles.length,
-    }));
-
-    router.push("/quote/1");
-  } else {
-    router.push("/quote/9");
-  }
-};
+  const handleSelect = (option: string) => {
+    if (option === "Yes") {
+      const newVehicle = {
+        vehicleYear: undefined,
+        vehicleMake: undefined,
+        vehicleModel: undefined,
+      };
+      updateForm(prev => ({
+        ...prev,
+        vehicles: [...prev.vehicles, newVehicle],
+        currentVehicleIndex: prev.vehicles.length,
+      }));
+      router.push("/quote/1");
+    } else {
+      router.push("/quote/9");
+    }
+  };
 
 
   const options = ["Yes", "No"];
@@ -63,26 +57,14 @@ export default function Question8() {
               {options.map((option) => (
                 <button
                   key={option}
-                  onClick={() => setSelectedOption(option)}
-                  className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
-                    ${
-                      selectedOption === option
-                        ? "bg-violet-100 border-violet-400"
-                        : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
-                    }`}
+                  onClick={() => handleSelect(option)}
+                  className="w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
                 >
                   {option}
                 </button>
               ))}
             </div>
 
-            <button
-              onClick={handleContinue}
-              disabled={!selectedOption}
-              className="mt-6 bg-[#7C3AED] hover:bg-violet-600 disabled:opacity-40 transition text-white px-10 py-3 rounded-lg font-semibold shadow-md"
-            >
-              Continue →
-            </button>
 
           </div>
         </div>

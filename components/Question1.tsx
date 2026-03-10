@@ -13,11 +13,6 @@ export default function Question1() {
   const currentVehicle =
     formData.vehicles?.[formData.currentVehicleIndex ?? 0];
 
-  const handleContinue = () => {
-    if (!currentVehicle?.vehicleMake) return;
-    router.push("/quote/2");
-  };
-
   const setVehicleMake = (make: string) => {
     updateForm((prev) => {
       const updatedVehicles = [...prev.vehicles];
@@ -29,6 +24,7 @@ export default function Question1() {
 
       return { ...prev, vehicles: updatedVehicles };
     });
+    router.push("/quote/2");
   };
 
   const carMakes = [
@@ -104,8 +100,8 @@ export default function Question1() {
             <div className="w-full max-w-md">
               <select
                 value={currentVehicle?.vehicleMake ?? ""}
-                onChange={(e) => setVehicleMake(e.target.value)}
-                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 
+                onChange={(e) => { if (e.target.value) setVehicleMake(e.target.value); }}
+                className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3
                   text-gray-700 focus:outline-none focus:border-violet-400"
               >
                 <option value="">Select a brand</option>
@@ -121,20 +117,6 @@ export default function Question1() {
                 <option value="Infiniti">Infiniti</option>
               </select>
             </div>
-
-            {/* Continue */}
-            <button
-              onClick={handleContinue}
-              disabled={!currentVehicle?.vehicleMake}
-              className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
-                ${
-                  currentVehicle?.vehicleMake
-                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
-            >
-              Continue →
-            </button>
 
           </div>
         </div>

@@ -12,11 +12,6 @@ export default function Question3() {
   const currentVehicle =
     formData.vehicles?.[formData.currentVehicleIndex ?? 0];
 
-  const handleContinue = () => {
-    if (!currentVehicle?.vehicleModel) return;
-    router.push("/quote/4");
-  };
-
   const setVehicleModel = (model: string) => {
     updateForm((prev) => {
       const updatedVehicles = [...prev.vehicles];
@@ -28,6 +23,7 @@ export default function Question3() {
 
       return { ...prev, vehicles: updatedVehicles };
     });
+    router.push("/quote/4");
   };
 
   const carModels = [
@@ -97,18 +93,6 @@ export default function Question3() {
               ))}
             </div>
 
-            <button
-              onClick={handleContinue}
-              disabled={!currentVehicle?.vehicleModel}
-              className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
-                ${
-                  currentVehicle?.vehicleModel
-                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
-                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                }`}
-            >
-              Continue →
-            </button>
 
           </div>
         </div>
