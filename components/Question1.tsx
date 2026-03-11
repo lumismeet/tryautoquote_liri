@@ -96,7 +96,7 @@ export default function Question1() {
               ))}
             </div>
 
-            {/* Dropdown */}
+            {/* Dropdown for brands not shown in the grid above */}
             <div className="w-full max-w-md">
               <select
                 value={currentVehicle?.vehicleMake ?? ""}
@@ -104,17 +104,21 @@ export default function Question1() {
                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3
                   text-gray-700 focus:outline-none focus:border-violet-400"
               >
-                <option value="">Select a brand</option>
+                <option value="">Other brands</option>
+                <option value="Acura">Acura</option>
                 <option value="Audi">Audi</option>
                 <option value="BMW">BMW</option>
+                <option value="Genesis">Genesis</option>
+                <option value="Infiniti">Infiniti</option>
+                <option value="Land Rover">Land Rover</option>
+                <option value="Lexus">Lexus</option>
+                <option value="Lincoln">Lincoln</option>
                 <option value="Mercedes-Benz">Mercedes-Benz</option>
+                <option value="Mitsubishi">Mitsubishi</option>
+                <option value="Ram">Ram</option>
                 <option value="Subaru">Subaru</option>
                 <option value="Tesla">Tesla</option>
                 <option value="Volvo">Volvo</option>
-                <option value="Acura">Acura</option>
-                <option value="Lexus">Lexus</option>
-                <option value="Mitsubishi">Mitsubishi</option>
-                <option value="Infiniti">Infiniti</option>
               </select>
             </div>
 

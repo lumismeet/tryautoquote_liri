@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
@@ -11,6 +12,40 @@ export default function Question3() {
 
   const currentVehicle =
     formData.vehicles?.[formData.currentVehicleIndex ?? 0];
+
+  const [models, setModels] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const [customModel, setCustomModel] = useState("");
+
+  useEffect(() => {
+    const make = currentVehicle?.vehicleMake;
+    const year = currentVehicle?.vehicleYear;
+
+    if (!make) {
+      router.push("/quote/1");
+      return;
+    }
+
+    setLoading(true);
+    setError(false);
+
+    const url = year
+      ? `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformakeyear/make/${encodeURIComponent(make)}/modelyear/${year}?format=json`
+      : `https://vpic.nhtsa.dot.gov/api/vehicles/getmodelsformake/${encodeURIComponent(make)}?format=json`;
+
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        const names: string[] = [...new Set<string>(data.Results.map((r: { Model_Name: string }) => r.Model_Name))].sort();
+        setModels(names);
+        setLoading(false);
+      })
+      .catch(() => {
+        setError(true);
+        setLoading(false);
+      });
+  }, [currentVehicle?.vehicleMake, currentVehicle?.vehicleYear]);
 
   const setVehicleModel = (model: string) => {
     updateForm((prev) => {
@@ -25,33 +60,6 @@ export default function Question3() {
     });
     router.push("/quote/4");
   };
-
-  const carModels = [
-    "1 Series",
-    "2 Series",
-    "3 Series",
-    "4 Series",
-    "5 Series",
-    "7 Series",
-    "8 Series",
-    "X1",
-    "X2",
-    "X3",
-    "X4",
-    "X5",
-    "X6",
-    "X7",
-    "Z4",
-    "i3",
-    "i4",
-    "i7",
-    "iX",
-    "M2",
-    "M3",
-    "M4",
-    "M5",
-    "XM",
-  ];
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
@@ -73,26 +81,66 @@ export default function Question3() {
               Vehicle Model
             </h2>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
-              {carModels.map((model) => (
-                <button
-                  key={model}
-                  onClick={() => setVehicleModel(model)}
-                  className={`flex items-center justify-center 
-                    rounded-xl p-6 border transition shadow-sm
-                    ${
-                      currentVehicle?.vehicleModel === model
-                        ? "bg-violet-100 border-violet-400"
-                        : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
-                    }`}
-                >
-                  <span className="text-lg font-semibold text-gray-800">
-                    {model}
-                  </span>
-                </button>
-              ))}
-            </div>
+            {loading && (
+              <p className="text-gray-500">Loading models...</p>
+            )}
 
+            {!loading && (error || models.length === 0) && (
+              <p className="text-gray-500">
+                {error ? "Couldn't load models automatically." : "No models found for this make and year."}{" "}
+                Enter your model below.
+              </p>
+            )}
+
+            {!loading && !error && models.length > 0 && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 w-full">
+                {models.map((model) => (
+                  <button
+                    key={model}
+                    onClick={() => setVehicleModel(model)}
+                    className={`flex items-center justify-center
+                      rounded-xl p-6 border transition shadow-sm
+                      ${
+                        currentVehicle?.vehicleModel === model
+                          ? "bg-violet-100 border-violet-400"
+                          : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
+                      }`}
+                  >
+                    <span className="text-lg font-semibold text-gray-800">
+                      {model}
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+
+            {/* Custom model input */}
+            <div className="w-full max-w-md">
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  if (customModel.trim()) setVehicleModel(customModel.trim());
+                }}
+                className="flex gap-2"
+              >
+                <input
+                  type="text"
+                  placeholder="Other model..."
+                  value={customModel}
+                  onChange={(e) => setCustomModel(e.target.value)}
+                  className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-3
+                    text-gray-700 focus:outline-none focus:border-violet-400"
+                />
+                <button
+                  type="submit"
+                  disabled={!customModel.trim()}
+                  className="px-5 py-3 rounded-lg bg-violet-600 text-white font-semibold
+                    hover:bg-violet-700 disabled:opacity-40 transition"
+                >
+                  Continue
+                </button>
+              </form>
+            </div>
 
           </div>
         </div>

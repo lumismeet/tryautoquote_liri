@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Phone, MapPin, Mail, Facebook, Instagram, Twitter } from "lucide-react"
 
 export default function Footer() {
@@ -23,10 +24,18 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-6">Legal</h4>
             <ul className="space-y-3 text-violet-200">
-              <li>About Us</li>
-              <li>Carrier</li>
-              <li>We are hiring</li>
-              <li>Blog</li>
+              <li>
+                <Link href="/privacy-policy" className="hover:text-white transition">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/terms-of-use" className="hover:text-white transition">
+                  Terms of Use
+                </Link>
+              </li>
+              <li>Cookie Policy</li>
+              <li>Disclaimer</li>
             </ul>
           </div>
 
