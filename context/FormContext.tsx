@@ -64,6 +64,7 @@ type VehicleType = {
 export function FormProvider({ children }: { children: React.ReactNode }) {
   
   const [formData, setFormData] = useState<FormDataType>({
+  leadId: crypto.randomUUID(),
   vehicles: [
     {
       vehicleYear: undefined,

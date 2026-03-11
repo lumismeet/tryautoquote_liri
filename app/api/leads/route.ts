@@ -89,12 +89,7 @@ export async function POST(req: Request) {
       phone,
     },
     { onConflict: "lead_id" }
-  ).select(`
-    *,
-    vehicles (*)
-  `)
-  .eq("lead_id", leadId)
-  .single();
+  ).select(`*, vehicles (*)`).single();
 
 
     if (leadError) {
@@ -104,6 +99,8 @@ export async function POST(req: Request) {
         { status: 500 }
       );
     }
+
+    console.log("Lead upserted successfully:", leadData);
 
     // 2️⃣ Insert Vehicles
     // if (vehicles && vehicles.length > 0) {
@@ -170,6 +167,8 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+
+  console.log("Vehicles inserted successfully for lead:", leadId);
 }
 
     return NextResponse.json({
