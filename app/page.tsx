@@ -9,7 +9,7 @@ import Footer from "@/components/footer"
 import { useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
-import LOGO from "../public/LOGO3.png"
+import LOGO from "../public/logo-test1.png"
 import USMap from "@/components/USMap";
 import CarValueSlider from "@/components/CarValueSlider";
 
@@ -561,7 +561,7 @@ function ParaWorks() {
         <div className="flex justify-center md:justify-end">
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[300px] md:h-[300px]">
             <Image
-              src="/LOGO1.svg"
+              src="/logo-test1.png"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
