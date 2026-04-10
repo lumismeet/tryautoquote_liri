@@ -3,8 +3,8 @@ import Footer from "@/components/footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms of Use | FindAutoQuote",
-  description: "Terms of Use for FindAutoQuote.com, operated by Luminarix, LLC.",
+  title: "Terms of Use | TryAutoQuote",
+  description: "Terms of Use for TryAutoQuote.com, operated by Luminarix, LLC.",
 };
 
 export default function TermsOfUse() {
@@ -23,7 +23,7 @@ export default function TermsOfUse() {
         </p>
 
         <p>
-          This Terms of Use Agreement (&ldquo;Agreement&rdquo;) governs your access to and use of the websites, mobile applications, and services operated by Luminarix, LLC and its subsidiaries and affiliates (collectively, &ldquo;Luminarix,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), including <strong>www.findautoquote.com</strong> (collectively, the &ldquo;Websites&rdquo;). &ldquo;You&rdquo; or &ldquo;user&rdquo; refers to any individual accessing or using the Websites. &ldquo;Providers&rdquo; refers to insurance carriers, agents, and other partners available through our platform. &ldquo;Qualification Form&rdquo; refers to any inquiry or request form you complete on the Websites.
+          This Terms of Use Agreement (&ldquo;Agreement&rdquo;) governs your access to and use of the websites, mobile applications, and services operated by Luminarix, LLC and its subsidiaries and affiliates (collectively, &ldquo;Luminarix,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;), including <strong>www.tryautoquote.com</strong> (collectively, the &ldquo;Websites&rdquo;). &ldquo;You&rdquo; or &ldquo;user&rdquo; refers to any individual accessing or using the Websites. &ldquo;Providers&rdquo; refers to insurance carriers, agents, and other partners available through our platform. &ldquo;Qualification Form&rdquo; refers to any inquiry or request form you complete on the Websites.
         </p>
 
         <Section title="1. Modifications and Eligibility">
@@ -99,7 +99,7 @@ export default function TermsOfUse() {
             <li>A statement, made under penalty of perjury, that the above information is accurate and that you are the copyright owner or are authorized to act on the copyright owner&apos;s behalf.</li>
           </ul>
           <p className="mt-3">
-            Please send copyright infringement notices to: <a href="mailto:support@findautoquote.com" className="text-violet-600 underline">support@findautoquote.com</a>
+            Please send copyright infringement notices to: <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline">support@tryautoquote.com</a>
           </p>
         </Section>
 
@@ -169,7 +169,7 @@ export default function TermsOfUse() {
         <Section title="16. Contact Us">
           <p>If you have any questions about these Terms of Use, please contact us:</p>
           <ul className="mt-3 space-y-1">
-            <li><strong>Email:</strong> <a href="mailto:support@findautoquote.com" className="text-violet-600 underline">support@findautoquote.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline">support@tryautoquote.com</a></li>
             <li><strong>Phone:</strong> (480) 555-0103</li>
             <li>
               <strong>Mail:</strong>

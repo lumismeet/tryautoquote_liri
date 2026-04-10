@@ -316,7 +316,7 @@ function HowItWorks() {
 //     </h2>
 
 //     <p className="text-gray-600 max-w-2xl mx-auto mb-16">
-//       Thousands of drivers trust findautoquote to find them the best auto insurance rates available.
+//       Thousands of drivers trust tryautoquote to find them the best auto insurance rates available.
 //     </p>
 
 //     {/* Testimonials Grid */}
@@ -428,7 +428,7 @@ function HowItWorks() {
         </h2>
 
         <p className="text-gray-600 mb-16">
-          Thousands of drivers trust findautoquote to find them the best auto insurance rates available.
+          Thousands of drivers trust tryautoquote to find them the best auto insurance rates available.
         </p>
 
         {/* Wrapper for Arrows + Card */}

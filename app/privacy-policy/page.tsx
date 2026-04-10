@@ -2,8 +2,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/footer";
 
 export const metadata = {
-  title: "Privacy Policy | FindAutoQuote",
-  description: "Privacy Policy for FindAutoQuote.com, operated by Luminarix, LLC.",
+  title: "Privacy Policy | TryAutoQuote",
+  description: "Privacy Policy for TryAutoQuote.com, operated by Luminarix, LLC.",
 };
 
 export default function PrivacyPolicy() {
@@ -22,7 +22,7 @@ export default function PrivacyPolicy() {
         </p>
 
         <ul className="list-disc pl-6 space-y-2">
-          <li>through our website, <strong>www.findautoquote.com</strong>, and any other websites or mobile apps that we own or operate or where this Privacy Policy is posted or linked (collectively, the &ldquo;Digital Properties&rdquo;) and any services available through the Digital Properties;</li>
+          <li>through our website, <strong>www.tryautoquote.com</strong>, and any other websites or mobile apps that we own or operate or where this Privacy Policy is posted or linked (collectively, the &ldquo;Digital Properties&rdquo;) and any services available through the Digital Properties;</li>
           <li>in connection with the delivery of our products and services to our customers;</li>
           <li>in connection with our business development and marketing activities; and</li>
           <li>through our other offline and business interactions.</li>
@@ -132,7 +132,7 @@ export default function PrivacyPolicy() {
         <Section title="How to Contact Us">
           <p>If you have any questions or comments about this Privacy Policy or our information handling and privacy practices, contact us:</p>
           <ul className="mt-3 space-y-1">
-            <li><strong>Email:</strong> <a href="mailto:support@findautoquote.com" className="text-violet-600 underline">support@findautoquote.com</a></li>
+            <li><strong>Email:</strong> <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline">support@tryautoquote.com</a></li>
             <li><strong>Phone:</strong> (480) 555-0103</li>
             <li>
               <strong>Mail:</strong>
