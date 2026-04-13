@@ -14,136 +14,246 @@ export default function PrivacyPolicy() {
       <main className="flex-1 max-w-4xl mx-auto px-6 py-32 space-y-10">
         <div>
           <h1 className="text-3xl font-bold text-black mb-2">Privacy Policy</h1>
-          <p className="text-sm text-gray-500">Last Updated: March 11, 2026</p>
+          <p className="text-sm text-gray-500">Last Updated: 03/16/2025</p>
         </div>
 
         <p>
-          Luminarix, LLC, and its subsidiaries and affiliates (collectively, &ldquo;Luminarix,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) are committed to maintaining your confidence and trust as it relates to the privacy and security of your personal information. This Privacy Policy describes how we use, disclose, and protect the personal information collected:
+          Thank you for using our website located at tryautoquote.com (&ldquo;Website&rdquo;), through which we offer various applications, widgets, email notifications and other services (&ldquo;Services&rdquo;). TryAutoQuote (&ldquo;TryAutoQuote,&rdquo; &ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) has created this Privacy Policy to let you know what information we collect when you visit the Website, and how we use and share this information.
         </p>
 
-        <ul className="list-disc pl-6 space-y-2">
-          <li>through our website, <strong>www.tryautoquote.com</strong>, and any other websites or mobile apps that we own or operate or where this Privacy Policy is posted or linked (collectively, the &ldquo;Digital Properties&rdquo;) and any services available through the Digital Properties;</li>
-          <li>in connection with the delivery of our products and services to our customers;</li>
-          <li>in connection with our business development and marketing activities; and</li>
-          <li>through our other offline and business interactions.</li>
-        </ul>
+        <p>This Website and the Services are intended for U.S. residents only.</p>
 
-        <p>
-          In this Privacy Policy, &ldquo;personal information&rdquo; means any information that identifies, relates to, describes, is reasonably capable of being associated with, or could reasonably be linked, directly or indirectly, to an individual. Please carefully review this Privacy Policy to learn more about our information handling and privacy practices.
-        </p>
-
-        <Section title="Personal Information We Collect">
-          <p>Depending on your use of the Services and how you otherwise interact with us, we may collect or obtain information from and about you in several ways, including: (1) directly from you; (2) automatically when you visit and interact with the Digital Properties; and (3) from third parties.</p>
-
-          <SubSection title="Information Provided by You">
-            <p>When you visit and interact with the Digital Properties or otherwise engage with us, we collect personal information that you share with us. The categories of personal information we may collect directly from you include:</p>
-            <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li>Contact information, including your name, street address, telephone number, and email address.</li>
-              <li>Identifying information, including your account name, date of birth, and other identifiers.</li>
-              <li>Correspondence and communications, including recordings of our email and phone conversations with you.</li>
-              <li>Preferences, including how frequently you wish to receive marketing and promotional communications from us.</li>
-              <li>Other information you choose to provide, including information in any web forms you complete and submit on the Digital Properties.</li>
-            </ul>
-          </SubSection>
-
-          <SubSection title="Information Collected Through Automated Means">
-            <p>When you visit and interact with the Digital Properties, we (and our service providers and partners) may use cookies, pixels, web beacons, SDKs, and other similar tracking technologies to collect certain information automatically, including:</p>
-            <ul className="list-disc pl-6 space-y-1 mt-2">
-              <li><strong>Device information</strong> — including your IP address, device location, browser type, and operating system.</li>
-              <li><strong>Usage information</strong> — including visit dates and times, pages visited, time spent on pages, and click-stream data.</li>
-            </ul>
-          </SubSection>
-
-          <SubSection title="Analytics">
-            <p>We use third-party analytics tools to better understand who is using the Digital Properties and how they are used, in order to improve the effectiveness of our content and services.</p>
-          </SubSection>
-
-          <SubSection title="Interest-Based Advertising">
-            <p>We use third-party tools and services to serve interest-based advertisements to you across the internet. Our third-party service providers use collected information to serve advertisements and measure the performance of our advertising campaigns.</p>
-          </SubSection>
-
-          <SubSection title="Information Collected from Other Sources">
-            <p>We may obtain your personal information from other sources, including credit bureaus, service providers, lead generators, social media platforms, and other partners. This information may include contact details, demographic data, financial information, and internet activity information.</p>
-          </SubSection>
+        <Section title="What We Do">
+          <p>
+            We help consumers shop for insurance, discounted health plans, and other products by connecting consumers with insurance companies, insurance agents, discount program representatives, and vendors who also help match consumers with insurance providers and other third parties (&ldquo;Service Providers&rdquo;).
+          </p>
         </Section>
 
-        <Section title="How We Use Personal Information">
-          <p>We may use personal information we collect for the following purposes:</p>
-          <ul className="list-disc pl-6 space-y-1 mt-2">
-            <li><strong>Providing the Services</strong> — to operate, maintain, support, and provide the Services.</li>
-            <li><strong>Communicating with you</strong> — including administrative updates, responses to your inquiries, and important notices.</li>
-            <li><strong>Sending marketing and promotional communications</strong> — emails and alerts about products or services that may interest you.</li>
-            <li><strong>Personalizing the Services</strong> — to tailor content and your experience with us.</li>
-            <li><strong>Interest-based advertising</strong> — to serve you relevant ads on our Digital Properties or across other platforms.</li>
-            <li><strong>Conducting research and analytics</strong> — to analyze usage trends and improve our Services.</li>
-            <li><strong>Maintaining security and preventing fraud</strong> — to monitor systems and protect against unauthorized activity.</li>
-            <li><strong>Satisfying legal obligations</strong> — including complying with applicable law and responding to lawful government requests.</li>
-            <li><strong>Supporting business operations</strong> — including general administration and business transactions.</li>
+        <Section title="Information Collection">
+          <p>
+            When using our Website, you may voluntarily provide information about yourself, including your name, home address, telephone number, email address, date of birth, gender, and income. We may also collect current insurance information, type of automobile you drive, home ownership status, military affiliation, credit score, and other demographic information that you provide to us.
+          </p>
+          <p className="mt-3">
+            We (and other entities) may also automatically collect information relating to your interactions with us and our Website, including internet protocol (IP) addresses, browser type, internet service provider (ISP), referring/exit pages, operating system, date and time of visit, internet tags, device type, clickstream data, and other activities on the Website. We may combine this automatically collected information with other information we collect about you. We do this to improve services we offer you, and to improve marketing, analytics, and Website functionality. We and our marketing partners, affiliates, and analytics and service providers use technologies such as cookies, beacons, tags, and scripts to collect this data. These technologies are used in analyzing trends, administering the Website, tracking users&apos; movements around the Website, and gathering demographic information about our user base. You can set your browser to reject cookies. If you reject cookies, you may still use the Website, but your ability to use some features or areas of our Website may be limited.
+          </p>
+        </Section>
+
+        <Section title="Information Use">
+          <p>We may use your information for any lawful purpose, including the following:</p>
+          <ul className="list-disc pl-6 space-y-2 mt-3">
+            <li>To deliver our products and services to you (including matching you with insurance providers and Service Providers);</li>
+            <li>To perform services, such as account servicing, processing orders and payments, and analytics;</li>
+            <li>To maintain and improve our services;</li>
+            <li>To display customized content and advertising;</li>
+            <li>To conduct research and analysis (including internal research for technological improvement);</li>
+            <li>To ensure that the Website is functioning properly (including debugging);</li>
+            <li>To aid us in developing new services;</li>
+            <li>To aid us in internal operations (including auditing our interactions with you);</li>
+            <li>To alert you to product updates, special offers, updated information, and other new services;</li>
+            <li>To contact you in response to your requests for information;</li>
+            <li>To send newsletters and other information to you;</li>
+            <li>To provide you quotes from Service Providers who may contact you using the information you provide;</li>
+            <li>To detect and protect against security incidents, fraud, and illegal activity;</li>
+            <li>To ensure legal compliance;</li>
+            <li>To obtain additional information needed from you; and</li>
+            <li>With your consent, or as otherwise disclosed at the time information is collected.</li>
           </ul>
         </Section>
 
-        <Section title="How We Disclose Personal Information">
-          <p>We may disclose personal information we collect from and about you with the following categories of recipients:</p>
-          <ul className="list-disc pl-6 space-y-1 mt-2">
-            <li><strong>Affiliates and Subsidiaries</strong> — other entities within the Luminarix family of brands.</li>
-            <li><strong>Network Partners</strong> — lenders, insurers, and other third parties in our network to deliver the products and services you requested.</li>
-            <li><strong>Service Providers</strong> — third parties that provide technical support and administer activities on our behalf.</li>
-            <li><strong>Analytics Providers</strong> — parties that assist us in measuring the effectiveness of the Services.</li>
-            <li><strong>Marketing and Advertising Partners</strong> — including social media platforms and advertising networks.</li>
-            <li><strong>Governmental and Public Authorities</strong> — as required or permitted by applicable law.</li>
-            <li><strong>Business Transaction Parties</strong> — in connection with any merger, acquisition, or sale of assets.</li>
-            <li><strong>Other Parties</strong> — as necessary to comply with law, protect our rights, or pursue available remedies.</li>
+        <Section title="Information Sharing">
+          <p>We may share the information we collect with other parties, including the following:</p>
+          <ul className="list-disc pl-6 space-y-2 mt-3">
+            <li>Insurance providers and Service Providers;</li>
+            <li>Advertising networks;</li>
+            <li>Internet service providers;</li>
+            <li>Data analytics providers;</li>
+            <li>Operating systems and platforms;</li>
+            <li>Social networks;</li>
+            <li>Consumer data resellers;</li>
+            <li>Our subsidiaries, corporate affiliates, and related companies, including any that we may have in the future;</li>
+            <li>Our vendors and service providers for the purpose of verifying data and where such access is incidental to their providing us services, such as phone number verification services and email service providers;</li>
+            <li>Pursuant to a subpoena, court order, governmental inquiry, or other legal process or as otherwise required by law, to protect our rights or the rights of Service Providers, or to protect the safety or security of any person or entity;</li>
+            <li>As part of a corporate sale, merger, or acquisition, or other transfer of all or part of our assets, including as part of a bankruptcy proceeding;</li>
+            <li>As part of a promotion or program (e.g. sweepstakes, contests, giveaways, or other promotions) that you choose to participate in that is offered by us, either alone or with third parties;</li>
+            <li>With your consent or as otherwise disclosed at the time of data collection and sharing.</li>
           </ul>
+          <p className="mt-3">We may share information that has been de-identified or aggregated without limitation.</p>
+        </Section>
+
+        <Section title="Your Consent to Text Message and Telephone Marketing">
+          <p>
+            By submitting your telephone number on the Website, you expressly authorize us and Service Providers and their agents and partner companies to contact you, at the telephone number you provide, with informational and marketing messages and telephone calls including those sent via automated telephone dialing system, text messages, SMS, MMS, picture messages, live and prerecorded telephone calls, including on landlines and wireless numbers, even if the phone number you provide is on a corporate, state, or national Do Not Call list. Your consent is not required to purchase goods or services. Message &amp; data rates may apply. You may revoke your consent at any time by contacting us at:{" "}
+            <a href="/contact" className="text-violet-600 underline hover:text-violet-800">tryautoquote.com/contact</a>{" "}
+            or by writing to us at{" "}
+            <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">support@tryautoquote.com</a>.
+          </p>
+        </Section>
+
+        <Section title="Third Party Links and Tools">
+          <p>
+            Our Website may provide links to third-party websites and services. We do not control the privacy practices of those websites or services, and they are not covered by this Privacy Policy. You should review the privacy policies of other websites that you use to learn about their data practices.
+          </p>
+          <p className="mt-3">
+            Additionally, certain personally identifiable information may be made available to third parties using our Application Programming Interface (&ldquo;API&rdquo;). Use of third-party applications developed using our API are subject to the terms of use and privacy policies of such third-party developers. You should be aware that such third-party applications may share user information. Further, as explained more below, we may use third-party services such as Google Analytics to help us understand how users use the Website or Service and to improve the ways in which we interact with users, including the refinement of interest-based ads displayed to users. Such services, including Google Analytics, may collect information about your use of the Website or Service through cookies, advertising identifiers, and other technologies. The collection and use of data by such third parties, including Google Analytics, are subject to their privacy policies.
+          </p>
         </Section>
 
         <Section title="Your Choices">
-          <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Marketing Communications:</strong> You can opt out of receiving marketing emails at any time by clicking &ldquo;Unsubscribe&rdquo; in any communication or by contacting us directly.</li>
-            <li><strong>Cookies:</strong> You may adjust your browser or device settings to limit tracking or decline cookies. Additional information: <a href="https://allaboutcookies.org/" className="text-violet-600 underline" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.</li>
-            <li><strong>Interest-Based Advertising:</strong> You may opt out via the DAA at <a href="https://optout.aboutads.info/" className="text-violet-600 underline" target="_blank" rel="noopener noreferrer">optout.aboutads.info</a> or the NAI at <a href="https://optout.networkadvertising.org/" className="text-violet-600 underline" target="_blank" rel="noopener noreferrer">optout.networkadvertising.org</a>.</li>
-            <li><strong>Access and Correction:</strong> You may request access to or correction of certain personal information by contacting us using the details below.</li>
-          </ul>
+          <p>
+            When you submit personally identifiable information to us, you agree to receive email, fax, telephone, text messages, and other forms of communications from or on behalf of us and third parties with whom we share your information. If you would like to opt-out of receiving promotional or marketing material from us in the future, please follow the opt-out instructions located at the bottom of each promotional or marketing email communication or email us at{" "}
+            <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">support@tryautoquote.com</a>. Please note that even if you opt-out of receiving marketing messages from us, you may continue to receive messages concerning any transaction you make with us or comments or inquiries you submit to us.
+          </p>
+          <p className="mt-3">
+            If you would like to opt-out of having your information shared with third parties for their direct marketing purposes, you may write to us at{" "}
+            <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">support@tryautoquote.com</a>. If you do not wish to receive communications from any person or entity with whom we have shared your information for their marketing purposes, you must contact them directly.
+          </p>
+          <p className="mt-3">
+            For choices with respect to third-party interest-based advertising activities, please see the &ldquo;Digital Advertising &amp; Analytics&rdquo; section below.
+          </p>
         </Section>
 
-        <Section title="Information Security">
-          <p>We maintain physical, electronic, and procedural measures designed to safeguard your personal information from unauthorized access and disclosure. However, no system can be completely secure, and we cannot guarantee that your information will always remain secure.</p>
+        <Section title="Digital Advertising and Analytics">
+          <p>
+            TryAutoQuote adheres to the Digital Advertising Alliance (&ldquo;DAA&rdquo;) Self-Regulatory Principles in connection with interest-based advertising. We may partner with ad networks and other ad serving providers (&ldquo;Advertising Providers&rdquo;) that serve ads on behalf of us and others on non-affiliated platforms. Some of those ads may be personalized, meaning that they are intended to be relevant to you based on information Advertising Providers collect about your use of the Website and other websites or apps over time, including information about relationships among different browsers and devices. This type of advertising is known as interest-based advertising.
+          </p>
+          <p className="mt-3">
+            You may visit the DAA Webchoices tool at{" "}
+            <a href="https://www.aboutads.info" className="text-violet-600 underline hover:text-violet-800" target="_blank" rel="noopener noreferrer">www.aboutads.info</a>{" "}
+            to learn more about this type of advertising and how to opt out of this advertising on websites by companies participating in the DAA self-regulatory program. You can also exercise choices regarding interest-based advertising on your mobile device by downloading the appropriate version of the DAA&apos;s AppChoices tool at{" "}
+            <a href="https://youradchoices.com/appchoices" className="text-violet-600 underline hover:text-violet-800" target="_blank" rel="noopener noreferrer">https://youradchoices.com/appchoices</a>.
+          </p>
+          <p className="mt-3">
+            If you delete your cookies or use a different browser or mobile device, you may need to renew your opt-out choices exercised through the DAA Webchoices tool. Note that electing to opt out will not stop advertising from appearing in your browser or applications. It may make the ads you see less relevant to your interests. Additionally, your browser may offer tools to limit the use of cookies or to delete cookies; however, if you use these tools, our Website may not function as intended.
+          </p>
+          <p className="mt-3">
+            We may also work with third parties that collect data about your use of the Website and other sites or apps over time for non-advertising purposes. We use Google Analytics and other third-party services to improve the performance of the Website and for analytics and marketing purposes. For more information about how Google Analytics collects and uses data when you use our Website, visit{" "}
+            <a href="https://www.google.com/policies/privacy/partners" className="text-violet-600 underline hover:text-violet-800" target="_blank" rel="noopener noreferrer">www.google.com/policies/privacy/partners</a>, and to opt out of Google Analytics, visit{" "}
+            <a href="https://tools.google.com/dlpage/gaoptout" className="text-violet-600 underline hover:text-violet-800" target="_blank" rel="noopener noreferrer">tools.google.com/dlpage/gaoptout</a>.
+          </p>
         </Section>
 
-        <Section title="Information Retention">
-          <p>We will retain your personal information at least as long as necessary to fulfill the purposes outlined in this Privacy Policy, including to satisfy legal or reporting requirements, unless a longer retention period is required or allowed under law.</p>
+        <Section title="State Privacy Rights">
+          <p>
+            Residents of certain states have rights under state privacy laws with respect to personal information we collect. If you are a resident of such states, this section of the Privacy Policy contains disclosures required by law and explains rights that may be available to you.
+          </p>
+
+          <SubSection title="Personal Information We Collect and Disclose">
+            <p>In the preceding 12 months, we collected, disclosed for a business purpose, and sold the following categories of personal information about consumers:</p>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>Personal and online identifiers (such as first and last name, email address, or unique online identifiers);</li>
+              <li>Recordkeeping information (such as physical characteristics or description, insurance policy number, bank account number, credit card number, debit card number, or any other financial information, medical information, or health insurance information);</li>
+              <li>Characteristics of legally protected classifications (such as race, gender);</li>
+              <li>Status as transgender or nonbinary;</li>
+              <li>Commercial or transactions information (such as records of personal property or products or services purchased, obtained or considered);</li>
+              <li>Internet or other electronic network activity information (such as browsing history, search history, interactions with a website, email, application, or advertisement);</li>
+              <li>Geolocation information;</li>
+              <li>Professional or employment-related information;</li>
+              <li>Education information;</li>
+              <li>Inferences drawn from the above information about your predicted characteristics and preferences;</li>
+              <li>Sensory information (such as audio, electronic, visual, thermal, olfactory, or similar information); and</li>
+              <li>Other information about you that is linked to the personal information above.</li>
+            </ul>
+          </SubSection>
+
+          <SubSection title="Sensitive Personal Information">
+            <p>
+              Some of the categories of personal information listed above are considered sensitive personal information under certain state privacy laws. <strong>NOTICE: We may sell your sensitive personal data.</strong>
+            </p>
+          </SubSection>
+
+          <SubSection title="Categories of Sources">
+            <p>We collect personal information from the following categories of sources:</p>
+            <ul className="list-disc pl-6 space-y-1 mt-2">
+              <li>Consumers; and</li>
+              <li>Service providers.</li>
+            </ul>
+          </SubSection>
+
+          <SubSection title="Our Purposes for Processing Personal Information">
+            <p>
+              We use and disclose the personal information we collect for our commercial and business purposes, as further described above in the &ldquo;Information Use&rdquo; section of this Privacy Policy.
+            </p>
+          </SubSection>
+
+          <SubSection title="Recipients of Personal Information">
+            <p>
+              We disclose the categories of personal information designated above in the &ldquo;Information Sharing&rdquo; section of this Privacy Policy for commercial and business purposes.
+            </p>
+            <p className="mt-3">We sell the categories of personal information designated above to the categories of third parties listed below:</p>
+            <ul className="list-disc pl-6 space-y-1 mt-2">
+              <li>Advertising/marketing companies;</li>
+              <li>Advertising networks;</li>
+              <li>Marketing data companies;</li>
+              <li>Data analytics providers;</li>
+              <li>Operating systems and platforms;</li>
+              <li>Consumer data resellers;</li>
+              <li>Financial services companies; and</li>
+              <li>Insurance companies and Brokers.</li>
+            </ul>
+          </SubSection>
+
+          <SubSection title="Your Rights Regarding Personal Information">
+            <p>
+              Residents of certain states have rights with respect to the personal information collected by businesses. If you are a resident in one of these states, you may exercise the following rights regarding your personal information, subject to certain exceptions and limitations:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>The right to confirm whether we are processing personal information about you.</li>
+              <li>The right to correct inaccuracies in the personal information we have collected about you.</li>
+              <li>The right to know the categories and specific pieces of personal information we collect, use, disclose, and sell about you, the categories of sources from which we collected your personal information, our purposes for collecting or selling your personal information, the categories of your personal information that we have either sold or disclosed for a business purpose, and the categories of third parties with which we have shared personal information.</li>
+              <li>Depending on your state, the right to receive a portable and readily usable copy of the personal information we have collected about you, to the extent feasible.</li>
+              <li>The right to request that we delete the personal information we have collected from you.</li>
+              <li>The right to opt out of (i) the sharing of personal information for targeted advertising; (ii) the sale(s) of personal information; or (iii) profiling for decisions that have significant effects. Please note that if you opt out of certain types of sales, we will be unable to provide you with the services that rely on such sales.</li>
+              <li>
+                Choice regarding sensitive information. Depending on your state, you can:
+                <ul className="list-disc pl-6 space-y-1 mt-2">
+                  <li>Limit our processing of certain &ldquo;sensitive&rdquo; personal information;</li>
+                  <li>Opt out of our processing of certain &ldquo;sensitive&rdquo; information; or</li>
+                  <li>Withdraw consent for such processing if you previously gave it.</li>
+                </ul>
+              </li>
+              <li>The right not to receive discriminatory treatment for the exercise of the above privacy rights.</li>
+            </ul>
+            <p className="mt-3">To exercise any of the above rights, please contact us using the following information and submit the required verifying information, as further described below:</p>
+            <ul className="list-disc pl-6 space-y-2 mt-3">
+              <li>To opt out of sales of personal information or the sharing of personal information for interest-based advertising, click the &ldquo;Do Not Sell or Share My Personal Information&rdquo; link in the footer of the website.</li>
+              <li>By email at <a href="mailto:privacyrights@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">privacyrights@tryautoquote.com</a></li>
+            </ul>
+            <p className="mt-3">
+              Additionally, for residents of certain states, if you have submitted a request that we have not reasonably fulfilled, you may contact us to appeal our decision by sending an email with the subject line &ldquo;Appeal - [Insert Your State of Residence]&rdquo; to{" "}
+              <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">support@tryautoquote.com</a>.
+            </p>
+          </SubSection>
+
+          <SubSection title="Verification Process and Required Information">
+            <p>
+              We might need to request information from you to verify your identity or understand the scope of your request, although you will not be required to create an account with us to submit a request or have it fulfilled. We require you to provide, at a minimum, your first and last name, email address, city, zip code, and telephone number in order to verify your identity and honor your request. If we cannot successfully verify your identity, or if the information would be too sensitive to disclose, we may not be able to provide the personal information to you.
+            </p>
+          </SubSection>
+
+          <SubSection title="Authorized Agent">
+            <p>
+              Depending on your state of residence, you may designate an authorized agent to make requests on your behalf by providing them written permission to submit a request. If you designate an authorized agent to make a request on your behalf, we will require the agent to submit proof of your written authorization by email at{" "}
+              <a href="mailto:privacyrights@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">privacyrights@tryautoquote.com</a>{" "}
+              as well as your verification details, including your first and last name, email address, city, zip code, and telephone number. We may request additional information to verify the request.
+            </p>
+          </SubSection>
+
+          <SubSection title="Minors' Rights">
+            <p>We do not have actual knowledge that we sell the personal information of minors (individuals under 18 years of age).</p>
+          </SubSection>
         </Section>
 
-        <Section title="Third-Party Services">
-          <p>The Digital Properties may contain features or links to websites and services provided by third parties, which are not governed by this Privacy Policy. We encourage you to review all third parties&apos; privacy policies before providing them with your personal information.</p>
+        <Section title="Changes to Our Privacy Policy">
+          <p>
+            We may occasionally update this Privacy Policy. When we make changes, we will also post the &ldquo;last update&rdquo; on the Privacy Policy. We encourage you to periodically review this Privacy Policy to stay informed about how we use and share the information we collect.
+          </p>
         </Section>
 
-        <Section title="Children's Privacy">
-          <p>The Services are not intended for or directed to individuals under the age of 18, and we do not knowingly collect personal information from individuals under the age of 18.</p>
-        </Section>
-
-        <Section title="Services Limited to the United States">
-          <p>Our Digital Properties are designed to provide services in the United States and are governed by the laws of the United States. All Services may not be available in all U.S. states or territories.</p>
-        </Section>
-
-        <Section title="Changes to This Privacy Policy">
-          <p>We may update this Privacy Policy from time to time to reflect changes in our information handling and privacy practices. The &ldquo;Last Updated&rdquo; date at the top of this page indicates when this Privacy Policy was last revised. We encourage you to review this Privacy Policy periodically.</p>
-        </Section>
-
-        <Section title="How to Contact Us">
-          <p>If you have any questions or comments about this Privacy Policy or our information handling and privacy practices, contact us:</p>
-          <ul className="mt-3 space-y-1">
-            <li><strong>Email:</strong> <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline">support@tryautoquote.com</a></li>
-            <li><strong>Phone:</strong> (480) 555-0103</li>
-            <li>
-              <strong>Mail:</strong>
-              <address className="not-italic mt-1 ml-4">
-                Compliance Officer<br />
-                Luminarix, LLC<br />
-                457 Washington Ave<br />
-                United States
-              </address>
-            </li>
-          </ul>
+        <Section title="Contact Us">
+          <p>
+            If you have any questions, comments, or concerns about us or this Privacy Policy, please contact us via email at{" "}
+            <a href="mailto:support@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">support@tryautoquote.com</a>.
+          </p>
         </Section>
       </main>
 
