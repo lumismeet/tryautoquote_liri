@@ -529,7 +529,7 @@ function ParaWorks() {
             </span>
             <br />
             <span className="border-b-4 border-violet-400 pb-1">
-              Luminauto work?
+              TryAutoQuote work?
             </span>
           </h2>
 
