@@ -61,7 +61,7 @@ export default function Home() {
     router.push("/quote/1_map");
   }
   return (
-    <div className="relative h-[100vh] w-full text-black bg-[#EBF2FB]">
+    <div className="relative min-h-screen w-full text-black bg-[#EBF2FB]">
       <div className="relative z-10">
         <Navbar onQuoteClick={focusZip} />
         <HeroSection zipRef={zipRef} />
