@@ -561,10 +561,10 @@ function ParaWorks() {
         <div className="flex justify-center md:justify-end">
           <div className="relative w-48 h-48 sm:w-64 sm:h-64 md:w-[300px] md:h-[300px]">
             <Image
-              src="/logo-test1.png"
-              alt="Illustration"
+              src="/logo_try.svg"
+              alt="TryAutoQuote"
               fill
-              className="object-contain rounded-2xl"
+              className="object-contain"
             />
           </div>
         </div>
