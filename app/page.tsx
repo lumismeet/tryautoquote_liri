@@ -693,13 +693,10 @@ function CtaSection2(){
 
       <p className="text-gray-600 max-w-md mb-6">
         Have questions or want personalized guidance? Our licensed insurance
-        specialists are here to walk you through your options.
+        specialists are here to walk you through your options. Please feel free to email us
       </p>
 
-      <p className="text-xl font-semibold text-gray-900">
-        (+1) 900-999-9999
-      </p>
-
+      
     </div>
 
   </div>
