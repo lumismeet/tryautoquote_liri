@@ -86,7 +86,7 @@ export default function Question1() {
                 placeholder="Enter ZIP code"
                 value={formData.zipcode ?? ""}
                 onChange={handleZipChange}
-                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:border-violet-400"
+                className="w-full border border-gray-300 rounded-lg px-4 py-3 text-gray-700 focus:outline-none focus:border-[#2B5BA8]"
               />
             </div>
 
@@ -100,8 +100,8 @@ export default function Question1() {
                     rounded-xl p-6 border transition shadow-sm
                     ${
                       currentVehicle?.vehicleMake === make.name
-                        ? "bg-violet-100 border-violet-400"
-                        : "bg-white border-gray-200 hover:border-violet-500 hover:bg-violet-50"
+                        ? "bg-[#EBF2FB] border-[#2B5BA8]"
+                        : "bg-white border-gray-200 hover:border-[#2B5BA8] hover:bg-[#EBF2FB]"
                     }`}
                 >
                   <div className="relative w-16 h-16 mb-4">
@@ -126,7 +126,7 @@ export default function Question1() {
                 value={currentVehicle?.vehicleMake ?? ""}
                 onChange={(e) => setVehicleMake(e.target.value)}
                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3 
-                  text-gray-700 focus:outline-none focus:border-violet-400"
+                  text-gray-700 focus:outline-none focus:border-[#2B5BA8]"
               >
                 <option value="">Select a brand</option>
                 <option value="Audi">Audi</option>
@@ -149,7 +149,7 @@ export default function Question1() {
               className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
                 ${
                   currentVehicle?.vehicleMake
-                    ? "bg-[#7C3AED] hover:bg-violet-600 text-white"
+                    ? "bg-[#2B5BA8] hover:bg-[#0C2340] text-white"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
             >

@@ -6,13 +6,13 @@ export default function Footer() {
     <footer>
 
       {/* TOP FOOTER */}
-      <div className="bg-[#4C1D95] text-white py-16">
+      <div className="bg-[#042C53] text-white py-16">
         <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-5 gap-12">
 
           {/* Column 1 */}
           <div>
             <h4 className="font-semibold mb-6">Company Info</h4>
-            <ul className="space-y-3 text-violet-200">
+            <ul className="space-y-3 text-[#B5D4F4]">
               <li>About Us</li>
               <li>Carrier</li>
               <li>We are hiring</li>
@@ -23,7 +23,7 @@ export default function Footer() {
           {/* Column 2 */}
           <div>
             <h4 className="font-semibold mb-6">Legal</h4>
-            <ul className="space-y-3 text-violet-200">
+            <ul className="space-y-3 text-[#B5D4F4]">
               <li>
                 <Link href="/privacy-policy" className="hover:text-white transition">
                   Privacy Policy
@@ -42,7 +42,7 @@ export default function Footer() {
           {/* Column 3 */}
           <div>
             <h4 className="font-semibold mb-6">Features</h4>
-            <ul className="space-y-3 text-violet-200">
+            <ul className="space-y-3 text-[#B5D4F4]">
               <li>Business Marketing</li>
               <li>User Analytic</li>
               <li>Live Chat</li>
@@ -53,7 +53,7 @@ export default function Footer() {
           {/* Column 4 */}
           <div>
             <h4 className="font-semibold mb-6">Resources</h4>
-            <ul className="space-y-3 text-violet-200">
+            <ul className="space-y-3 text-[#B5D4F4]">
               <li>iOS & Android</li>
               <li>Watch a Demo</li>
               <li>Customers</li>
@@ -65,7 +65,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-6">Get In Touch</h4>
 
-            <div className="space-y-4 text-violet-200">
+            <div className="space-y-4 text-[#B5D4F4]">
 
               <div className="flex items-center gap-3">
                 <Phone size={18} />
@@ -96,7 +96,7 @@ export default function Footer() {
             Made With Love By Luminarix All Right Reserved
           </p>
 
-          <div className="flex gap-5 text-violet-500">
+          <div className="flex gap-5 text-[#2B5BA8]">
             <Facebook size={18} />
             <Instagram size={18} />
             <Twitter size={18} />

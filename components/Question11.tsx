@@ -87,7 +87,7 @@ export default function Question11() {
             <button
               onClick={handleContinue}
               disabled={isDisabled}
-              className="mt-8 bg-[#7C3AED] hover:bg-violet-600 
+              className="mt-8 bg-[#2B5BA8] hover:bg-[#0C2340] 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"
@@ -128,8 +128,8 @@ function QuestionBlock({
             className={`w-full py-6 rounded-xl border transition shadow-sm text-lg font-semibold
               ${
                 value === option
-                  ? "bg-violet-100 border-violet-400 text-black"
-                  : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50 text-black"
+                  ? "bg-[#EBF2FB] border-[#2B5BA8] text-black"
+                  : "bg-white border-gray-200 hover:border-[#378ADD] hover:bg-[#EBF2FB] text-black"
               }`}
           >
             {option}

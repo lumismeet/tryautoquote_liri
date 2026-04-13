@@ -52,7 +52,7 @@ export default function Question12() {
                 }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-gray-700
-                           focus:outline-none focus:border-violet-400"
+                           focus:outline-none focus:border-[#2B5BA8]"
               >
                 <option value="">Select Education</option>
                 <option value="High School">High School</option>
@@ -76,7 +76,7 @@ export default function Question12() {
                 }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-gray-700
-                           focus:outline-none focus:border-violet-400"
+                           focus:outline-none focus:border-[#2B5BA8]"
               >
                 <option value="">Select Credit Score</option>
                 <option value="Excellent (750+)">Excellent (750+)</option>
@@ -93,7 +93,7 @@ export default function Question12() {
             <button
               onClick={handleContinue}
               disabled={isDisabled}
-              className="mt-8 bg-[#7C3AED] hover:bg-violet-600 
+              className="mt-8 bg-[#2B5BA8] hover:bg-[#0C2340] 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-10 py-3 rounded-lg 
                          font-semibold shadow-md"

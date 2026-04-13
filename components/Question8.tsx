@@ -58,7 +58,7 @@ export default function Question8() {
                 <button
                   key={option}
                   onClick={() => handleSelect(option)}
-                  className="w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
+                  className="w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold bg-white border-gray-200 hover:border-[#378ADD] hover:bg-[#EBF2FB]"
                 >
                   {option}
                 </button>

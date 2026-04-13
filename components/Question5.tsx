@@ -54,8 +54,8 @@ export default function Question5() {
                   className={`w-full py-6 rounded-xl border transition shadow-sm text-lg text-black font-semibold
                     ${
                       formData.vehicles[formData.currentVehicleIndex]?.mileage === option
-                        ? "bg-violet-100 border-violet-400"
-                        : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
+                        ? "bg-[#EBF2FB] border-[#2B5BA8]"
+                        : "bg-white border-gray-200 hover:border-[#378ADD] hover:bg-[#EBF2FB]"
                     }`}
                 >
                   {option}

@@ -59,7 +59,7 @@ export default function Question14() {
                 }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-lg text-gray-700
-                           focus:outline-none focus:border-violet-400"
+                           focus:outline-none focus:border-[#2B5BA8]"
               />
             </div>
 
@@ -77,7 +77,7 @@ export default function Question14() {
                 }
                 className="w-full bg-white border border-gray-300 rounded-xl 
                            px-4 py-4 text-lg text-gray-700
-                           focus:outline-none focus:border-violet-400"
+                           focus:outline-none focus:border-[#2B5BA8]"
               />
             </div>
 
@@ -85,7 +85,7 @@ export default function Question14() {
             <button
               onClick={handleContinue}
               disabled={isDisabled}
-              className="mt-6 bg-[#7C3AED] hover:bg-violet-600 
+              className="mt-6 bg-[#2B5BA8] hover:bg-[#0C2340] 
                          disabled:opacity-40 disabled:cursor-not-allowed
                          transition text-white px-14 py-4 rounded-lg 
                          text-lg font-semibold shadow-md"

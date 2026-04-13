@@ -61,7 +61,7 @@ export default function Home() {
     router.push("/quote/1_map");
   }
   return (
-    <div className="relative h-[100vh] w-full text-black bg-[#F3E8FF]">
+    <div className="relative h-[100vh] w-full text-black bg-[#EBF2FB]">
       <div className="relative z-10">
         <Navbar onQuoteClick={focusZip} />
         <HeroSection zipRef={zipRef} />
@@ -114,16 +114,16 @@ function Navbar({ onQuoteClick }: NavbarProps) {
 
         {/* Links (desktop only) */}
         <div className="hidden md:flex items-center gap-8 text-sm text-black">
-          <Link href="#" className="hover:text-violet-700 transition">
+          <Link href="#" className="hover:text-[#0C2340] transition">
             Home
           </Link>
-          <Link href="#" className="hover:text-violet-700 transition">
+          <Link href="#" className="hover:text-[#0C2340] transition">
             Product
           </Link>
-          <Link href="#" className="hover:text-violet-700 transition">
+          <Link href="#" className="hover:text-[#0C2340] transition">
             Pricing
           </Link>
-          <Link href="#" className="hover:text-violet-700 transition">
+          <Link href="#" className="hover:text-[#0C2340] transition">
             Contact
           </Link>
         </div>
@@ -131,7 +131,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
         {/* Quote Button */}
         <button
           onClick={onQuoteClick}
-          className="bg-[#7C3AED] text-white hover:bg-violet-700 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
+          className="bg-[#2B5BA8] text-white hover:bg-[#0C2340] transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
         >
           Get a Quote →
         </button>
@@ -142,7 +142,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
 
 function HeroSection({ zipRef }: HeroSectionProps) {
   const [zipcode, setZipcode] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [errors, setError] = useState("");
   const { updateForm } = useForm();
   const router = useRouter();
@@ -190,7 +190,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="mt-3 sm:mt-0 sm:ml-0 bg-[#7C3AED] text-white hover:bg-violet-700 transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold cursor-pointer"
+              className="mt-3 sm:mt-0 sm:ml-0 bg-[#2B5BA8] text-white hover:bg-[#0C2340] transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold cursor-pointer"
             >
               {loading ? "Loading..." : "Get a Quote →"}
             </button>
@@ -204,7 +204,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
         <div className="flex justify-center md:justify-end mt-10 md:mt-0">
           <div className="relative w-[220px] sm:w-[280px] md:w-[320px] h-[220px] sm:h-[280px] md:h-[320px]">
             <Image
-              src="/ill-violet1.svg"
+              src="/ill_hero_blue.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -226,7 +226,7 @@ function HowItWorks() {
 
           {/* Step 1 */}
           <div className="flex flex-col items-center">
-            <ClipboardList className="w-12 h-12 text-violet-500 mb-6" />
+            <ClipboardList className="w-12 h-12 text-[#2B5BA8] mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A little Information
@@ -240,7 +240,7 @@ function HowItWorks() {
 
           {/* Step 2 */}
           <div className="flex flex-col items-center">
-            <Car className="w-12 h-12 text-violet-500 mb-6" />
+            <Car className="w-12 h-12 text-[#2B5BA8] mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A bit of Magic
@@ -254,7 +254,7 @@ function HowItWorks() {
 
           {/* Step 3 */}
           <div className="flex flex-col items-center">
-            <DollarSign className="w-12 h-12 text-violet-500 mb-6" />
+            <DollarSign className="w-12 h-12 text-[#2B5BA8] mb-6" />
 
             <h3 className="text-lg font-semibold mb-3 text-gray-900">
               A Lot of Savings
@@ -307,7 +307,7 @@ function HowItWorks() {
 
 // function Testimonials(){
 //   return(
-//     <section className="py-24 bg-[#F3E8FF]">
+//     <section className="py-24 bg-[#EBF2FB]">
 //   <div className="max-w-7xl mx-auto px-20 text-center">
 
 //     {/* Heading */}
@@ -323,11 +323,11 @@ function HowItWorks() {
 //     <div className="grid md:grid-cols-2 gap-10">
 
 //       {/* Card */}
-//       <div className="relative bg-violet-500 text-white rounded-2xl p-10 overflow-hidden">
+//       <div className="relative bg-[#2B5BA8] text-white rounded-2xl p-10 overflow-hidden">
 
 //         {/* Decorative circles */}
-//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
-//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
+//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#378ADD] rounded-full opacity-40" />
+//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#378ADD] rounded-full opacity-40" />
 
 //         <div className="relative z-10">
 //           <p className="text-lg leading-relaxed mb-6">
@@ -360,10 +360,10 @@ function HowItWorks() {
 //       </div>
 
 //       {/* Duplicate Card */}
-//       <div className="relative bg-violet-500 text-white rounded-2xl p-10 overflow-hidden">
+//       <div className="relative bg-[#2B5BA8] text-white rounded-2xl p-10 overflow-hidden">
 
-//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
-//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
+//         <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#378ADD] rounded-full opacity-40" />
+//         <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#378ADD] rounded-full opacity-40" />
 
 //         <div className="relative z-10">
 
@@ -420,7 +420,7 @@ function HowItWorks() {
   }
 
   return (
-    <section className="py-24 bg-[#F3E8FF]">
+    <section className="py-24 bg-[#EBF2FB]">
       <div className="max-w-6xl mx-auto px-6 text-center">
 
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -440,10 +440,10 @@ function HowItWorks() {
   className="
     absolute 
     -left-6 md:-left-16 lg:-left-20
-    bg-white text-violet-600
+    bg-white text-[#0C2340]
     p-2 md:p-4
     rounded-full shadow-lg
-    hover:text-white hover:bg-violet-700
+    hover:text-white hover:bg-[#0C2340]
     transition
     cursor-pointer
     z-100
@@ -453,10 +453,10 @@ function HowItWorks() {
 </button>
 
           {/* CARD */}
-          <div className="relative bg-violet-500 text-white rounded-2xl p-12 max-w-3xl w-full overflow-hidden">
+          <div className="relative bg-[#2B5BA8] text-white rounded-2xl p-12 max-w-3xl w-full overflow-hidden">
             {/* Decorative Circles */}
-            <div className="absolute -top-10 -left-10 w-40 h-40 bg-violet-400 rounded-full opacity-40" />
-            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-violet-400 rounded-full opacity-40" />
+            <div className="absolute -top-10 -left-10 w-40 h-40 bg-[#378ADD] rounded-full opacity-40" />
+            <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#378ADD] rounded-full opacity-40" />
 
             <div className="relative z-10 transition-all duration-500 ease-in-out">
 
@@ -499,10 +499,10 @@ function HowItWorks() {
   className="
     absolute 
     -right-6 md:-right-16 lg:-right-20
-    bg-white text-violet-600
+    bg-white text-[#0C2340]
     p-2 md:p-4
     rounded-full shadow-lg
-    hover:text-white hover:bg-violet-700
+    hover:text-white hover:bg-[#0C2340]
     transition
     cursor-pointer
   "
@@ -518,22 +518,22 @@ function HowItWorks() {
 
 function ParaWorks() {
   return (
-    <section className="bg-[#4C1D95] py-24 text-white">
+    <section className="bg-[#042C53] py-24 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
         <div>
           <h2 className="text-3xl md:text-4xl font-bold mb-8 leading-tight">
-            <span className="border-b-4 border-violet-400 pb-1">
+            <span className="border-b-4 border-[#2B5BA8] pb-1">
               How does
             </span>
             <br />
-            <span className="border-b-4 border-violet-400 pb-1">
+            <span className="border-b-4 border-[#2B5BA8] pb-1">
               TryAutoQuote work?
             </span>
           </h2>
 
-          <div className="space-y-6 text-sm md:text-base leading-relaxed text-violet-100">
+          <div className="space-y-6 text-sm md:text-base leading-relaxed text-[#EBF2FB]">
             <p>
               We take all the information you provide regarding yourself and your
               vehicle and compare it in real time to our live database connected
@@ -576,7 +576,7 @@ function ParaWorks() {
 
 function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
   return (
-    <section className="bg-[#4C1D95] text-white py-24">
+    <section className="bg-[#042C53] text-white py-24">
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE — Illustration */}
@@ -599,7 +599,7 @@ function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
 
           <button
           onClick={onQuoteClick}
-          className="bg-[#2DB89E] hover:bg-[#21907C] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg hover:scale-105 active:scale-95 transition-transform duration-200 cursor-pointer">
+          className="bg-[#2B5BA8] hover:bg-[#0C2340] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg cursor-pointer">
             Get a Quote →
           </button>
         </div>
@@ -634,7 +634,7 @@ function CtaSection2(){
       {/* Illustration Placeholder */}
       <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
-              src="/ill-violet-online.svg"
+              src="/ill_comp_blue.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"
@@ -664,7 +664,7 @@ function CtaSection2(){
 
             <button
               onClick={handleSubmit}
-              className="bg-[#7C3AED] hover:bg-violet-700 transition px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white font-semibold w-full sm:w-auto cursor-pointer"
+              className="bg-[#2B5BA8] hover:bg-[#0C2340] transition px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white font-semibold w-full sm:w-auto cursor-pointer"
             >
               Get a Quote →
             </button>
@@ -680,7 +680,7 @@ function CtaSection2(){
       {/* Illustration Placeholder */}
       <div className="relative w-[248px] h-[148px] md:w-[320px] md:h-[220px]">
             <Image
-              src="/ill-violet-call.svg"
+              src="/ill_mobile_blue.svg"
               alt="Illustration"
               fill
               className="object-contain rounded-2xl"

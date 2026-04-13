@@ -60,8 +60,8 @@ export default function Question2() {
                   className={`py-5 rounded-xl border text-xl font-semibold transition
                     ${
                       currentVehicle?.vehicleYear === year
-                        ? "bg-violet-100 border-violet-400 text-[#1E2A4A]"
-                        : "bg-white border-gray-200 text-[#1E2A4A] hover:border-violet-400"
+                        ? "bg-[#EBF2FB] border-[#2B5BA8] text-[#1E2A4A]"
+                        : "bg-white border-gray-200 text-[#1E2A4A] hover:border-[#2B5BA8]"
                     }`}
                 >
                   {year}
@@ -77,7 +77,7 @@ export default function Question2() {
                   if (e.target.value) setVehicleYear(Number(e.target.value));
                 }}
                 className="w-full bg-white border border-gray-300 rounded-lg px-4 py-3
-                text-gray-700 focus:outline-none focus:border-violet-400"
+                text-gray-700 focus:outline-none focus:border-[#2B5BA8]"
               >
                 <option value="">2004 or older</option>
                 {olderYears.map((year) => (

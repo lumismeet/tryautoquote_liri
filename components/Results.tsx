@@ -4,6 +4,7 @@ import Footer from "./footer";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "@/context/FormContext";
+import { CheckCircle, Star, ShieldCheck, Phone } from "lucide-react";
 
 export default function Results() {
   const router = useRouter();
@@ -16,91 +17,157 @@ export default function Results() {
   const offers = [
     {
       company: "SecureAuto Insurance",
-      price: "$89/month",
+      price: "$89",
       savings: "Save up to $420/year",
+      rating: 4.8,
+      reviews: "2,341 reviews",
+      badge: "Best Value",
+      coverage: ["Liability", "Collision", "Comprehensive"],
+      deductible: "$500 deductible",
     },
     {
       company: "DriveSafe Coverage",
-      price: "$102/month",
+      price: "$102",
       savings: "Save up to $350/year",
+      rating: 4.6,
+      reviews: "1,892 reviews",
+      badge: null,
+      coverage: ["Liability", "Collision", "Roadside Assist"],
+      deductible: "$250 deductible",
     },
     {
       company: "ShieldGuard Insurance",
-      price: "$95/month",
+      price: "$95",
       savings: "Save up to $390/year",
+      rating: 4.7,
+      reviews: "3,105 reviews",
+      badge: null,
+      coverage: ["Liability", "Comprehensive", "Uninsured Motorist"],
+      deductible: "$500 deductible",
     },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col bg-white relative">
+    <div className="min-h-screen flex flex-col bg-[#EBF2FB]">
       <Navbar />
 
-      <div className="flex-1 relative overflow-hidden">
-        {/* Background */}
-        <div
-          className="absolute inset-0 bg-bottom bg-repeat-x"
-          style={{
-            backgroundImage: "url('/questions.png')",
-            backgroundSize: "100%",
-          }}
-        />
+      {/* Hero Banner */}
+      <div className="bg-[#042C53] pt-28 pb-14 text-white text-center px-6">
+        <div className="flex justify-center mb-4">
+          <ShieldCheck className="w-12 h-12 text-[#B5D4F4]" />
+        </div>
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-3">
+          Great news! We found{" "}
+          <span className="text-[#B5D4F4]">3 offers</span> for you!
+        </h1>
+        <p className="text-[#B5D4F4] text-lg max-w-xl mx-auto">
+          Compare top auto insurance plans tailored to your profile. Select the
+          one that fits you best.
+        </p>
+      </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto px-20 py-24 pt-32">
-          <div className="flex flex-col items-center text-center space-y-12">
+      {/* Offers */}
+      <main className="flex-1 max-w-3xl mx-auto w-full px-4 py-12 space-y-6">
+        {offers.map((offer, index) => (
+          <div
+            key={index}
+            className={`bg-white rounded-2xl shadow-md overflow-hidden border-2 ${
+              offer.badge ? "border-[#2B5BA8]" : "border-transparent"
+            }`}
+          >
+            {offer.badge && (
+              <div className="bg-[#2B5BA8] text-white text-xs font-bold uppercase tracking-widest text-center py-1.5">
+                {offer.badge}
+              </div>
+            )}
 
-            {/* Heading */}
-            <h2 className="text-3xl md:text-4xl font-bold text-black">
-              Thank you for submitting!
-            </h2>
+            <div className="p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6">
+              {/* Left: Company + rating + coverage tags */}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-xl font-bold text-[#042C53] mb-1">
+                  {offer.company}
+                </h3>
 
-            <p className="text-lg text-gray-600">
-              Here are the offers available for you:
-            </p>
-
-            {/* Offers List */}
-            <div className="w-full max-w-3xl space-y-6">
-
-              {offers.map((offer, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-300 rounded-xl 
-                             p-6 shadow-sm flex justify-between items-center"
-                >
-                  <div className="text-left space-y-2">
-                    <h3 className="text-xl font-semibold text-black">
-                      {offer.company}
-                    </h3>
-                    <p className="text-gray-700">{offer.price}</p>
-                    <p className="text-green-600 font-medium">
-                      {offer.savings}
-                    </p>
-                  </div>
-
-                  <button
-                    className="bg-[#F97316] hover:bg-violet-600
-                               transition text-white px-6 py-3 
-                               rounded-lg font-semibold shadow-md"
-                  >
-                    Select →
-                  </button>
+                <div className="flex items-center gap-1 mb-3">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className={`w-4 h-4 ${
+                        i < Math.floor(offer.rating)
+                          ? "text-amber-400 fill-amber-400"
+                          : "text-gray-300"
+                      }`}
+                    />
+                  ))}
+                  <span className="text-sm text-gray-500 ml-1">
+                    {offer.rating} · {offer.reviews}
+                  </span>
                 </div>
-              ))}
 
+                <div className="flex flex-wrap gap-2">
+                  {offer.coverage.map((c) => (
+                    <span
+                      key={c}
+                      className="flex items-center gap-1 text-xs bg-[#EBF2FB] text-[#2B5BA8] font-medium px-2.5 py-1 rounded-full"
+                    >
+                      <CheckCircle className="w-3 h-3" />
+                      {c}
+                    </span>
+                  ))}
+                </div>
+
+                <p className="text-xs text-gray-400 mt-2">{offer.deductible}</p>
+              </div>
+
+              {/* Right: Price + CTA */}
+              <div className="flex flex-col items-center sm:items-end gap-3 shrink-0">
+                <div className="text-center sm:text-right">
+                  <div>
+                    <span className="text-4xl font-extrabold text-[#042C53]">
+                      {offer.price}
+                    </span>
+                    <span className="text-gray-500 text-sm">/mo</span>
+                  </div>
+                  <p className="text-green-600 text-sm font-semibold mt-0.5">
+                    {offer.savings}
+                  </p>
+                </div>
+                <button className="bg-[#2B5BA8] hover:bg-[#0C2340] transition text-white px-8 py-3 rounded-xl font-semibold shadow-sm w-full sm:w-auto cursor-pointer">
+                  Select Plan →
+                </button>
+              </div>
             </div>
+          </div>
+        ))}
 
-            {/* Restart Button */}
-            <button
-              onClick={() => router.push("/")}
-              className="mt-6 bg-gray-200 hover:bg-gray-300
-                         transition text-black px-10 py-3 
-                         rounded-lg font-semibold"
-            >
-              Start Over
-            </button>
-
+        {/* Trust bar */}
+        <div className="bg-white rounded-2xl shadow-sm p-5 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-gray-600 border border-[#DDE9F7]">
+          <div className="flex items-center gap-2">
+            <ShieldCheck className="w-5 h-5 text-[#2B5BA8]" />
+            <span>100% Free — No Commitment</span>
+          </div>
+          <div className="hidden sm:block w-px h-5 bg-gray-200" />
+          <div className="flex items-center gap-2">
+            <Phone className="w-5 h-5 text-[#2B5BA8]" />
+            <span>Licensed agents available</span>
+          </div>
+          <div className="hidden sm:block w-px h-5 bg-gray-200" />
+          <div className="flex items-center gap-2">
+            <CheckCircle className="w-5 h-5 text-[#2B5BA8]" />
+            <span>Trusted by 50,000+ drivers</span>
           </div>
         </div>
-      </div>
+
+        {/* Start Over */}
+        <div className="text-center pb-4">
+          <button
+            onClick={() => router.push("/")}
+            className="text-sm text-[#2B5BA8] hover:underline cursor-pointer"
+          >
+            ← Start Over
+          </button>
+        </div>
+      </main>
 
       <Footer />
     </div>

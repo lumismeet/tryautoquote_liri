@@ -102,8 +102,8 @@ export default function Question3() {
                       rounded-xl p-6 border transition shadow-sm
                       ${
                         currentVehicle?.vehicleModel === model
-                          ? "bg-violet-100 border-violet-400"
-                          : "bg-white border-gray-200 hover:border-violet-400 hover:bg-violet-50"
+                          ? "bg-[#EBF2FB] border-[#2B5BA8]"
+                          : "bg-white border-gray-200 hover:border-[#378ADD] hover:bg-[#EBF2FB]"
                       }`}
                   >
                     <span className="text-lg font-semibold text-gray-800">
@@ -129,13 +129,13 @@ export default function Question3() {
                   value={customModel}
                   onChange={(e) => setCustomModel(e.target.value)}
                   className="flex-1 bg-white border border-gray-300 rounded-lg px-4 py-3
-                    text-gray-700 focus:outline-none focus:border-violet-400"
+                    text-gray-700 focus:outline-none focus:border-[#2B5BA8]"
                 />
                 <button
                   type="submit"
                   disabled={!customModel.trim()}
-                  className="px-5 py-3 rounded-lg bg-violet-600 text-white font-semibold
-                    hover:bg-violet-700 disabled:opacity-40 transition"
+                  className="px-5 py-3 rounded-lg bg-[#2B5BA8] text-white font-semibold
+                    hover:bg-[#0C2340] disabled:opacity-40 transition"
                 >
                   Continue
                 </button>

@@ -33,7 +33,7 @@ export default function Navbar() {
 
           <button
             // href="/quote/1"
-            className="bg-[#7C3AED] text-white hover:bg-violet-600 transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
+            className="bg-[#2B5BA8] text-white hover:bg-[#0C2340] transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg"
           >
             Get a Quote →
           </button>
