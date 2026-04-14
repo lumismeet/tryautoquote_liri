@@ -132,7 +132,7 @@ export default function Results() {
                     {offer.savings}
                   </p>
                 </div>
-                <button className="bg-[#2B5BA8] hover:bg-[#0C2340] transition text-white px-8 py-3 rounded-xl font-semibold shadow-sm w-full sm:w-auto cursor-pointer">
+                <button className="bg-[#2B5BA8] hover:bg-[#E8732A] transition text-white px-8 py-3 rounded-xl font-semibold shadow-sm w-full sm:w-auto cursor-pointer">
                   Select Plan →
                 </button>
               </div>

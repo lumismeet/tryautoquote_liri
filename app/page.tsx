@@ -131,7 +131,7 @@ function Navbar({ onQuoteClick }: NavbarProps) {
         {/* Quote Button */}
         <button
           onClick={onQuoteClick}
-          className="bg-[#2B5BA8] text-white hover:bg-[#0C2340] transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
+          className="bg-[#2B5BA8] text-white hover:bg-[#E8732A] transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
         >
           Get a Quote →
         </button>
@@ -190,7 +190,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
             <button
               onClick={handleSubmit}
               disabled={loading}
-              className="mt-3 sm:mt-0 sm:ml-0 bg-[#2B5BA8] text-white hover:bg-[#0C2340] transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold cursor-pointer"
+              className="mt-3 sm:mt-0 sm:ml-0 bg-[#2B5BA8] text-white hover:bg-[#E8732A] transition px-8 py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none font-semibold cursor-pointer"
             >
               {loading ? "Loading..." : "Get a Quote →"}
             </button>
@@ -599,7 +599,7 @@ function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
 
           <button
           onClick={onQuoteClick}
-          className="bg-[#2B5BA8] hover:bg-[#0C2340] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg cursor-pointer">
+          className="bg-[#2B5BA8] hover:bg-[#E8732A] transition px-12 sm:px-16 md:px-20 py-4 rounded-lg font-semibold text-white shadow-lg cursor-pointer">
             Get a Quote →
           </button>
         </div>
@@ -664,7 +664,7 @@ function CtaSection2(){
 
             <button
               onClick={handleSubmit}
-              className="bg-[#2B5BA8] hover:bg-[#0C2340] transition px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white font-semibold w-full sm:w-auto cursor-pointer"
+              className="bg-[#2B5BA8] hover:bg-[#E8732A] transition px-6 py-3 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none text-white font-semibold w-full sm:w-auto cursor-pointer"
             >
               Get a Quote →
             </button>

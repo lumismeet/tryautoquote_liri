@@ -135,7 +135,7 @@ export default function Question3() {
                   type="submit"
                   disabled={!customModel.trim()}
                   className="px-5 py-3 rounded-lg bg-[#2B5BA8] text-white font-semibold
-                    hover:bg-[#0C2340] disabled:opacity-40 transition"
+                    hover:bg-[#E8732A] disabled:opacity-40 transition"
                 >
                   Continue
                 </button>

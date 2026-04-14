@@ -149,7 +149,7 @@ export default function Question1() {
               className={`mt-6 px-10 py-3 rounded-lg font-semibold shadow-md transition
                 ${
                   currentVehicle?.vehicleMake
-                    ? "bg-[#2B5BA8] hover:bg-[#0C2340] text-white"
+                    ? "bg-[#2B5BA8] hover:bg-[#E8732A] text-white"
                     : "bg-gray-300 text-gray-500 cursor-not-allowed"
                 }`}
             >

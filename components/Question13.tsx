@@ -64,9 +64,9 @@ export default function Question13() {
             <button
               onClick={handleNext}
               disabled={isDisabled}
-              className="mt-4 bg-[#2B5BA8] hover:bg-[#0C2340] 
+              className="mt-4 bg-[#2B5BA8] hover:bg-[#E8732A]
                          disabled:opacity-40 disabled:cursor-not-allowed
-                         transition text-white px-14 py-4 rounded-lg 
+                         transition text-white px-14 py-4 rounded-lg
                          text-lg font-semibold shadow-md"
             >
               Next →

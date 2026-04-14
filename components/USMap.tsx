@@ -27,7 +27,7 @@ export default function USMap({ onMapClick }: USMapProps) {
       <>
       <style>{`
     .us-map path:hover {
-      fill: #9333ea;
+      fill: #E8732A;
     }
   `}</style>
       </>

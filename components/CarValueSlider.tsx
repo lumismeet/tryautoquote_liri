@@ -43,7 +43,7 @@ export default function CarValueSlider({ onCtaClick }: CarValueSliderProps) {
         </p>
 
         {/* Display */}
-        <div className="text-5xl font-black text-[#2B5BA8]">
+        <div className="text-5xl font-black text-[#E8732A]">
           ${value.toLocaleString()}
         </div>
 
@@ -59,7 +59,7 @@ export default function CarValueSlider({ onCtaClick }: CarValueSliderProps) {
             onChange={(e) => setValue(Number(e.target.value))}
             className="w-full h-3 rounded-full appearance-none cursor-pointer"
             style={{
-              background: `linear-gradient(to right, #2B5BA8 ${percent}%, #e2e8f0 ${percent}%)`,
+              background: `linear-gradient(to right, #E8732A ${percent}%, #e2e8f0 ${percent}%)`,
             }}
           />
 
@@ -88,7 +88,7 @@ export default function CarValueSlider({ onCtaClick }: CarValueSliderProps) {
         {/* CTA */}
         <button
           onClick={handleClick}
-          className="w-full bg-[#2B5BA8] hover:bg-[#378ADD] text-white font-black py-4 rounded-sm text-lg transition shadow-md"
+          className="w-full bg-[#2B5BA8] hover:bg-[#E8732A] text-white font-black py-4 rounded-sm text-lg transition shadow-md"
         >
           {checking ? "Checking Local Rates..." : "Check My Local Rate →"}
         </button>
@@ -105,19 +105,19 @@ export default function CarValueSlider({ onCtaClick }: CarValueSliderProps) {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: #2B5BA8;
+          background: #E8732A;
           cursor: pointer;
           border: 3px solid white;
-          box-shadow: 0 0 0 2px #2B5BA8;
+          box-shadow: 0 0 0 2px #E8732A;
         }
         input[type='range']::-moz-range-thumb {
           width: 22px;
           height: 22px;
           border-radius: 50%;
-          background: #2B5BA8;
+          background: #E8732A;
           cursor: pointer;
           border: 3px solid white;
-          box-shadow: 0 0 0 2px #2B5BA8;
+          box-shadow: 0 0 0 2px #E8732A;
         }
       `}</style>
     </section>

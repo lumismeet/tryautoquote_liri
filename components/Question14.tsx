@@ -85,9 +85,9 @@ export default function Question14() {
             <button
               onClick={handleContinue}
               disabled={isDisabled}
-              className="mt-6 bg-[#2B5BA8] hover:bg-[#0C2340] 
+              className="mt-6 bg-[#2B5BA8] hover:bg-[#E8732A]
                          disabled:opacity-40 disabled:cursor-not-allowed
-                         transition text-white px-14 py-4 rounded-lg 
+                         transition text-white px-14 py-4 rounded-lg
                          text-lg font-semibold shadow-md"
             >
               Continue →
