@@ -40,7 +40,7 @@ export default function Question10() {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-20 py-24 pt-32">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-20 py-4 sm:py-24 pt-14 sm:pt-32">
           <div className="flex flex-col items-center text-center space-y-12">
 
             {/* Heading */}

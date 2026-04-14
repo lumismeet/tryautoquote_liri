@@ -1,87 +1,179 @@
-import Link from "next/link"
-import { Phone, MapPin, Mail } from "lucide-react"
+"use client";
+
+import Link from "next/link";
+import { Phone, MapPin, Mail, ChevronDown } from "lucide-react";
+import { useState } from "react";
+
+const sections = [
+  {
+    title: "Company Info",
+    items: [
+      { label: "About Us" },
+      { label: "Carrier" },
+      { label: "We are hiring" },
+      { label: "Blog" },
+    ],
+  },
+  {
+    title: "Legal",
+    items: [
+      { label: "Privacy Policy", href: "/privacy-policy" },
+      { label: "Terms of Use", href: "/terms-of-use" },
+      { label: "Cookie Policy" },
+      { label: "Disclaimer" },
+    ],
+  },
+  {
+    title: "Features",
+    items: [
+      { label: "Business Marketing" },
+      { label: "User Analytic" },
+      { label: "Live Chat" },
+      { label: "Unlimited Support" },
+    ],
+  },
+  {
+    title: "Resources",
+    items: [
+      { label: "iOS & Android" },
+      { label: "Watch a Demo" },
+      { label: "Customers" },
+      { label: "API" },
+    ],
+  },
+];
+
+function AccordionSection({ title, items }: { title: string; items: { label: string; href?: string }[] }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div className="border-b border-white/10">
+      <button
+        onClick={() => setOpen(!open)}
+        className="flex items-center justify-between w-full py-4 font-semibold text-white text-left"
+      >
+        {title}
+        <ChevronDown
+          size={18}
+          className={`transition-transform duration-200 text-[#B5D4F4] ${open ? "rotate-180" : ""}`}
+        />
+      </button>
+      {open && (
+        <ul className="pb-4 space-y-3 text-[#B5D4F4]">
+          {items.map((item) =>
+            item.href ? (
+              <li key={item.label}>
+                <Link href={item.href} className="hover:text-white transition">
+                  {item.label}
+                </Link>
+              </li>
+            ) : (
+              <li key={item.label}>{item.label}</li>
+            )
+          )}
+        </ul>
+      )}
+    </div>
+  );
+}
 
 export default function Footer() {
   return (
     <footer>
-
       {/* TOP FOOTER */}
       <div className="bg-[#042C53] text-white py-16">
-        <div className="max-w-7xl mx-auto px-8 grid md:grid-cols-5 gap-12">
+        <div className="max-w-7xl mx-auto px-8">
 
-          {/* Column 1 */}
-          <div>
-            <h4 className="font-semibold mb-6">Company Info</h4>
-            <ul className="space-y-3 text-[#B5D4F4]">
-              <li>About Us</li>
-              <li>Carrier</li>
-              <li>We are hiring</li>
-              <li>Blog</li>
-            </ul>
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-5 gap-12">
+            <div>
+              <h4 className="font-semibold mb-6">Company Info</h4>
+              <ul className="space-y-3 text-[#B5D4F4]">
+                <li>About Us</li>
+                <li>Carrier</li>
+                <li>We are hiring</li>
+                <li>Blog</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-6">Legal</h4>
+              <ul className="space-y-3 text-[#B5D4F4]">
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-white transition">
+                    Privacy Policy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/terms-of-use" className="hover:text-white transition">
+                    Terms of Use
+                  </Link>
+                </li>
+                <li>Cookie Policy</li>
+                <li>Disclaimer</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-6">Features</h4>
+              <ul className="space-y-3 text-[#B5D4F4]">
+                <li>Business Marketing</li>
+                <li>User Analytic</li>
+                <li>Live Chat</li>
+                <li>Unlimited Support</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-6">Resources</h4>
+              <ul className="space-y-3 text-[#B5D4F4]">
+                <li>iOS &amp; Android</li>
+                <li>Watch a Demo</li>
+                <li>Customers</li>
+                <li>API</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4 className="font-semibold mb-6">Get In Touch</h4>
+              <div className="space-y-4 text-[#B5D4F4]">
+                <div className="flex items-center gap-3">
+                  <Phone size={18} />
+                  <span>(480) 555-0103</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin size={18} />
+                  <span>457 Washington Ave</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Mail size={18} />
+                  <span>debra.holt@example.com</span>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Column 2 */}
-          <div>
-            <h4 className="font-semibold mb-6">Legal</h4>
-            <ul className="space-y-3 text-[#B5D4F4]">
-              <li>
-                <Link href="/privacy-policy" className="hover:text-white transition">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms-of-use" className="hover:text-white transition">
-                  Terms of Use
-                </Link>
-              </li>
-              <li>Cookie Policy</li>
-              <li>Disclaimer</li>
-            </ul>
-          </div>
+          {/* Mobile accordions */}
+          <div className="md:hidden">
+            {sections.map((section) => (
+              <AccordionSection key={section.title} title={section.title} items={section.items} />
+            ))}
 
-          {/* Column 3 */}
-          <div>
-            <h4 className="font-semibold mb-6">Features</h4>
-            <ul className="space-y-3 text-[#B5D4F4]">
-              <li>Business Marketing</li>
-              <li>User Analytic</li>
-              <li>Live Chat</li>
-              <li>Unlimited Support</li>
-            </ul>
-          </div>
-
-          {/* Column 4 */}
-          <div>
-            <h4 className="font-semibold mb-6">Resources</h4>
-            <ul className="space-y-3 text-[#B5D4F4]">
-              <li>iOS & Android</li>
-              <li>Watch a Demo</li>
-              <li>Customers</li>
-              <li>API</li>
-            </ul>
-          </div>
-
-          {/* Column 5 — Contact */}
-          <div>
-            <h4 className="font-semibold mb-6">Get In Touch</h4>
-
-            <div className="space-y-4 text-[#B5D4F4]">
-
+            {/* Contact always visible on mobile */}
+            <div className="pt-6 space-y-4 text-[#B5D4F4]">
+              <h4 className="font-semibold text-white">Get In Touch</h4>
               <div className="flex items-center gap-3">
                 <Phone size={18} />
                 <span>(480) 555-0103</span>
               </div>
-
               <div className="flex items-center gap-3">
                 <MapPin size={18} />
                 <span>457 Washington Ave</span>
               </div>
-
               <div className="flex items-center gap-3">
                 <Mail size={18} />
                 <span>debra.holt@example.com</span>
               </div>
-
             </div>
           </div>
 
@@ -108,7 +200,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-
     </footer>
-  )
+  );
 }
