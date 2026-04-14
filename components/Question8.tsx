@@ -42,7 +42,7 @@ export default function Question8() {
           }}
         />
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-20 py-4 sm:py-24 pt-14 sm:pt-32">
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-20 pb-4 sm:pb-24 pt-24 sm:pt-32">
           <div className="flex flex-col items-center text-center space-y-10">
 
             <h2 className="text-2xl md:text-3xl font-bold text-black">
