@@ -11,7 +11,7 @@ export default async function QuoteLayout({
 
   return (
     <>
-      {/* {step !== "16" && <QuizProgress step={step} />} */}
+      {step !== "16" && <QuizProgress step={step} />}
       {children}
     </>
   );

@@ -1,7 +1,5 @@
 "use client";
 
-import { Car } from "lucide-react";
-
 const STEP_ORDER: Record<string, number> = {
   "1_map": 1,
   "1": 2,  "2": 3,  "3": 4,  "4": 5,  "5": 6,
@@ -10,6 +8,7 @@ const STEP_ORDER: Record<string, number> = {
 };
 
 const TOTAL = 16;
+const MILESTONES = [25, 50, 75, 100];
 
 export default function QuizProgress({ step }: { step: string }) {
   const current = STEP_ORDER[step] ?? 1;
@@ -20,33 +19,55 @@ export default function QuizProgress({ step }: { step: string }) {
       <div className="max-w-3xl mx-auto flex items-center gap-4">
 
         {/* Track */}
-        <div className="relative flex-1 h-3 bg-[#DDE9F7] rounded-full overflow-visible">
+        <div className="relative flex-1 h-2.5 bg-[#DDE9F7] rounded-full">
 
           {/* Fill */}
           <div
-            className="absolute top-0 left-0 h-full bg-[#2B5BA8] rounded-full"
+            className="absolute top-0 left-0 h-full rounded-full overflow-hidden"
             style={{
               width: `${percent}%`,
+              background: "linear-gradient(90deg, #2B5BA8 0%, #042C53 100%)",
               transition: "width 600ms cubic-bezier(0.4, 0, 0.2, 1)",
             }}
-          />
-
-          {/* Car icon riding the tip */}
-          <div
-            className="absolute -top-2.5"
-            style={{
-              left: `calc(${percent}% - 11px)`,
-              transition: "left 600ms cubic-bezier(0.4, 0, 0.2, 1)",
-            }}
           >
-            <Car className="w-6 h-6 text-[#042C53] drop-shadow-sm" fill="#042C53" />
+            {/* Shimmer sweep */}
+            <span
+              className="animate-shimmer absolute inset-y-0 -inset-x-1/2 block"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.35) 50%, transparent 100%)",
+              }}
+            />
           </div>
+
+          {/* Milestone dots */}
+          {MILESTONES.map((m) => {
+            const reached = percent >= m;
+            return (
+              <div
+                key={m}
+                className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
+                style={{
+                  left: `${m}%`,
+                  width: reached ? "14px" : "10px",
+                  height: reached ? "14px" : "10px",
+                  backgroundColor: reached ? "#2B5BA8" : "#FFFFFF",
+                  border: reached ? "2px solid #FFFFFF" : "2px solid #DDE9F7",
+                  boxShadow: reached
+                    ? "0 0 10px rgba(43, 91, 168, 0.6)"
+                    : "none",
+                  transition:
+                    "width 300ms ease-out, height 300ms ease-out, background-color 300ms ease-out, box-shadow 300ms ease-out, border-color 300ms ease-out",
+                }}
+              />
+            );
+          })}
 
         </div>
 
-        {/* Step label */}
-        <span className="text-xs font-semibold text-[#2B5BA8] whitespace-nowrap shrink-0 tabular-nums">
-          {current} / {TOTAL}
+        {/* Percentage label */}
+        <span className="text-sm font-semibold whitespace-nowrap shrink-0 tabular-nums text-[#042C53]">
+          {percent}%
         </span>
 
       </div>
