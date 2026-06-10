@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image"
+import Navbar from "@/components/Navbar"
 import Link from "next/link"
 import { ClipboardList, Car, DollarSign, ChevronLeft, ChevronRight } from "lucide-react"
 import { Star } from "lucide-react"
@@ -15,16 +16,22 @@ import CarValueSlider from "@/components/CarValueSlider";
 
 const testimonials = [
   {
-    text: "This platform helped me compare policies in minutes. I saved over $600 a year without any hassle.",
-    name: "Reginald Miles",
+    text: "I'd been on the same plan for 4 years and honestly had no idea I was overpaying. Took me maybe 10 minutes to compare and switch. Saving $58 a month now.",
+    name: "Derek Okafor",
+    location: "Columbus, OH",
+    image: "/person1.png",
   },
   {
-    text: "Super easy process. I entered my details and instantly got matched with affordable insurance providers.",
-    name: "Sarah Johnson",
+    text: "I hate dealing with insurance stuff, so I kept putting it off. This actually made it painless. Got 3 solid quotes, picked one, done. Wish I'd done it sooner.",
+    name: "Amanda Reyes",
+    location: "Phoenix, AZ",
+    image: "/person2.png",
   },
   {
-    text: "Best experience I've had comparing insurance. Everything was transparent and simple.",
-    name: "Michael Brown",
+    text: "Was skeptical at first — I figured there'd be a catch or they'd just spam me with calls. Neither happened. Got matched with a provider I actually recognized and the rate was lower than what I had.",
+    name: "Tom Vasquez",
+    location: "Tampa, FL",
+    image: "/person3.png",
   },
 ]
 
@@ -80,65 +87,6 @@ export default function Home() {
   );
 }
 
-function Navbar({ onQuoteClick }: NavbarProps) {
-  return (
-    <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
-      <div className="flex items-center justify-between px-6 py-4">
-
-        {/* Logo */}
-        <div className="flex items-center">
-          {/* Mobile logo */}
-          <div className="block md:hidden">
-            <Image
-              src={LOGO}
-              alt="findautoquote Logo Mobile"
-              width={100}
-              height={30}
-              className="h-8 w-auto"
-              priority
-            />
-          </div>
-
-          {/* Desktop logo */}
-          <div className="hidden md:block">
-            <Image
-              src="/logo-test1.png"
-              alt="findautoquote Logo"
-              width={140}
-              height={40}
-              className="h-10 w-auto"
-              priority
-            />
-          </div>
-        </div>
-
-        {/* Links (desktop only) */}
-        <div className="hidden md:flex items-center gap-8 text-sm text-black">
-          <Link href="#" className="hover:text-[#0C2340] transition">
-            Home
-          </Link>
-          <Link href="#" className="hover:text-[#0C2340] transition">
-            Product
-          </Link>
-          <Link href="#" className="hover:text-[#0C2340] transition">
-            Pricing
-          </Link>
-          <Link href="#" className="hover:text-[#0C2340] transition">
-            Contact
-          </Link>
-        </div>
-
-        {/* Quote Button */}
-        <button
-          onClick={onQuoteClick}
-          className="bg-[#2B5BA8] text-white hover:bg-[#E8732A] transition px-6 py-3 rounded-lg text-sm font-semibold shadow-lg cursor-pointer"
-        >
-          Get a Quote →
-        </button>
-      </div>
-    </nav>
-  );
-}
 
 function HeroSection({ zipRef }: HeroSectionProps) {
   const [zipcode, setZipcode] = useState("");
@@ -168,7 +116,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 pt-20 md:pt-32 pb-20 md:pb-32">
+    <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-20 pt-16 md:pt-20 lg:pt-28 pb-16 md:pb-20 lg:pb-28">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         {/* Text Content */}
         <div className="text-center md:text-left">
@@ -219,7 +167,7 @@ function HeroSection({ zipRef }: HeroSectionProps) {
 
 function HowItWorks() {
   return (
-    <section className="bg-white py-25">
+    <section className="bg-white py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-20 text-center">
 
         <div className="grid md:grid-cols-3 gap-12">
@@ -404,7 +352,7 @@ function HowItWorks() {
 // }
 
 
- function Testimonials() {
+function Testimonials() {
   const [current, setCurrent] = useState(0)
 
   const prevSlide = () => {
@@ -436,21 +384,21 @@ function HowItWorks() {
 
           {/* LEFT ARROW */}
           <button
-  onClick={prevSlide}
-  className="
-    absolute 
-    -left-6 md:-left-16 lg:-left-20
-    bg-white text-[#0C2340]
-    p-2 md:p-4
-    rounded-full shadow-lg
-    hover:text-white hover:bg-[#0C2340]
-    transition
-    cursor-pointer
-    z-100
-  "
->
-  <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
-</button>
+            onClick={prevSlide}
+            className="
+              absolute 
+              -left-6 md:-left-16 lg:-left-20
+              bg-white text-[#0C2340]
+              p-2 md:p-4
+              rounded-full shadow-lg
+              hover:text-white hover:bg-[#0C2340]
+              transition
+              cursor-pointer
+              z-10
+            "
+          >
+            <ChevronLeft className="w-4 h-4 md:w-6 md:h-6" />
+          </button>
 
           {/* CARD */}
           <div className="relative bg-[#2B5BA8] text-white rounded-2xl p-12 max-w-3xl w-full overflow-hidden">
@@ -461,7 +409,7 @@ function HowItWorks() {
             <div className="relative z-10 transition-all duration-500 ease-in-out">
 
               <p className="text-lg leading-relaxed mb-6">
-                “{testimonials[current].text}”
+                "{testimonials[current].text}"
               </p>
 
               {/* Stars */}
@@ -474,8 +422,9 @@ function HowItWorks() {
               {/* Profile */}
               <div className="flex items-center justify-center gap-4">
                 <Image
-                  src="/person.png"
-                  alt="Customer"
+                  key={testimonials[current].image}
+                  src={testimonials[current].image}
+                  alt={testimonials[current].name}
                   width={60}
                   height={60}
                   className="rounded-full border-4 border-white object-cover"
@@ -484,6 +433,9 @@ function HowItWorks() {
                   <h4 className="font-semibold">
                     {testimonials[current].name}
                   </h4>
+                  <p className="text-sm opacity-70">
+                    {testimonials[current].location}
+                  </p>
                   <p className="text-sm opacity-80">
                     Verified Customer
                   </p>
@@ -495,20 +447,20 @@ function HowItWorks() {
 
           {/* RIGHT ARROW */}
           <button
-  onClick={nextSlide}
-  className="
-    absolute 
-    -right-6 md:-right-16 lg:-right-20
-    bg-white text-[#0C2340]
-    p-2 md:p-4
-    rounded-full shadow-lg
-    hover:text-white hover:bg-[#0C2340]
-    transition
-    cursor-pointer
-  "
->
-  <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
-</button>
+            onClick={nextSlide}
+            className="
+              absolute 
+              -right-6 md:-right-16 lg:-right-20
+              bg-white text-[#0C2340]
+              p-2 md:p-4
+              rounded-full shadow-lg
+              hover:text-white hover:bg-[#0C2340]
+              transition
+              cursor-pointer
+            "
+          >
+            <ChevronRight className="w-4 h-4 md:w-6 md:h-6" />
+          </button>
 
         </div>
       </div>
@@ -518,7 +470,7 @@ function HowItWorks() {
 
 function ParaWorks() {
   return (
-    <section className="bg-[#042C53] py-24 text-white">
+    <section className="bg-[#042C53] py-16 md:py-20 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE */}
@@ -576,7 +528,7 @@ function ParaWorks() {
 
 function CtaSection({ onQuoteClick }: { onQuoteClick: () => void }) {
   return (
-    <section className="bg-[#042C53] text-white py-24">
+    <section className="bg-[#042C53] text-white py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-6 md:px-20 grid md:grid-cols-2 gap-16 items-center">
 
         {/* LEFT SIDE — Illustration */}
@@ -625,7 +577,7 @@ function CtaSection2(){
   };
 
   return(
-   <section className="bg-gray-100 py-24">
+   <section className="bg-gray-100 py-16 md:py-20">
   <div className="max-w-7xl mx-auto px-20 grid md:grid-cols-2 gap-16 items-center text-center">
 
     {/* LEFT SIDE — Get a Quote */}
