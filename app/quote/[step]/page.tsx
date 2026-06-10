@@ -24,8 +24,6 @@ export default async function QuoteStep({
 }) {
   const { step } = await params;
 
-  console.log("STEP:", step);
-
 if(step === "1_map") return <Question1_map />;
 if (step === "1") return <Question1 />;
 if (step === "2") return <Question2 />;

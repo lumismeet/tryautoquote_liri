@@ -100,8 +100,6 @@ export async function POST(req: Request) {
       );
     }
 
-    console.log("Lead upserted successfully:", leadData);
-
     // 2️⃣ Insert Vehicles
     // if (vehicles && vehicles.length > 0) {
     //   const formattedVehicles = vehicles.map((v: any) => ({
@@ -168,7 +166,6 @@ export async function POST(req: Request) {
     );
   }
 
-  console.log("Vehicles inserted successfully for lead:", leadId);
 }
 
     return NextResponse.json({

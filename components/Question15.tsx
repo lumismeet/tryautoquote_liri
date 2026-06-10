@@ -10,7 +10,6 @@ export default function Question15() {
   const { formData, updateForm } = useForm();
 
   const handleSubmit = async () => {
-    console.log("formData being submitted:", formData);
     try {
     const res = await fetch("/api/leads", {
       method: "POST",
@@ -22,9 +21,8 @@ export default function Question15() {
 
     const data = await res.json();
 
-    console.log("Server response:", data);
-
     if (res.ok && data.success) {
+      console.log("successfully inserted in db", formData, "form submitted successfully");
       router.push("/quote/16");
     }
   } catch (error) {
