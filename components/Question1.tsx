@@ -5,6 +5,7 @@ import Footer from "./footer";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useForm } from "@/context/FormContext";
+import BackButton from "./BackButton";
 
 export default function Question1() {
   const router = useRouter();
@@ -48,6 +49,7 @@ export default function Question1() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white relative">
+
       <Navbar />
 
       <div className="flex-1 relative overflow-hidden">
@@ -122,10 +124,14 @@ export default function Question1() {
               </select>
             </div>
 
+            <div className="-mt-4">
+              <BackButton />
+            </div>
+
           </div>
         </div>
       </div>
-
+      
       <Footer />
     </div>
   );

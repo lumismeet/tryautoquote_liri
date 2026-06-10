@@ -4,6 +4,7 @@ import Navbar from "./Navbar";
 import Footer from "./footer";
 import { useRouter } from "next/navigation";
 import { useForm } from "@/context/FormContext";
+import BackButton from "./BackButton";
 
 export default function Question12() {
   const router = useRouter();
@@ -100,6 +101,10 @@ export default function Question12() {
             >
               Continue →
             </button>
+
+            <div className="-mt-4">
+              <BackButton />
+            </div>
 
           </div>
         </div>
