@@ -20,7 +20,6 @@ import {
   Star,
   ChevronLeft,
   ChevronRight,
-  MapPin,
   Mail,
   Facebook,
   Instagram,
@@ -28,6 +27,7 @@ import {
   Linkedin,
 } from "lucide-react";
 import { useForm } from "@/context/FormContext";
+import FAQAccordion from "@/components/FAQAccordion";
 
 /* ------------------------------------------------------------------ */
 /* Fonts                                                                */
@@ -209,6 +209,7 @@ export default function Home() {
       <Achievements />
       <Insights />
       <Partners />
+      <FAQAccordion />
       <ContactFooter />
     </div>
   );
@@ -288,8 +289,8 @@ function Navbar() {
           href="#"
           className="[font-family:var(--font-display)] text-2xl font-bold tracking-tight"
         >
-          <span className="text-[#45D9C6]">en</span>
-          <span className="text-white">surance</span>
+          <span className="text-[#45D9C6]">try</span>
+          <span className="text-white">autoquote</span>
         </a>
 
         <p className="hidden lg:flex items-center gap-2 text-xs text-white/70">
@@ -889,52 +890,46 @@ function Partners() {
 const footerLinks = ["Home", "About Us", "Blog", "Services", "Terms and Policy"];
 
 function ContactFooter() {
-  const [email, setEmail] = useState("");
-  const [subStatus, setSubStatus] = useState("");
+  const [zipcode, setZipcode] = useState("");
+  const [zipError, setZipError] = useState("");
+  const { updateForm } = useForm();
+  const router = useRouter();
 
-  const subscribe = () => {
-    if (!/^\S+@\S+\.\S+$/.test(email.trim())) {
-      setSubStatus("Please enter a valid email address.");
+  const handleSubmit = () => {
+    setZipError("");
+    const trimmed = zipcode.trim();
+    if (!trimmed) {
+      setZipError("Please enter a zipcode");
       return;
     }
-    setSubStatus("Subscribed — welcome aboard!");
-    setEmail("");
+    if (!/^[0-9]{5}$/.test(trimmed)) {
+      setZipError("Invalid zip");
+      return;
+    }
+    updateForm({ zipcode: trimmed });
+    router.push("/quote/1");
   };
 
   return (
     <footer className="relative pt-10 md:pt-16">
       <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16">
         <h2 className="[font-family:var(--font-display)] text-2xl md:text-3xl font-bold text-center mb-14">
-          Contact Us
+          Get A Quote
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
           <div>
             <p className="[font-family:var(--font-display)] text-3xl font-bold mb-6">
-              <span className="text-[#45D9C6]">en</span>surance
+              <span className="text-[#45D9C6]">try</span>autoquote
             </p>
             <ul className="flex flex-col gap-3 text-xs text-white/70">
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#45D9C6] shrink-0 mt-0.5" />
-                <span>
-                  2109 WS 09 Oxford Rd #127
-                  <br />
-                  ParkVilla Hills, MI 48334
-                </span>
-              </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#45D9C6] shrink-0" />
-                <a href="tel:+8801976456893" className="hover:text-[#45D9C6] transition">
-                  +88 019 76456893
-                </a>
-              </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-[#45D9C6] shrink-0" />
                 <a
-                  href="mailto:scrumbledegg@gmail.com"
+                  href="mailto:info@tryautoquote.com"
                   className="hover:text-[#45D9C6] transition"
                 >
-                  scrumbledegg@gmail.com
+                  info@tryautoquote.com
                 </a>
               </li>
             </ul>
@@ -942,27 +937,31 @@ function ContactFooter() {
 
           <div>
             <h3 className="[font-family:var(--font-display)] font-bold text-base mb-5">
-              Subscribe to newsletter
+              Compare rates in your area
             </h3>
             <div className="flex items-center bg-[#1E232A] rounded-full p-1.5 max-w-md">
               <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && subscribe()}
-                placeholder="Enter your Email"
-                aria-label="Email for newsletter"
-                className="flex-1 bg-transparent px-4 text-xs text-white placeholder:text-white/40 focus:outline-none"
+                type="text"
+                inputMode="numeric"
+                maxLength={5}
+                value={zipcode}
+                onChange={(e) =>
+                  setZipcode(e.target.value.replace(/[^0-9]/g, ""))
+                }
+                onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
+                placeholder="Enter zipcode"
+                aria-label="Zipcode"
+                className="flex-1 bg-transparent px-4 text-xs text-white placeholder:text-white/40 focus:outline-none tracking-widest"
               />
               <button
-                onClick={subscribe}
+                onClick={handleSubmit}
                 className="bg-[#45D9C6] hover:bg-[#2FC4B1] transition text-[#10306B] text-xs font-semibold px-6 py-2.5 rounded-full cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
               >
-                Subscribe
+                Get Quote
               </button>
             </div>
-            <p role="status" className="mt-2 min-h-[18px] text-xs text-white/70">
-              {subStatus}
+            <p role="status" className="mt-2 min-h-[18px] text-xs text-red-200">
+              {zipError}
             </p>
           </div>
         </div>
