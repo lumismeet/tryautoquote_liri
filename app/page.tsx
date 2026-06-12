@@ -221,8 +221,6 @@ export default function Home() {
 function BlobBackdrop() {
   return (
     <div aria-hidden className="absolute inset-0 pointer-events-none">
-      {/* Main blue band: full width through the hero, curling down-left
-          through services and trailing into Best Services */}
       <svg
         className="absolute inset-0 w-full h-full"
         viewBox="0 0 1200 1700"
@@ -237,14 +235,12 @@ function BlobBackdrop() {
              C100,1030 40,1010 0,1020 Z"
           fill="#2C4FA3"
         />
-        {/* Tail blob curling along the far left into Best Services */}
         <path
           d="M0,980
              C140,960 220,1030 210,1140
              C200,1260 120,1340 0,1360 Z"
           fill="#2C4FA3"
         />
-        {/* Softer overlay blob behind the headline */}
         <path
           d="M-60,40
              C220,-30 480,40 520,160
@@ -253,7 +249,6 @@ function BlobBackdrop() {
           fill="#3358B5"
           opacity="0.65"
         />
-        {/* Overlay blob around the icon rail / services area */}
         <path
           d="M-40,560
              C120,500 300,560 320,690
@@ -264,7 +259,6 @@ function BlobBackdrop() {
         />
       </svg>
 
-      {/* Decorative outline circles + teal dots */}
       <div className="absolute top-[140px] right-[3%] w-20 h-20 rounded-full border border-white/15" />
       <div className="absolute top-[200px] right-[6%] flex flex-col gap-1.5">
         {[...Array(4)].map((_, i) => (
@@ -290,7 +284,6 @@ function Navbar() {
   return (
     <header className="relative z-20 bg-[#262B31]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-16 flex items-center justify-between gap-6">
-        {/* Logo */}
         <a
           href="#"
           className="[font-family:var(--font-display)] text-2xl font-bold tracking-tight"
@@ -299,14 +292,12 @@ function Navbar() {
           <span className="text-white">surance</span>
         </a>
 
-        {/* Call us */}
         <p className="hidden lg:flex items-center gap-2 text-xs text-white/70">
           <Phone className="w-3.5 h-3.5 text-[#45D9C6]" />
           Call Us Now{" "}
           <span className="text-[#45D9C6] font-medium">+215 (362) 4579</span>
         </p>
 
-        {/* Links */}
         <nav className="hidden md:flex items-center gap-7 text-xs">
           <a
             href="#"
@@ -343,7 +334,7 @@ function Navbar() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Hero — headline left, underlined quote form card right               */
+/* Hero                                                                 */
 /* ------------------------------------------------------------------ */
 
 function HeroSection() {
@@ -351,7 +342,6 @@ function HeroSection() {
     <section className="relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 pt-12 md:pt-16 pb-20 md:pb-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-10 items-start">
-          {/* Headline */}
           <div className="pt-6 md:pt-14">
             <h1 className="[font-family:var(--font-display)] text-4xl sm:text-5xl lg:text-[52px] font-bold leading-[1.15] text-white">
               We provide the best
@@ -364,7 +354,6 @@ function HeroSection() {
             </p>
           </div>
 
-          {/* Quote form */}
           <div className="flex md:justify-end">
             <QuoteForm />
           </div>
@@ -431,7 +420,7 @@ function QuoteForm() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Services — vertical icon rail, copy, offset image card               */
+/* Services — icon rail + copy + offset image card                      */
 /* ------------------------------------------------------------------ */
 
 function ServicesSection() {
@@ -442,7 +431,6 @@ function ServicesSection() {
     <section className="relative py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16">
         <div className="grid grid-cols-1 md:grid-cols-[auto_1fr_auto] gap-10 md:gap-14 items-center">
-          {/* Icon rail */}
           <div
             role="tablist"
             aria-label="How it works steps"
@@ -460,7 +448,6 @@ function ServicesSection() {
                   onClick={() => setActive(i)}
                   className="relative w-12 h-12 flex items-center justify-center cursor-pointer focus-visible:outline-none group"
                 >
-                  {/* Outline ring on the active disc */}
                   <span
                     aria-hidden
                     className={`absolute -inset-2 rounded-full border transition ${
@@ -481,7 +468,6 @@ function ServicesSection() {
             })}
           </div>
 
-          {/* Copy */}
           <div className="max-w-sm mx-auto md:mx-0 text-center md:text-left">
             <h2 className="[font-family:var(--font-display)] text-2xl md:text-[28px] font-bold mb-5">
               {service.title}
@@ -496,7 +482,6 @@ function ServicesSection() {
             ))}
           </div>
 
-          {/* Image card on offset blue square */}
           <div className="relative mx-auto md:mx-0">
             <div
               aria-hidden
@@ -519,7 +504,7 @@ function ServicesSection() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Best Services — 4-column feature row                                 */
+/* Best Services / Features                                             */
 /* ------------------------------------------------------------------ */
 
 function BestServices() {
@@ -552,7 +537,7 @@ function BestServices() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Our Awesome Clients — testimonial carousel                           */
+/* Clients / Testimonials                                               */
 /* ------------------------------------------------------------------ */
 
 function Clients() {
@@ -566,7 +551,6 @@ function Clients() {
 
   return (
     <section className="relative py-16 md:py-24 overflow-hidden">
-      {/* Peeking previous portrait on the far left edge */}
       <div
         aria-hidden
         className="hidden lg:block absolute -left-16 top-1/2 -translate-y-1/2"
@@ -576,7 +560,6 @@ function Clients() {
         </div>
       </div>
 
-      {/* Decorative dots */}
       <span
         aria-hidden
         className="absolute top-12 left-[28%] w-2 h-2 rounded-full bg-[#45D9C6]"
@@ -596,7 +579,6 @@ function Clients() {
         </p>
 
         <div className="relative flex flex-col md:flex-row items-center">
-          {/* Portrait with concentric outline rings */}
           <div className="relative shrink-0 md:-mr-16 z-10 mb-8 md:mb-0">
             <span
               aria-hidden
@@ -623,7 +605,6 @@ function Clients() {
             </div>
           </div>
 
-          {/* Blue quote panel */}
           <div className="flex-1 bg-[#2C4FA3] rounded-sm py-10 px-8 md:py-12 md:pl-24 md:pr-12">
             <div className="flex gap-1 mb-4" aria-label="5 out of 5 stars">
               {[...Array(5)].map((_, i) => (
@@ -648,7 +629,6 @@ function Clients() {
           </div>
         </div>
 
-        {/* Controls — dash indicator like the template */}
         <div className="flex items-center justify-end gap-4 mt-8 pr-2">
           <button
             onClick={prev}
@@ -683,7 +663,7 @@ function Clients() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Achievements — big circle slide with dim side circles                */
+/* Achievements                                                         */
 /* ------------------------------------------------------------------ */
 
 function Achievements() {
@@ -717,7 +697,6 @@ function Achievements() {
         </p>
 
         <div className="relative flex items-center justify-center">
-          {/* Faint connecting arc */}
           <svg
             aria-hidden
             className="absolute inset-x-0 top-1/2 w-full h-24 -translate-y-1/2"
@@ -732,7 +711,6 @@ function Achievements() {
             />
           </svg>
 
-          {/* Left dim circle */}
           <button
             onClick={prev}
             aria-label={`Previous: ${achievements[leftIdx].stat}`}
@@ -741,7 +719,6 @@ function Achievements() {
             <LeftIcon className="w-7 h-7 md:w-8 md:h-8 text-white/70" />
           </button>
 
-          {/* Center circle */}
           <div
             key={active}
             className="relative z-10 w-52 h-52 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-[#3358B5] to-[#1E3F8F] border-4 border-[#45D9C6] flex items-center justify-center shadow-2xl shadow-black/50 transition-all duration-500"
@@ -753,7 +730,6 @@ function Achievements() {
             <CenterIcon className="w-20 h-20 md:w-24 md:h-24 text-white" />
           </div>
 
-          {/* Right dim circle */}
           <button
             onClick={next}
             aria-label={`Next: ${achievements[rightIdx].stat}`}
@@ -763,7 +739,6 @@ function Achievements() {
           </button>
         </div>
 
-        {/* Stat + caption */}
         <div key={`label-${active}`} className="mt-10">
           <p className="[font-family:var(--font-display)] text-2xl md:text-3xl font-bold text-[#45D9C6]">
             {achievements[active].stat}
@@ -773,7 +748,6 @@ function Achievements() {
           </p>
         </div>
 
-        {/* Chevrons + dash indicators */}
         <div className="flex items-center justify-center gap-6 mt-8">
           <button
             onClick={prev}
@@ -808,7 +782,7 @@ function Achievements() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Insights — zoom-on-hover image grid, dark-themed                     */
+/* Insights                                                             */
 /* ------------------------------------------------------------------ */
 
 function InsightCard({
@@ -822,18 +796,15 @@ function InsightCard({
     <div
       className={`group relative overflow-hidden rounded-2xl cursor-pointer border border-[#2F3D5C]/60 hover:border-[#45D9C6]/40 transition ${className}`}
     >
-      {/* Image — zooms in on hover */}
       <div className="absolute inset-0 transition-transform duration-700 ease-out group-hover:scale-110 motion-reduce:transition-none motion-reduce:group-hover:scale-100">
         <Image src={item.img} alt={item.title} fill className="object-cover" />
       </div>
 
-      {/* Dark gradient overlay — matches site palette */}
       <div
         aria-hidden
         className="absolute inset-0 bg-gradient-to-t from-[#1A1E24]/95 via-[#262B31]/55 to-[#262B31]/10"
       />
 
-      {/* Text content */}
       <div className="relative h-full flex flex-col justify-end p-6 text-white">
         <span className="text-[10px] text-[#45D9C6] border border-[#45D9C6]/50 rounded-full px-3 py-1 w-fit mb-3">
           Read
@@ -879,7 +850,7 @@ function Insights() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Partners — lighter full-width logo strip                             */
+/* Partners                                                             */
 /* ------------------------------------------------------------------ */
 
 function Partners() {
@@ -889,10 +860,8 @@ function Partners() {
         Partners
       </h2>
 
-      {/* Full-width lighter band */}
       <div className="bg-[#3B4148] py-8">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-wrap items-center justify-center md:justify-between gap-x-12 gap-y-6">
-          {/* Text wordmarks as logo placeholders — drop real SVGs in later */}
           {partners.map((p) => (
             <span
               key={p}
@@ -904,7 +873,6 @@ function Partners() {
         </div>
       </div>
 
-      {/* Dash indicators */}
       <div className="flex items-center justify-center gap-2 mt-10">
         <span className="h-0.5 w-3 bg-white/25" />
         <span className="h-0.5 w-8 bg-[#45D9C6]" />
@@ -941,7 +909,6 @@ function ContactFooter() {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-start">
-          {/* Brand + contact details */}
           <div>
             <p className="[font-family:var(--font-display)] text-3xl font-bold mb-6">
               <span className="text-[#45D9C6]">en</span>surance
@@ -973,7 +940,6 @@ function ContactFooter() {
             </ul>
           </div>
 
-          {/* Newsletter */}
           <div>
             <h3 className="[font-family:var(--font-display)] font-bold text-base mb-5">
               Subscribe to newsletter
@@ -1001,7 +967,6 @@ function ContactFooter() {
           </div>
         </div>
 
-        {/* Links + socials */}
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/70">
             {footerLinks.map((l) => (
@@ -1030,7 +995,6 @@ function ContactFooter() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="mt-10 bg-[#20242A]">
         <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/45">
           <p>All rights Reserved © Your Company, 2021</p>
@@ -1041,7 +1005,6 @@ function ContactFooter() {
         </div>
       </div>
 
-      {/* Thin blue strip at the very bottom edge, as in the design */}
       <div aria-hidden className="h-2 bg-[#2C4FA3]" />
     </footer>
   );
