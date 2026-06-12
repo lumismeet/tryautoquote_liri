@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Quicksand, Poppins } from "next/font/google";
 import {
-  Phone,
-  Search,
-  LayoutGrid,
   ClipboardList,
   Car,
   DollarSign,
@@ -279,55 +277,32 @@ function BlobBackdrop() {
 /* Navbar                                                               */
 /* ------------------------------------------------------------------ */
 
-const navLinks = ["Products", "News & Blog", "Contact us"];
-
 function Navbar() {
   return (
     <header className="relative z-20 bg-[#262B31]">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 h-16 flex items-center justify-between gap-6">
-        <a
-          href="#"
+        <Link
+          href="/"
           className="[font-family:var(--font-display)] text-2xl font-bold tracking-tight"
         >
           <span className="text-[#45D9C6]">try</span>
           <span className="text-white">autoquote</span>
-        </a>
-
-        <p className="hidden lg:flex items-center gap-2 text-xs text-white/70">
-          <Phone className="w-3.5 h-3.5 text-[#45D9C6]" />
-          Call Us Now{" "}
-          <span className="text-[#45D9C6] font-medium">+215 (362) 4579</span>
-        </p>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-7 text-xs">
-          <a
-            href="#"
+          <Link
+            href="/"
             className="flex items-center gap-1.5 text-white font-medium"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#45D9C6]" aria-hidden />
             home
-          </a>
-          {navLinks.map((l) => (
-            <a
-              key={l}
-              href="#"
-              className="text-white/70 hover:text-[#45D9C6] transition"
-            >
-              {l}
-            </a>
-          ))}
-          <button
-            aria-label="Search"
-            className="text-white/70 hover:text-[#45D9C6] transition cursor-pointer"
+          </Link>
+          <Link
+            href="/contact"
+            className="text-white/70 hover:text-[#45D9C6] transition"
           >
-            <Search className="w-4 h-4" />
-          </button>
-          <button
-            aria-label="Menu"
-            className="text-white/70 hover:text-[#45D9C6] transition cursor-pointer"
-          >
-            <LayoutGrid className="w-4 h-4" />
-          </button>
+            Contact us
+          </Link>
         </nav>
       </div>
     </header>
@@ -887,7 +862,13 @@ function Partners() {
 /* Contact Us + Footer                                                  */
 /* ------------------------------------------------------------------ */
 
-const footerLinks = ["Home", "About Us", "Blog", "Services", "Terms and Policy"];
+const footerLinks: { label: string; href: string }[] = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Use", href: "/terms-of-use" },
+];
+
+const FOOTER_DISCLAIMER =
+  "TryAutoQuote.com is an independent, advertising-supported comparison website. The products and offers that appear on this website are from third-party insurance partners and advertisers from which TryAutoQuote.com may receive compensation. This compensation may influence which products we feature, how they are presented, and where they appear on the page. TryAutoQuote.com is not a licensed insurance provider or broker. Content on this site is provided for informational purposes only and does not constitute insurance advice. Available rates and offers vary by location, driving history, and other factors and are subject to change without notice. Not all products or offers are available in all states.";
 
 function ContactFooter() {
   const [zipcode, setZipcode] = useState("");
@@ -969,9 +950,9 @@ function ContactFooter() {
         <div className="mt-14 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-white/70">
             {footerLinks.map((l) => (
-              <a key={l} href="#" className="hover:text-[#45D9C6] transition">
-                {l}
-              </a>
+              <Link key={l.label} href={l.href} className="hover:text-[#45D9C6] transition">
+                {l.label}
+              </Link>
             ))}
           </nav>
           <div className="flex items-center gap-4">
@@ -995,12 +976,17 @@ function ContactFooter() {
       </div>
 
       <div className="mt-10 bg-[#20242A]">
-        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-white/45">
-          <p>All rights Reserved © Your Company, 2021</p>
-          <p>
-            Made with heart by{" "}
-            <span className="text-[#45D9C6]">Your Team</span>
+        <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-6">
+          <p className="text-[11px] leading-relaxed text-white/55">
+            {FOOTER_DISCLAIMER}
           </p>
+        </div>
+        <div className="border-t border-white/5">
+          <div className="max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 py-5 text-[11px] text-white/45 text-center">
+            <p>
+              All Rights Reserved &copy; TryAutoQuote, {new Date().getFullYear()}
+            </p>
+          </div>
         </div>
       </div>
 
