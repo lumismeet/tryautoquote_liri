@@ -4,6 +4,7 @@ import { useState } from "react"
 import Link from "next/link"
 import { Mail, Send } from "lucide-react"
 import { Quicksand, Poppins } from "next/font/google"
+import { useRouter } from "next/navigation";
 
 const display = Quicksand({
   subsets: ["latin"],
@@ -27,6 +28,7 @@ export default function ContactPage() {
     message: "",
   })
   const [submitted, setSubmitted] = useState(false)
+  const router = useRouter()  
 
   const handleSubmit = () => {
     if (!formData.name || !formData.email || !formData.message) return
@@ -49,23 +51,22 @@ export default function ContactPage() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-7 text-xs">
-            <Link
-              href="/"
-              className="text-white/70 hover:text-[#45D9C6] transition"
-            >
-              home
-            </Link>
-            <Link
-              href="/contact"
-              className="flex items-center gap-1.5 text-white font-medium"
-            >
-              <span
-                className="w-1.5 h-1.5 rounded-full bg-[#45D9C6]"
-                aria-hidden
-              />
-              Contact us
-            </Link>
-          </nav>
+          <Link href="/" className="text-white/70 hover:text-[#45D9C6] transition">
+            home
+          </Link>
+          <Link href="/contact" className="flex items-center gap-1.5 text-white font-medium">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#45D9C6]" aria-hidden />
+            Contact us
+          </Link>
+        </nav>
+
+        <button
+          onClick={() => router.push("/?quote=1")}
+          className="bg-[#45D9C6] hover:bg-[#2FC4B1] transition text-[#10306B] px-6 py-2.5 rounded-full text-sm font-semibold cursor-pointer"
+        >
+          Get a Quote →
+        </button>
+
         </div>
       </header>
 

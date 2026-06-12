@@ -1,5 +1,5 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/footer";
+import Link from "next/link";
 
 export const metadata = {
   title: "Privacy Policy | TryAutoQuote",
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
           </ul>
           <p className="mt-3">
             To exercise these rights, contact us at{" "}
-            <a href="mailto:privacy@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">
+            <a href="mailto:privacy@tryautoquote.com" className="text-[#45D9C6] hover:underline transition">
               privacy@tryautoquote.com
             </a>.
           </p>
@@ -104,14 +104,28 @@ export default function PrivacyPolicy() {
           <p className="mt-3">
             TryAutoQuote<br />
             Email:{" "}
-            <a href="mailto:privacy@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">
+            <a href="mailto:privacy@tryautoquote.com" className="text-[#45D9C6] hover:underline transition">
               privacy@tryautoquote.com
             </a>
           </p>
         </Section>
       </main>
 
-      <Footer />
+      <footer className="mt-20 bg-[#20242A]">
+      <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
+        <p className="[font-family:var(--font-display)] font-bold text-sm">
+          <span className="text-[#45D9C6]">try</span>autoquote
+        </p>
+        <nav className="flex gap-6">
+          <Link href="/contact" className="hover:text-[#45D9C6] transition">Contact us</Link>
+          <Link href="/privacy-policy" className="hover:text-[#45D9C6] transition">Privacy Policy</Link>
+          <Link href="/terms-of-use" className="hover:text-[#45D9C6] transition">Terms of Use</Link>
+        </nav>
+        <p>© {new Date().getFullYear()} TryAutoQuote. All Rights Reserved.</p>
+      </div>
+      <div aria-hidden className="h-2 bg-[#2C4FA3]" />
+    </footer>
+      
     </div>
   );
 }

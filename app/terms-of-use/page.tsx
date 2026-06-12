@@ -1,5 +1,4 @@
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/footer";
 import Link from "next/link";
 
 export const metadata = {
@@ -9,16 +8,16 @@ export const metadata = {
 
 export default function TermsOfUse() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-gray-800">
+    <div className="min-h-screen flex flex-col bg-[#262B31] text-white">
       <Navbar />
 
       <main className="flex-1 max-w-4xl mx-auto px-6 py-32 space-y-10">
         <div>
-          <h1 className="text-3xl font-bold text-black mb-2">Terms of Use</h1>
-          <p className="text-sm text-gray-500">Last Updated: March 11, 2026</p>
+          <h1 className="text-3xl font-bold text-white mb-2">Terms of Use</h1>
+          <p className="text-sm text-white/50">Last Updated: March 11, 2026</p>
         </div>
 
-        <p className="text-gray-700 leading-relaxed">
+        <p className="text-white/70 leading-relaxed">
           Please read these Terms of Use (&ldquo;Terms&rdquo;) carefully before using the TryAutoQuote website and services. By accessing or using our site, you agree to be bound by these Terms. If you do not agree, please do not use our services.
         </p>
 
@@ -87,14 +86,27 @@ export default function TermsOfUse() {
           <p className="mt-3">
             TryAutoQuote<br />
             Email:{" "}
-            <a href="mailto:legal@tryautoquote.com" className="text-violet-600 underline hover:text-violet-800">
+            <a href="mailto:legal@tryautoquote.com" className="text-[#45D9C6] hover:underline transition">
               legal@tryautoquote.com
             </a>
           </p>
         </Section>
       </main>
 
-      <Footer />
+      <footer className="mt-20 bg-[#20242A]">
+  <div className="max-w-4xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/50">
+    <p className="[font-family:var(--font-display)] font-bold text-sm">
+      <span className="text-[#45D9C6]">try</span>autoquote
+    </p>
+    <nav className="flex gap-6">
+      <Link href="/contact" className="hover:text-[#45D9C6] transition">Contact us</Link>
+      <Link href="/privacy-policy" className="hover:text-[#45D9C6] transition">Privacy Policy</Link>
+      <Link href="/terms-of-use" className="hover:text-[#45D9C6] transition">Terms of Use</Link>
+    </nav>
+    <p>© {new Date().getFullYear()} TryAutoQuote. All Rights Reserved.</p>
+  </div>
+  <div aria-hidden className="h-2 bg-[#2C4FA3]" />
+</footer>
     </div>
   );
 }
@@ -102,8 +114,8 @@ export default function TermsOfUse() {
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <section className="space-y-3">
-      <h2 className="text-xl font-bold text-black">{title}</h2>
-      <div className="space-y-3 text-gray-700 leading-relaxed">{children}</div>
+      <h2 className="text-xl font-bold text-white">{title}</h2>
+      <div className="space-y-3 text-white/70 leading-relaxed">{children}</div>
     </section>
   );
 }

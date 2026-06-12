@@ -65,8 +65,8 @@ const services = [
     icon: ClipboardList,
     title: "A little Information",
     paragraphs: [
-      "Provide some basic information about yourself and your vehicle. This allows us to generate customized, personalized results.",
-      "It takes a couple of minutes — no commitment required.",
+      "Provide some basic details about yourself and your vehicle. This takes about 2 minutes and lets us generate personalized, accurate results, not generic quotes.",
+      "The service is free and you are never obligated to buy anything.",
     ],
     image: "/ill_comp_blue.svg",
   },
@@ -74,8 +74,8 @@ const services = [
     icon: Car,
     title: "A bit of Magic",
     paragraphs: [
-      "Our smart matching engine sifts through thousands of possible auto insurance policies and only presents you with relevant and valid options.",
-      "Real-time matching against dozens of top carriers.",
+      "Our matching engine compares your profile in real time against dozens of top carriers. You'll see the best available rates for your area side by side.",
+      "No waiting, no back-and-forth with agents. The quotes reflect actual current rates, not ballpark estimates.",
     ],
     image: "/ill_hero_blue.svg",
   },
@@ -83,8 +83,8 @@ const services = [
     icon: DollarSign,
     title: "A Lot of Savings",
     paragraphs: [
-      "You have the freedom to choose the specific policy you feel suits you the most from a list of matching policies we provide.",
-      "Pick the one that fits — switch in minutes, not hours.",
+      "Review your options and choose the policy that fits your budget and coverage needs. If you're ready, you can purchase directly through the carrier.",
+      "If not, just walk away with no pressure, no follow-up calls.",
     ],
     image: "/ill_mobile_blue.svg",
   },
@@ -94,22 +94,22 @@ const bestServices = [
   {
     icon: ShieldCheck,
     title: "Free, always",
-    text: "The service is free and you are never obligated to buy the presented policy.",
+    text: "The service is free and you are never obligated to buy the presented policy. No hidden fees, no credit card required. Just real rates from real carriers, at no cost to you.",
   },
   {
     icon: PhoneOff,
     title: "No spam calls",
-    text: "Compare quotes without a flood of follow-up calls — you decide who to talk to.",
+    text: "Compare quotes without a flood of follow-up calls. You decide who to talk to. We never sell your phone number to telemarketers. Your contact details stay between you and the carrier you choose.",
   },
   {
     icon: Zap,
     title: "Real-time matching",
-    text: "Your details are compared live against a database connected to dozens of top carriers.",
+    text: "Your details are compared live against a database connected to dozens of top insurance carriers. The quotes you see reflect actual current rates, not ballpark estimates generated days later.",
   },
   {
     icon: BadgeCheck,
     title: "Carriers you recognize",
-    text: "Get matched with established providers you actually know, willing to insure you.",
+    text: "Get matched with established providers you actually know, willing to insure you. No obscure names, only trusted carriers with strong reputations and solid claims track records.",
   },
 ];
 
@@ -129,7 +129,7 @@ const clients = [
   {
     name: "Tom Vasquez",
     role: "Tampa, FL",
-    text: "Was skeptical at first — I figured there'd be a catch or they'd just spam me with calls. Neither happened. Got matched with a provider I actually recognized and the rate was lower than what I had.",
+    text: "Was skeptical at first. I figured there'd be a catch or they'd just spam me with calls. Neither happened. Got matched with a provider I actually recognized and the rate was lower than what I had.",
     image: "/person3.png",
   },
 ];
@@ -143,7 +143,7 @@ const achievements = [
   {
     icon: Clock,
     stat: "Minutes",
-    caption: "to compare and switch — not hours of paperwork",
+    caption: "to compare and switch, not hours of paperwork",
   },
   {
     icon: ShieldCheck,
@@ -165,7 +165,7 @@ const insights = [
   },
   {
     title: "Bundling Home and Auto: Is It Worth It?",
-    desc: "Multi-policy discounts can be significant — here's when bundling actually saves money.",
+    desc: "Multi-policy discounts can be significant. Here's when bundling actually saves money.",
     img: "/auto_pic/discussingpolicies.jpeg",
   },
   {
@@ -187,6 +187,20 @@ const partners = ["GEICO", "Allstate", "Prudential", "HSBC", "AIG"];
 /* ------------------------------------------------------------------ */
 
 export default function Home() {
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("quote") === "1") {
+      setTimeout(() => {
+        const input = document.querySelector<HTMLInputElement>('input[aria-label="Zipcode"]');
+        if (!input) return;
+        input.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => {
+          input.focus();
+        }, 400);
+      }, 300);
+    }
+  }, []);
+
   return (
     <div
       className={`${display.variable} ${body.variable} [font-family:var(--font-body)] min-h-screen w-full bg-[#262B31] text-white overflow-x-hidden`}
@@ -668,7 +682,7 @@ function Achievements() {
           Achievements
         </h2>
         <p className="text-sm text-white/60 max-w-xl mx-auto mb-14">
-          Built to earn drivers&apos; trust — here&apos;s what comparing with us
+          Built to earn drivers&apos; trust. Here&apos;s what comparing with us
           gets you.
         </p>
 
@@ -964,8 +978,9 @@ function ContactFooter() {
             ].map(({ Icon, label }) => (
               <a
                 key={label}
-                href="#"
+                href="#!"
                 aria-label={label}
+                onClick={(e) => e.preventDefault()}
                 className="text-white/50 hover:text-[#45D9C6] transition"
               >
                 <Icon className="w-4 h-4" />
